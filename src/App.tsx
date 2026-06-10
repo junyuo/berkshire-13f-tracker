@@ -3,7 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import Dashboard from "./pages/Dashboard";
 import Holdings from "./pages/Holdings";
 import Changes from "./pages/Changes";
-import type { Holding, HistoryItem, LatestData } from "./types/holding";
+import type { Holding, HistoryItem, LatestData, QuarterData } from "./types/holding";
 
 type Page = "dashboard" | "holdings" | "changes";
 
@@ -30,6 +30,7 @@ export default function App() {
   const [page, setPage] = useState<Page>(routeFromHash);
   const [latest, setLatest] = useState<LatestData | null>(null);
   const [history, setHistory] = useState<HistoryItem[]>([]);
+  const [quarters, setQuarters] = useState<QuarterData[]>([]);
   const [changes, setChanges] = useState<Holding[]>([]);
   const [error, setError] = useState<string | null>(null);
 
@@ -44,11 +45,13 @@ export default function App() {
       loadJson<LatestData>("data/latest.json"),
       loadJson<HistoryItem[]>("data/history.json"),
       loadJson<Holding[]>("data/changes.json"),
+      loadJson<QuarterData[]>("data/quarters.json"),
     ])
-      .then(([latestData, historyData, changesData]) => {
+      .then(([latestData, historyData, changesData, quartersData]) => {
         setLatest(latestData);
         setHistory(historyData);
         setChanges(changesData);
+        setQuarters(quartersData);
       })
       .catch((loadError: Error) => setError(loadError.message));
   }, []);
@@ -61,10 +64,10 @@ export default function App() {
         </div>
       );
     }
-    if (page === "holdings") return <Holdings holdings={latest.holdings} />;
-    if (page === "changes") return <Changes changes={changes} />;
+    if (page === "holdings") return <Holdings holdings={latest.holdings} quarters={quarters} />;
+    if (page === "changes") return <Changes changes={changes} quarters={quarters} />;
     return <Dashboard latest={latest} history={history} changes={changes} />;
-  }, [changes, history, latest, page]);
+  }, [changes, history, latest, page, quarters]);
 
   return (
     <div className="min-h-screen bg-paper">

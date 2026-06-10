@@ -33,3 +33,7 @@ export interface HistoryItem {
   totalValue: number;
   holdingsCount: number;
 }
+
+export interface QuarterData extends HistoryItem {
+  holdings: Holding[];
+}

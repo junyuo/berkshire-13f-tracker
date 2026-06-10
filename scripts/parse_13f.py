@@ -4,6 +4,8 @@ from dataclasses import dataclass
 from typing import Any
 from xml.etree import ElementTree as ET
 
+from ticker_map import TICKER_BY_CUSIP
+
 
 @dataclass(frozen=True)
 class FilingMeta:
@@ -68,7 +70,7 @@ def parse_information_table(xml_text: str, filing: FilingMeta) -> dict[str, Any]
         else:
             by_cusip[cusip] = {
                 "issuerName": _child_text(node, "nameOfIssuer"),
-                "ticker": None,
+                "ticker": TICKER_BY_CUSIP.get(cusip),
                 "cusip": cusip,
                 "value": _value_from_info_table(node),
                 "shares": _shares_from_info_table(node),

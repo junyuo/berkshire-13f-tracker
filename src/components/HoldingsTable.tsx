@@ -12,7 +12,7 @@ function money(value: number): string {
   }).format(value);
 }
 
-export default function HoldingsTable({ holdings }: { holdings: Holding[] }) {
+export default function HoldingsTable({ holdings, onSelectHolding }: { holdings: Holding[]; onSelectHolding?: (holding: Holding) => void }) {
   const [sortKey, setSortKey] = useState<SortKey>("value");
   const [direction, setDirection] = useState<"asc" | "desc">("desc");
 
@@ -57,7 +57,11 @@ export default function HoldingsTable({ holdings }: { holdings: Holding[] }) {
           </thead>
           <tbody className="divide-y divide-stone-100 bg-white">
             {sortedHoldings.map((holding) => (
-              <tr key={holding.cusip ?? holding.issuerName ?? "holding"} className="hover:bg-stone-50">
+              <tr
+                key={holding.cusip ?? holding.issuerName ?? "holding"}
+                className={onSelectHolding ? "cursor-pointer hover:bg-stone-50" : "hover:bg-stone-50"}
+                onClick={() => onSelectHolding?.(holding)}
+              >
                 <td className="max-w-xs px-4 py-3 font-medium text-ink">{holding.issuerName}</td>
                 <td className="px-4 py-3 text-stone-500">{holding.ticker ?? "-"}</td>
                 <td className="px-4 py-3 font-mono text-xs text-stone-500">{holding.cusip}</td>

@@ -27,11 +27,13 @@ export default function ChangesTable({
   action,
   onActionChange,
   showFilter = true,
+  onSelectHolding,
 }: {
   changes: Holding[];
   action: ChangeFilter;
   onActionChange: (action: ChangeFilter) => void;
   showFilter?: boolean;
+  onSelectHolding?: (holding: Holding) => void;
 }) {
   const [sortKey, setSortKey] = useState<ChangeSortKey>("valueChange");
   const [direction, setDirection] = useState<"asc" | "desc">("desc");
@@ -123,7 +125,11 @@ export default function ChangesTable({
             </thead>
             <tbody className="divide-y divide-stone-100 bg-white">
               {filtered.map((holding) => (
-                <tr key={`${holding.cusip}-${holding.action}`} className="hover:bg-stone-50">
+                <tr
+                  key={`${holding.cusip}-${holding.action}`}
+                  className={onSelectHolding ? "cursor-pointer hover:bg-stone-50" : "hover:bg-stone-50"}
+                  onClick={() => onSelectHolding?.(holding)}
+                >
                   <td className="px-4 py-3">
                     <p className="font-medium text-ink">{holding.issuerName}</p>
                     <p className="font-mono text-xs text-stone-500">{holding.cusip}</p>

@@ -1,10 +1,12 @@
 import { Search } from "lucide-react";
 import { useMemo, useState } from "react";
+import HoldingDetailPanel from "../components/HoldingDetailPanel";
 import HoldingsTable from "../components/HoldingsTable";
-import type { Holding } from "../types/holding";
+import type { Holding, QuarterData } from "../types/holding";
 
-export default function Holdings({ holdings }: { holdings: Holding[] }) {
+export default function Holdings({ holdings, quarters }: { holdings: Holding[]; quarters: QuarterData[] }) {
   const [query, setQuery] = useState("");
+  const [selectedHolding, setSelectedHolding] = useState<Holding | null>(null);
 
   const filteredHoldings = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
@@ -34,12 +36,13 @@ export default function Holdings({ holdings }: { holdings: Holding[] }) {
         </label>
       </div>
       {filteredHoldings.length ? (
-        <HoldingsTable holdings={filteredHoldings} />
+        <HoldingsTable holdings={filteredHoldings} onSelectHolding={setSelectedHolding} />
       ) : (
         <div className="rounded-lg border border-stone-200 bg-white p-8 text-center text-sm text-stone-500 shadow-sm">
           No holdings match "{query.trim()}".
         </div>
       )}
+      <HoldingDetailPanel holding={selectedHolding} quarters={quarters} onClose={() => setSelectedHolding(null)} />
     </div>
   );
 }

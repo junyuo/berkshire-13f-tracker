@@ -17,6 +17,9 @@ function countByAction(changes: Holding[], action: Action): number {
 }
 
 export default function QuarterlySummary({ changes }: { changes: Holding[] }) {
+  const changedCount = changes.filter((holding) => holding.action !== "Unchanged").length;
+  const unchangedCount = countByAction(changes, "Unchanged");
+  const changedRate = changes.length ? (changedCount / changes.length) * 100 : 0;
   const largestIncrease = [...changes]
     .filter((holding) => (holding.valueChange ?? 0) > 0)
     .sort((a, b) => (b.valueChange ?? 0) - (a.valueChange ?? 0))[0];
@@ -41,6 +44,17 @@ export default function QuarterlySummary({ changes }: { changes: Holding[] }) {
         </div>
       </div>
       <div className="mt-5 grid gap-4 md:grid-cols-2">
+        <div className="rounded-md bg-stone-50 p-4 ring-1 ring-stone-200 md:col-span-2">
+          <div className="flex items-center justify-between gap-4 text-sm">
+            <span className="font-medium text-ink">Changed positions</span>
+            <span className="text-stone-600">
+              {changedCount} changed / {unchangedCount} unchanged
+            </span>
+          </div>
+          <div className="mt-3 h-3 overflow-hidden rounded-full bg-stone-200">
+            <div className="h-full rounded-full bg-moss" style={{ width: `${changedRate}%` }} />
+          </div>
+        </div>
         <div className="rounded-md bg-emerald-50 p-4 ring-1 ring-emerald-100">
           <div className="flex items-center gap-2 text-sm font-medium text-emerald-700">
             <ArrowUpRight className="h-4 w-4" />

@@ -151,6 +151,7 @@ def main() -> int:
     write_json(DATA_DIR / "latest.json", latest)
     write_json(DATA_DIR / "history.json", build_history(quarters))
     write_json(DATA_DIR / "changes.json", compare_quarters(latest, previous))
+    write_json(DATA_DIR / "quarters.json", quarters)
 
     print(
         f"Wrote {latest['holdingsCount']} latest holdings for report date "

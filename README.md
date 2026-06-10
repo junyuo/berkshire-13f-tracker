@@ -27,6 +27,7 @@ Generated files:
 - `public/data/latest.json`
 - `public/data/history.json`
 - `public/data/changes.json`
+- `public/data/quarters.json`
 
 ## Build
 
@@ -63,7 +64,7 @@ The Vite `base` path is configured automatically from `GITHUB_REPOSITORY` during
 ## Data Notes
 
 - SEC information table `value` fields are written to JSON as reported by the XML source.
-- Tickers are set to `null` because the SEC 13F information table does not reliably provide ticker symbols.
+- Tickers are filled from a local CUSIP mapping where available and remain `null` when no reliable mapping exists.
 - Quarterly change actions are based on share count changes by CUSIP:
   - `New Position`
   - `Added`
