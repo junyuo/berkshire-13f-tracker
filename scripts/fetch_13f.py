@@ -4,6 +4,7 @@ import json
 import sys
 import time
 from dataclasses import dataclass
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -139,12 +140,13 @@ def write_json(path: Path, data: Any) -> None:
 
 def main() -> int:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
-    filings = get_recent_13f_filings(limit=2)
+    filings = get_recent_13f_filings(limit=8)
     if len(filings) < 2:
         raise RuntimeError("SEC submissions feed returned fewer than two 13F-HR filings.")
 
     quarters = [fetch_quarter(filing) for filing in filings]
     latest, previous = quarters[0], quarters[1]
+    latest["generatedAt"] = datetime.now(UTC).isoformat()
 
     write_json(DATA_DIR / "latest.json", latest)
     write_json(DATA_DIR / "history.json", build_history(quarters))

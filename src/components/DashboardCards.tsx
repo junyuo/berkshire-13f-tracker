@@ -1,4 +1,4 @@
-import { CalendarDays, Landmark, PieChart, WalletCards } from "lucide-react";
+import { CalendarClock, CalendarDays, Landmark, PieChart, WalletCards } from "lucide-react";
 import type { LatestData } from "../types/holding";
 
 function money(value: number): string {
@@ -10,16 +10,25 @@ function money(value: number): string {
   }).format(value);
 }
 
+function dateTime(value: string | null): string {
+  if (!value) return "Pending";
+  return new Intl.DateTimeFormat("en-US", {
+    dateStyle: "medium",
+    timeStyle: "short",
+  }).format(new Date(value));
+}
+
 export default function DashboardCards({ latest }: { latest: LatestData }) {
   const cards = [
     { label: "Report Period", value: latest.reportDate ?? "Pending", icon: CalendarDays },
     { label: "Filing Date", value: latest.filingDate ?? "Pending", icon: Landmark },
+    { label: "Last Updated", value: dateTime(latest.generatedAt), icon: CalendarClock },
     { label: "Total Market Value", value: money(latest.totalValue), icon: WalletCards },
     { label: "Holdings", value: latest.holdingsCount.toLocaleString("en-US"), icon: PieChart },
   ];
 
   return (
-    <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-5">
       {cards.map((card) => {
         const Icon = card.icon;
         return (

@@ -20,6 +20,7 @@ export interface LatestData {
   filingDate: string | null;
   reportDate: string | null;
   secUrl: string | null;
+  generatedAt: string | null;
   totalValue: number;
   holdingsCount: number;
   holdings: Holding[];

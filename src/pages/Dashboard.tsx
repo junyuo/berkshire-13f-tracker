@@ -1,5 +1,6 @@
 import ChangesTable from "../components/ChangesTable";
 import DashboardCards from "../components/DashboardCards";
+import QuarterlySummary from "../components/QuarterlySummary";
 import TopHoldingsChart from "../components/TopHoldingsChart";
 import type { Holding, HistoryItem, LatestData } from "../types/holding";
 
@@ -26,6 +27,7 @@ export default function Dashboard({
   return (
     <div className="space-y-6">
       <DashboardCards latest={latest} />
+      <QuarterlySummary changes={changes} />
       <div className="grid gap-6 xl:grid-cols-[1.6fr_1fr]">
         <TopHoldingsChart holdings={latest.holdings} />
         <section className="rounded-lg border border-stone-200 bg-white p-5 shadow-sm">
@@ -53,6 +55,15 @@ export default function Dashboard({
         </section>
       </div>
       <ChangesTable changes={visibleChanges} action="All" onActionChange={() => undefined} showFilter={false} />
+      <section className="rounded-lg border border-stone-200 bg-white p-5 text-sm text-stone-600 shadow-sm">
+        <h2 className="text-base font-semibold text-ink">Data Notes</h2>
+        <ul className="mt-3 grid gap-2 md:grid-cols-2">
+          <li>13F filings are delayed and do not show real-time Berkshire Hathaway holdings.</li>
+          <li>Reports may exclude cash, some derivatives, and some non-U.S. ordinary shares.</li>
+          <li>Reported values reflect the SEC filing data and are not Berkshire's cost basis.</li>
+          <li>Tickers remain blank when they cannot be reliably derived from SEC data.</li>
+        </ul>
+      </section>
     </div>
   );
 }

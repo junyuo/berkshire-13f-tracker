@@ -1,6 +1,10 @@
+import { ArrowDownAZ, ArrowDownWideNarrow, ArrowUpAZ, ArrowUpWideNarrow } from "lucide-react";
+import { useMemo, useState } from "react";
 import type { Action, Holding } from "../types/holding";
 
-const actions: Action[] = ["New Position", "Added", "Reduced", "Unchanged", "Sold Out"];
+const actions: Action[] = ["New Position", "Added", "Reduced", "Sold Out", "Unchanged"];
+export type ChangeFilter = Action | "All" | "Changed";
+type ChangeSortKey = "valueChange" | "shareChange" | "value" | "portfolioWeight" | "issuerName";
 
 function money(value: number): string {
   return new Intl.NumberFormat("en-US", {
@@ -25,11 +29,37 @@ export default function ChangesTable({
   showFilter = true,
 }: {
   changes: Holding[];
-  action: Action | "All";
-  onActionChange: (action: Action | "All") => void;
+  action: ChangeFilter;
+  onActionChange: (action: ChangeFilter) => void;
   showFilter?: boolean;
 }) {
-  const filtered = action === "All" ? changes : changes.filter((holding) => holding.action === action);
+  const [sortKey, setSortKey] = useState<ChangeSortKey>("valueChange");
+  const [direction, setDirection] = useState<"asc" | "desc">("desc");
+
+  const filtered = useMemo(() => {
+    const visible =
+      action === "All"
+        ? changes
+        : action === "Changed"
+          ? changes.filter((holding) => holding.action !== "Unchanged")
+          : changes.filter((holding) => holding.action === action);
+
+    return [...visible].sort((a, b) => {
+      const aValue = a[sortKey] ?? "";
+      const bValue = b[sortKey] ?? "";
+      const result = typeof aValue === "string" ? aValue.localeCompare(String(bValue)) : Number(aValue) - Number(bValue);
+      return direction === "asc" ? result : -result;
+    });
+  }, [action, changes, direction, sortKey]);
+
+  const DirectionIcon =
+    sortKey === "issuerName"
+      ? direction === "asc"
+        ? ArrowDownAZ
+        : ArrowUpAZ
+      : direction === "asc"
+        ? ArrowUpWideNarrow
+        : ArrowDownWideNarrow;
 
   return (
     <section className="space-y-4">
@@ -39,18 +69,43 @@ export default function ChangesTable({
           <p className="text-sm text-stone-500">Compared with the prior 13F-HR filing.</p>
         </div>
         {showFilter ? (
-          <select
-            className="rounded-md border border-stone-300 bg-white px-3 py-2 text-sm text-ink"
-            value={action}
-            onChange={(event) => onActionChange(event.target.value as Action | "All")}
-          >
-            <option value="All">All actions</option>
-            {actions.map((item) => (
-              <option key={item} value={item}>
-                {item}
-              </option>
-            ))}
-          </select>
+          <div className="flex flex-col gap-2 sm:flex-row">
+            <select
+              className="rounded-md border border-stone-300 bg-white px-3 py-2 text-sm text-ink"
+              value={action}
+              onChange={(event) => onActionChange(event.target.value as ChangeFilter)}
+            >
+              <option value="Changed">Changed only</option>
+              <option value="All">All actions</option>
+              {actions.map((item) => (
+                <option key={item} value={item}>
+                  {item}
+                </option>
+              ))}
+            </select>
+            <select
+              className="rounded-md border border-stone-300 bg-white px-3 py-2 text-sm text-ink"
+              value={sortKey}
+              onChange={(event) => {
+                const nextSort = event.target.value as ChangeSortKey;
+                setSortKey(nextSort);
+                setDirection(nextSort === "issuerName" ? "asc" : "desc");
+              }}
+            >
+              <option value="valueChange">Value change</option>
+              <option value="shareChange">Share change</option>
+              <option value="value">Current value</option>
+              <option value="portfolioWeight">Portfolio weight</option>
+              <option value="issuerName">Issuer name</option>
+            </select>
+            <button
+              className="inline-flex items-center justify-center gap-2 rounded-md border border-stone-300 bg-white px-3 py-2 text-sm font-medium text-ink hover:bg-stone-50"
+              onClick={() => setDirection(direction === "asc" ? "desc" : "asc")}
+            >
+              <DirectionIcon className="h-4 w-4" />
+              {direction === "asc" ? "Ascending" : "Descending"}
+            </button>
+          </div>
         ) : null}
       </div>
       <div className="overflow-hidden rounded-lg border border-stone-200 bg-white shadow-sm">

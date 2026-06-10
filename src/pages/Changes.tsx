@@ -1,9 +1,9 @@
 import { useState } from "react";
-import ChangesTable from "../components/ChangesTable";
-import type { Action, Holding } from "../types/holding";
+import ChangesTable, { type ChangeFilter } from "../components/ChangesTable";
+import type { Holding } from "../types/holding";
 
 export default function Changes({ changes }: { changes: Holding[] }) {
-  const [action, setAction] = useState<Action | "All">("All");
+  const [action, setAction] = useState<ChangeFilter>("Changed");
 
   return (
     <div className="space-y-4">
