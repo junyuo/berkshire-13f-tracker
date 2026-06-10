@@ -66,7 +66,7 @@ export default function App() {
     }
     if (page === "holdings") return <Holdings holdings={latest.holdings} quarters={quarters} />;
     if (page === "changes") return <Changes changes={changes} quarters={quarters} />;
-    return <Dashboard latest={latest} history={history} changes={changes} />;
+    return <Dashboard latest={latest} history={history} changes={changes} quarters={quarters} />;
   }, [changes, history, latest, page, quarters]);
 
   return (

@@ -49,6 +49,7 @@ export default function HoldingsTable({ holdings, onSelectHolding }: { holdings:
             <tr>
               <th className="px-4 py-3 text-left">{header("issuerName", "Issuer")}</th>
               <th className="px-4 py-3 text-left font-medium text-stone-600">Ticker</th>
+              <th className="px-4 py-3 text-left font-medium text-stone-600">Trend</th>
               <th className="px-4 py-3 text-left font-medium text-stone-600">CUSIP</th>
               <th className="px-4 py-3 text-right">{header("value", "Value")}</th>
               <th className="px-4 py-3 text-right">{header("shares", "Shares")}</th>
@@ -64,6 +65,7 @@ export default function HoldingsTable({ holdings, onSelectHolding }: { holdings:
               >
                 <td className="max-w-xs px-4 py-3 font-medium text-ink">{holding.issuerName}</td>
                 <td className="px-4 py-3 text-stone-500">{holding.ticker ?? "-"}</td>
+                <td className="px-4 py-3 text-stone-600">{holding.trend ?? "-"}</td>
                 <td className="px-4 py-3 font-mono text-xs text-stone-500">{holding.cusip}</td>
                 <td className="px-4 py-3 text-right text-stone-700">{money(holding.value)}</td>
                 <td className="px-4 py-3 text-right text-stone-700">{holding.shares.toLocaleString("en-US")}</td>

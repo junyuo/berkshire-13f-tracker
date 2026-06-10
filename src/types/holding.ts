@@ -1,4 +1,5 @@
 export type Action = "New Position" | "Added" | "Reduced" | "Unchanged" | "Sold Out";
+export type HoldingTrend = "Accumulating" | "Trimming" | "Stable" | "Re-entered" | "Exited" | "New";
 
 export interface Holding {
   issuerName: string | null;
@@ -12,8 +13,15 @@ export interface Holding {
   reportDate: string | null;
   secUrl: string | null;
   previousShares?: number;
+  previousValue?: number;
+  previousWeight?: number;
   shareChange?: number;
+  shareChangePercent?: number | null;
   valueChange?: number;
+  weightChange?: number;
+  trend?: HoldingTrend | null;
+  quartersHeld?: number;
+  consecutiveQuartersHeld?: number;
 }
 
 export interface LatestData {

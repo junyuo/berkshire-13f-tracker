@@ -2,26 +2,31 @@ import ChangesTable from "../components/ChangesTable";
 import ConcentrationCards from "../components/ConcentrationCards";
 import DashboardCards from "../components/DashboardCards";
 import HistoryTrend from "../components/HistoryTrend";
+import MeaningfulMoves from "../components/MeaningfulMoves";
 import QuarterlySummary from "../components/QuarterlySummary";
 import TopHoldingsChart from "../components/TopHoldingsChart";
-import type { Holding, HistoryItem, LatestData } from "../types/holding";
+import type { Holding, HistoryItem, LatestData, QuarterData } from "../types/holding";
 
 export default function Dashboard({
   latest,
   history,
   changes,
+  quarters,
 }: {
   latest: LatestData;
   history: HistoryItem[];
   changes: Holding[];
+  quarters: QuarterData[];
 }) {
   const visibleChanges = changes.filter((holding) => holding.action !== "Unchanged").slice(0, 8);
+  const previousHoldings = quarters[1]?.holdings ?? [];
 
   return (
     <div className="space-y-6">
       <DashboardCards latest={latest} />
-      <ConcentrationCards holdings={latest.holdings} />
+      <ConcentrationCards holdings={latest.holdings} previousHoldings={previousHoldings} />
       <QuarterlySummary changes={changes} />
+      <MeaningfulMoves changes={changes} />
       <div className="grid gap-6 xl:grid-cols-[1.6fr_1fr]">
         <TopHoldingsChart holdings={latest.holdings} />
         <HistoryTrend history={history} />
@@ -55,6 +60,7 @@ export default function Dashboard({
           <li>13F filings are delayed and do not show real-time Berkshire Hathaway holdings.</li>
           <li>Reports may exclude cash, some derivatives, and some non-U.S. ordinary shares.</li>
           <li>Reported values reflect the SEC filing data and are not Berkshire's cost basis.</li>
+          <li>Value change can be driven by market price movement; share change is the cleaner buy/sell signal.</li>
           <li>Tickers use a local CUSIP mapping and remain blank when no reliable mapping is available.</li>
         </ul>
       </section>

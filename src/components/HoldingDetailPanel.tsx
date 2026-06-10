@@ -76,6 +76,24 @@ export default function HoldingDetailPanel({
               <p className="text-xs text-stone-500">Latest action</p>
               <p className="mt-1 font-semibold text-ink">{holding.action}</p>
             </div>
+            <div className="rounded-md border border-stone-200 p-3">
+              <p className="text-xs text-stone-500">Recent trend</p>
+              <p className="mt-1 font-semibold text-ink">{holding.trend ?? "-"}</p>
+            </div>
+            <div className="rounded-md border border-stone-200 p-3">
+              <p className="text-xs text-stone-500">Held in 8 quarters</p>
+              <p className="mt-1 font-semibold text-ink">{holding.quartersHeld ?? 0} quarters</p>
+            </div>
+            <div className="rounded-md border border-stone-200 p-3">
+              <p className="text-xs text-stone-500">Consecutive held</p>
+              <p className="mt-1 font-semibold text-ink">{holding.consecutiveQuartersHeld ?? 0} quarters</p>
+            </div>
+            <div className="rounded-md border border-stone-200 p-3">
+              <p className="text-xs text-stone-500">Share change</p>
+              <p className="mt-1 font-semibold text-ink">
+                {holding.shareChangePercent == null ? "-" : `${holding.shareChangePercent.toFixed(2)}%`}
+              </p>
+            </div>
           </div>
 
           <section className="mt-6">
@@ -104,7 +122,8 @@ export default function HoldingDetailPanel({
           <section className="mt-6 rounded-md bg-stone-50 p-4 text-sm text-stone-600">
             <p>
               Current reported value: <span className="font-medium text-ink">{fullMoney(holding.value)}</span>. 13F data
-              is delayed and does not represent real-time portfolio activity.
+              is delayed and does not represent real-time portfolio activity. Value changes can reflect market price movement;
+              share changes are the better signal for buying or selling behavior.
             </p>
           </section>
         </div>

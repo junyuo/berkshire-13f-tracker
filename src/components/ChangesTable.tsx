@@ -4,7 +4,14 @@ import type { Action, Holding } from "../types/holding";
 
 const actions: Action[] = ["New Position", "Added", "Reduced", "Sold Out", "Unchanged"];
 export type ChangeFilter = Action | "All" | "Changed";
-type ChangeSortKey = "valueChange" | "shareChange" | "value" | "portfolioWeight" | "issuerName";
+type ChangeSortKey =
+  | "weightChange"
+  | "shareChangePercent"
+  | "valueChange"
+  | "shareChange"
+  | "value"
+  | "portfolioWeight"
+  | "issuerName";
 
 function money(value: number): string {
   return new Intl.NumberFormat("en-US", {
@@ -35,7 +42,7 @@ export default function ChangesTable({
   showFilter?: boolean;
   onSelectHolding?: (holding: Holding) => void;
 }) {
-  const [sortKey, setSortKey] = useState<ChangeSortKey>("valueChange");
+  const [sortKey, setSortKey] = useState<ChangeSortKey>("weightChange");
   const [direction, setDirection] = useState<"asc" | "desc">("desc");
 
   const filtered = useMemo(() => {
@@ -47,8 +54,8 @@ export default function ChangesTable({
           : changes.filter((holding) => holding.action === action);
 
     return [...visible].sort((a, b) => {
-      const aValue = a[sortKey] ?? "";
-      const bValue = b[sortKey] ?? "";
+      const aValue = a[sortKey] ?? (sortKey === "shareChangePercent" ? Number.NEGATIVE_INFINITY : "");
+      const bValue = b[sortKey] ?? (sortKey === "shareChangePercent" ? Number.NEGATIVE_INFINITY : "");
       const result = typeof aValue === "string" ? aValue.localeCompare(String(bValue)) : Number(aValue) - Number(bValue);
       return direction === "asc" ? result : -result;
     });
@@ -94,6 +101,8 @@ export default function ChangesTable({
                 setDirection(nextSort === "issuerName" ? "asc" : "desc");
               }}
             >
+              <option value="weightChange">Weight change</option>
+              <option value="shareChangePercent">Share change %</option>
               <option value="valueChange">Value change</option>
               <option value="shareChange">Share change</option>
               <option value="value">Current value</option>
@@ -119,6 +128,8 @@ export default function ChangesTable({
                 <th className="px-4 py-3 text-left font-medium text-stone-600">Action</th>
                 <th className="px-4 py-3 text-right font-medium text-stone-600">Current Shares</th>
                 <th className="px-4 py-3 text-right font-medium text-stone-600">Share Change</th>
+                <th className="px-4 py-3 text-right font-medium text-stone-600">Share Change %</th>
+                <th className="px-4 py-3 text-right font-medium text-stone-600">Weight Change</th>
                 <th className="px-4 py-3 text-right font-medium text-stone-600">Value Change</th>
                 <th className="px-4 py-3 text-right font-medium text-stone-600">Weight</th>
               </tr>
@@ -141,6 +152,10 @@ export default function ChangesTable({
                   </td>
                   <td className="px-4 py-3 text-right text-stone-700">{holding.shares.toLocaleString("en-US")}</td>
                   <td className="px-4 py-3 text-right text-stone-700">{(holding.shareChange ?? 0).toLocaleString("en-US")}</td>
+                  <td className="px-4 py-3 text-right text-stone-700">
+                    {holding.shareChangePercent == null ? "-" : `${holding.shareChangePercent.toFixed(2)}%`}
+                  </td>
+                  <td className="px-4 py-3 text-right text-stone-700">{(holding.weightChange ?? 0).toFixed(2)} pts</td>
                   <td className="px-4 py-3 text-right text-stone-700">{money(holding.valueChange ?? 0)}</td>
                   <td className="px-4 py-3 text-right text-stone-700">{holding.portfolioWeight.toFixed(2)}%</td>
                 </tr>

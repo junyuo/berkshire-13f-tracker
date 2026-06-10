@@ -12,7 +12,7 @@ import requests
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
-from compare_quarters import build_history, compare_quarters
+from compare_quarters import build_history, compare_quarters, enrich_quarters_with_trends
 from parse_13f import FilingMeta, parse_information_table
 
 
@@ -144,7 +144,7 @@ def main() -> int:
     if len(filings) < 2:
         raise RuntimeError("SEC submissions feed returned fewer than two 13F-HR filings.")
 
-    quarters = [fetch_quarter(filing) for filing in filings]
+    quarters = enrich_quarters_with_trends([fetch_quarter(filing) for filing in filings])
     latest, previous = quarters[0], quarters[1]
     latest["generatedAt"] = datetime.now(UTC).isoformat()
 
