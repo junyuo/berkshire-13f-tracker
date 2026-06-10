@@ -1,0 +1,16 @@
+[
+  {
+    "filingDate": "2026-05-15",
+    "reportDate": "2026-03-31",
+    "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
+    "totalValue": 263095703570,
+    "holdingsCount": 29
+  },
+  {
+    "filingDate": "2026-02-17",
+    "reportDate": "2025-12-31",
+    "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526054580/xslForm13F_X02/primary_doc.xml",
+    "totalValue": 274160086701,
+    "holdingsCount": 42
+  }
+]

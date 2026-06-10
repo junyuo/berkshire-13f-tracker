@@ -1,0 +1,33 @@
+name: Update 13F Data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "20 12 * * 1"
+
+permissions:
+  contents: write
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Fetch latest SEC 13F data
+        run: python scripts/fetch_13f.py
+
+      - name: Commit data changes
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Update Berkshire 13F data"
+          file_pattern: public/data/*.json
