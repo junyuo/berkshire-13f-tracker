@@ -13,6 +13,7 @@ from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
 from compare_quarters import build_history, compare_quarters, enrich_quarters_with_trends
+from performance import build_performance
 from parse_13f import FilingMeta, parse_information_table
 
 
@@ -152,6 +153,7 @@ def main() -> int:
     write_json(DATA_DIR / "history.json", build_history(quarters))
     write_json(DATA_DIR / "changes.json", compare_quarters(latest, previous))
     write_json(DATA_DIR / "quarters.json", quarters)
+    write_json(DATA_DIR / "performance.json", build_performance(quarters, SESSION))
 
     print(
         f"Wrote {latest['holdingsCount']} latest holdings for report date "

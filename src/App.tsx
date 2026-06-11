@@ -1,21 +1,23 @@
-import { BarChart3, RefreshCw, Table2, TrendingUp } from "lucide-react";
+import { BarChart3, LineChart, RefreshCw, Table2, TrendingUp } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import Dashboard from "./pages/Dashboard";
 import Holdings from "./pages/Holdings";
 import Changes from "./pages/Changes";
-import type { Holding, HistoryItem, LatestData, QuarterData } from "./types/holding";
+import Performance from "./pages/Performance";
+import type { Holding, HistoryItem, LatestData, PerformanceData, QuarterData } from "./types/holding";
 
-type Page = "dashboard" | "holdings" | "changes";
+type Page = "dashboard" | "holdings" | "changes" | "performance";
 
 const pages: { id: Page; label: string; icon: typeof BarChart3 }[] = [
   { id: "dashboard", label: "Dashboard", icon: BarChart3 },
   { id: "holdings", label: "Holdings", icon: Table2 },
   { id: "changes", label: "Changes", icon: TrendingUp },
+  { id: "performance", label: "Performance", icon: LineChart },
 ];
 
 function routeFromHash(): Page {
   const hash = window.location.hash.replace("#/", "");
-  return hash === "holdings" || hash === "changes" ? hash : "dashboard";
+  return hash === "holdings" || hash === "changes" || hash === "performance" ? hash : "dashboard";
 }
 
 async function loadJson<T>(path: string): Promise<T> {
@@ -32,6 +34,7 @@ export default function App() {
   const [history, setHistory] = useState<HistoryItem[]>([]);
   const [quarters, setQuarters] = useState<QuarterData[]>([]);
   const [changes, setChanges] = useState<Holding[]>([]);
+  const [performance, setPerformance] = useState<PerformanceData | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -46,12 +49,14 @@ export default function App() {
       loadJson<HistoryItem[]>("data/history.json"),
       loadJson<Holding[]>("data/changes.json"),
       loadJson<QuarterData[]>("data/quarters.json"),
+      loadJson<PerformanceData>("data/performance.json"),
     ])
-      .then(([latestData, historyData, changesData, quartersData]) => {
+      .then(([latestData, historyData, changesData, quartersData, performanceData]) => {
         setLatest(latestData);
         setHistory(historyData);
         setChanges(changesData);
         setQuarters(quartersData);
+        setPerformance(performanceData);
       })
       .catch((loadError: Error) => setError(loadError.message));
   }, []);
@@ -66,8 +71,9 @@ export default function App() {
     }
     if (page === "holdings") return <Holdings holdings={latest.holdings} quarters={quarters} />;
     if (page === "changes") return <Changes changes={changes} quarters={quarters} />;
-    return <Dashboard latest={latest} history={history} changes={changes} quarters={quarters} />;
-  }, [changes, history, latest, page, quarters]);
+    if (page === "performance" && performance) return <Performance performance={performance} />;
+    return <Dashboard latest={latest} history={history} changes={changes} quarters={quarters} performance={performance} />;
+  }, [changes, history, latest, page, performance, quarters]);
 
   return (
     <div className="min-h-screen bg-paper">

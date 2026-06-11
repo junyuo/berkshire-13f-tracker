@@ -28,6 +28,7 @@ Generated files:
 - `public/data/history.json`
 - `public/data/changes.json`
 - `public/data/quarters.json`
+- `public/data/performance.json`
 
 ## Build
 
@@ -55,8 +56,8 @@ The Vite `base` path is configured automatically from `GITHUB_REPOSITORY` during
 `Update 13F Data` runs every Monday and can also be started manually. It:
 
 1. Installs Python dependencies.
-2. Fetches the latest two Berkshire Hathaway 13F-HR filings from SEC EDGAR.
-3. Regenerates JSON data in `public/data/`.
+2. Fetches the latest Berkshire Hathaway 13F-HR filings from SEC EDGAR.
+3. Regenerates holdings, changes, quarters, and estimated performance JSON data in `public/data/`.
 4. Commits changed JSON files back to the repository.
 
 `Deploy GitHub Pages` builds the React app and publishes `dist/` to GitHub Pages.
@@ -65,6 +66,7 @@ The Vite `base` path is configured automatically from `GITHUB_REPOSITORY` during
 
 - SEC information table `value` fields are written to JSON as reported by the XML source.
 - Tickers are filled from a local CUSIP mapping where available and remain `null` when no reliable mapping exists.
+- Performance is an estimated quarterly rebalanced 13F portfolio comparison against SPY, not Berkshire Hathaway's actual investment performance.
 - Quarterly change actions are based on share count changes by CUSIP:
   - `New Position`
   - `Added`

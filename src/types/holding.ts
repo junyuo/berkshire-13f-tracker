@@ -45,3 +45,29 @@ export interface HistoryItem {
 export interface QuarterData extends HistoryItem {
   holdings: Holding[];
 }
+
+export interface PerformancePoint {
+  date: string;
+  portfolioValue: number;
+  benchmarkValue: number;
+  portfolioReturn: number;
+  benchmarkReturn: number;
+  excessReturn: number;
+}
+
+export interface QuarterlyReturn extends PerformancePoint {
+  startDate: string;
+  endDate: string;
+}
+
+export interface PerformanceData {
+  startDate: string;
+  endDate: string;
+  benchmarkTicker: "SPY";
+  points: PerformancePoint[];
+  quarterlyReturns: QuarterlyReturn[];
+  missingSymbols: string[];
+  generatedAt: string;
+  methodology: string[];
+  priceSource?: string;
+}

@@ -3,20 +3,23 @@ import ConcentrationCards from "../components/ConcentrationCards";
 import DashboardCards from "../components/DashboardCards";
 import HistoryTrend from "../components/HistoryTrend";
 import MeaningfulMoves from "../components/MeaningfulMoves";
+import PerformanceSummaryCard from "../components/PerformanceSummaryCard";
 import QuarterlySummary from "../components/QuarterlySummary";
 import TopHoldingsChart from "../components/TopHoldingsChart";
-import type { Holding, HistoryItem, LatestData, QuarterData } from "../types/holding";
+import type { Holding, HistoryItem, LatestData, PerformanceData, QuarterData } from "../types/holding";
 
 export default function Dashboard({
   latest,
   history,
   changes,
   quarters,
+  performance,
 }: {
   latest: LatestData;
   history: HistoryItem[];
   changes: Holding[];
   quarters: QuarterData[];
+  performance: PerformanceData | null;
 }) {
   const visibleChanges = changes.filter((holding) => holding.action !== "Unchanged").slice(0, 8);
   const previousHoldings = quarters[1]?.holdings ?? [];
@@ -25,6 +28,7 @@ export default function Dashboard({
     <div className="space-y-6">
       <DashboardCards latest={latest} />
       <ConcentrationCards holdings={latest.holdings} previousHoldings={previousHoldings} />
+      <PerformanceSummaryCard performance={performance} />
       <QuarterlySummary changes={changes} />
       <MeaningfulMoves changes={changes} />
       <div className="grid gap-6 xl:grid-cols-[1.6fr_1fr]">
