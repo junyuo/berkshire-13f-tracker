@@ -113,7 +113,7 @@ def _weighted_interval_return(
     prices_by_ticker: dict[str, dict[str, float]],
     start_date: str,
     end_date: str,
-) -> tuple[float, set[str]]:
+) -> tuple[float, float, set[str]]:
     weighted_returns: list[tuple[float, float]] = []
     missing: set[str] = set()
 
@@ -131,10 +131,10 @@ def _weighted_interval_return(
 
     included_weight = sum(weight for weight, _ in weighted_returns)
     if not weighted_returns or included_weight == 0:
-        return 0, missing
+        return 0, 0, missing
 
     normalized_return = sum((weight / included_weight) * interval_return for weight, interval_return in weighted_returns)
-    return normalized_return, missing
+    return normalized_return, round(included_weight * 100, 4), missing
 
 
 def build_performance(quarters: list[dict[str, Any]], session: requests.Session) -> dict[str, Any]:
@@ -214,7 +214,7 @@ def build_performance(quarters: list[dict[str, Any]], session: requests.Session)
         next_quarter = chronological[index + 1]
         interval_start = quarter["reportDate"]
         interval_end = next_quarter["reportDate"]
-        portfolio_return, interval_missing = _weighted_interval_return(
+        portfolio_return, included_weight, interval_missing = _weighted_interval_return(
             quarter.get("holdings", []),
             prices_by_ticker,
             interval_start,
@@ -239,6 +239,7 @@ def build_performance(quarters: list[dict[str, Any]], session: requests.Session)
             "portfolioReturn": round(portfolio_return, 6),
             "benchmarkReturn": round(benchmark_return, 6),
             "excessReturn": round(excess_return, 6),
+            "includedPortfolioWeight": included_weight,
         }
         points.append(point)
         quarterly_returns.append(

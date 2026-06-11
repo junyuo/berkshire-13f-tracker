@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import sys
+from datetime import datetime
 from pathlib import Path
 from typing import Any
 
@@ -34,6 +35,16 @@ def load_json(name: str, errors: list[str]) -> Any:
 
 def is_number(value: Any) -> bool:
     return isinstance(value, (int, float)) and not isinstance(value, bool)
+
+
+def is_iso_date(value: Any) -> bool:
+    if not isinstance(value, str) or not value:
+        return False
+    try:
+        datetime.fromisoformat(value.replace("Z", "+00:00"))
+        return True
+    except ValueError:
+        return False
 
 
 def validate_holding(holding: Any, label: str, errors: list[str]) -> None:
@@ -74,6 +85,8 @@ def validate_latest(latest: Any, errors: list[str]) -> None:
 
     if latest.get("holdingsCount") != len(holdings):
         errors.append("latest.json: holdingsCount does not match holdings length")
+    if not is_iso_date(latest.get("generatedAt")):
+        errors.append("latest.json: generatedAt must be an ISO date")
 
     for index, holding in enumerate(holdings):
         validate_holding(holding, f"latest.json.holdings[{index}]", errors)
@@ -125,6 +138,10 @@ def validate_quarters(quarters: Any, latest: Any, errors: list[str]) -> None:
         for holding_index, holding in enumerate(holdings):
             validate_holding(holding, f"quarters.json[{quarter_index}].holdings[{holding_index}]", errors)
 
+    report_dates = [quarter.get("reportDate") for quarter in quarters if isinstance(quarter, dict)]
+    if report_dates != sorted(report_dates, reverse=True):
+        errors.append("quarters.json: reportDate values must be sorted from newest to oldest")
+
 
 def validate_performance(performance: Any, errors: list[str]) -> None:
     if not isinstance(performance, dict):
@@ -154,6 +171,12 @@ def validate_performance(performance: Any, errors: list[str]) -> None:
     if not isinstance(quarterly_returns, list):
         errors.append("performance.json: quarterlyReturns must be an array")
         return
+    if len(quarterly_returns) != len(points) - 1:
+        errors.append("performance.json: quarterlyReturns length must equal points length minus 1")
+    if performance.get("endDate") != points[-1].get("date"):
+        errors.append("performance.json: last point date must match endDate")
+    if not is_iso_date(performance.get("generatedAt")):
+        errors.append("performance.json: generatedAt must be an ISO date when points are present")
 
     all_zero_returns = bool(quarterly_returns) and all(
         isinstance(item, dict)

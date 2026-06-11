@@ -72,10 +72,20 @@ function worstQuarter(quarters: QuarterlyReturn[]): QuarterlyReturn | undefined 
 export default function Performance({ performance }: { performance: PerformanceData | null }) {
   if (!performance?.points.length) {
     return (
-      <div className="rounded-lg border border-stone-200 bg-white p-8 text-stone-600 shadow-sm">
-        Performance data has not been generated yet. Run the data update workflow to build the estimated 13F portfolio vs
-        SPY comparison.
-      </div>
+      <section className="rounded-lg border border-amber-200 bg-amber-50 p-8 text-amber-800 shadow-sm">
+        <h2 className="text-xl font-semibold">Performance unavailable</h2>
+        <p className="mt-2 text-sm">
+          Performance data has not been generated yet, usually because the no-key public price source was unavailable
+          during the data update workflow. Holdings, changes, and quarter history remain available.
+        </p>
+        {performance?.methodology.length ? (
+          <ul className="mt-4 list-disc space-y-1 pl-5 text-sm">
+            {performance.methodology.map((note) => (
+              <li key={note}>{note}</li>
+            ))}
+          </ul>
+        ) : null}
+      </section>
     );
   }
 
@@ -115,6 +125,7 @@ export default function Performance({ performance }: { performance: PerformanceD
                 <th className="px-4 py-3 text-right font-medium text-stone-600">Berkshire 13F</th>
                 <th className="px-4 py-3 text-right font-medium text-stone-600">{performance.benchmarkTicker}</th>
                 <th className="px-4 py-3 text-right font-medium text-stone-600">Excess</th>
+                <th className="px-4 py-3 text-right font-medium text-stone-600">Included Weight</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-stone-100">
@@ -126,6 +137,9 @@ export default function Performance({ performance }: { performance: PerformanceD
                   <td className="px-4 py-3 text-right text-stone-700">{percent(quarter.portfolioReturn)}</td>
                   <td className="px-4 py-3 text-right text-stone-700">{percent(quarter.benchmarkReturn)}</td>
                   <td className="px-4 py-3 text-right text-stone-700">{percent(quarter.excessReturn)}</td>
+                  <td className="px-4 py-3 text-right text-stone-700">
+                    {quarter.includedPortfolioWeight == null ? "-" : `${quarter.includedPortfolioWeight.toFixed(2)}%`}
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -146,6 +160,9 @@ export default function Performance({ performance }: { performance: PerformanceD
           {performance.methodology.map((note) => (
             <li key={note}>{note}</li>
           ))}
+          <li>Weights are based on 13F report dates and rebalanced each quarter.</li>
+          <li>Included weight shows the portion of the disclosed portfolio with usable price data for each interval.</li>
+          <li>Returns do not include cash, non-13F assets, or undisclosed intraperiod trades.</li>
         </ul>
       </section>
     </div>

@@ -53,6 +53,7 @@ export interface PerformancePoint {
   portfolioReturn: number;
   benchmarkReturn: number;
   excessReturn: number;
+  includedPortfolioWeight?: number;
 }
 
 export interface QuarterlyReturn extends PerformancePoint {
@@ -61,13 +62,13 @@ export interface QuarterlyReturn extends PerformancePoint {
 }
 
 export interface PerformanceData {
-  startDate: string;
-  endDate: string;
+  startDate: string | null;
+  endDate: string | null;
   benchmarkTicker: "SPY";
   points: PerformancePoint[];
   quarterlyReturns: QuarterlyReturn[];
   missingSymbols: string[];
-  generatedAt: string;
+  generatedAt: string | null;
   methodology: string[];
-  priceSource?: string;
+  priceSource?: string | null;
 }

@@ -1,5 +1,6 @@
 import ChangesTable from "../components/ChangesTable";
 import ConcentrationCards from "../components/ConcentrationCards";
+import DataHealthCard from "../components/DataHealthCard";
 import DashboardCards from "../components/DashboardCards";
 import HistoryTrend from "../components/HistoryTrend";
 import MeaningfulMoves from "../components/MeaningfulMoves";
@@ -27,6 +28,7 @@ export default function Dashboard({
   return (
     <div className="space-y-6">
       <DashboardCards latest={latest} />
+      <DataHealthCard latest={latest} history={history} quarters={quarters} performance={performance} />
       <ConcentrationCards holdings={latest.holdings} previousHoldings={previousHoldings} />
       <PerformanceSummaryCard performance={performance} />
       <QuarterlySummary changes={changes} />
