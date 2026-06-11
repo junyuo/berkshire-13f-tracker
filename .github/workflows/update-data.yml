@@ -29,6 +29,9 @@ jobs:
       - name: Fetch latest SEC 13F data
         run: python scripts/fetch_13f.py
 
+      - name: Validate generated data
+        run: python scripts/validate_data.py
+
       - name: Commit data changes
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
