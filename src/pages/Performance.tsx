@@ -69,8 +69,8 @@ function worstQuarter(quarters: QuarterlyReturn[]): QuarterlyReturn | undefined 
   return [...quarters].sort((a, b) => a.portfolioReturn - b.portfolioReturn)[0];
 }
 
-export default function Performance({ performance }: { performance: PerformanceData }) {
-  if (!performance.points.length) {
+export default function Performance({ performance }: { performance: PerformanceData | null }) {
+  if (!performance?.points.length) {
     return (
       <div className="rounded-lg border border-stone-200 bg-white p-8 text-stone-600 shadow-sm">
         Performance data has not been generated yet. Run the data update workflow to build the estimated 13F portfolio vs

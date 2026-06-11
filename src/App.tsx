@@ -49,16 +49,18 @@ export default function App() {
       loadJson<HistoryItem[]>("data/history.json"),
       loadJson<Holding[]>("data/changes.json"),
       loadJson<QuarterData[]>("data/quarters.json"),
-      loadJson<PerformanceData>("data/performance.json"),
     ])
-      .then(([latestData, historyData, changesData, quartersData, performanceData]) => {
+      .then(([latestData, historyData, changesData, quartersData]) => {
         setLatest(latestData);
         setHistory(historyData);
         setChanges(changesData);
         setQuarters(quartersData);
-        setPerformance(performanceData);
       })
       .catch((loadError: Error) => setError(loadError.message));
+
+    loadJson<PerformanceData>("data/performance.json")
+      .then(setPerformance)
+      .catch(() => setPerformance(null));
   }, []);
 
   const activePage = useMemo(() => {
@@ -71,7 +73,7 @@ export default function App() {
     }
     if (page === "holdings") return <Holdings holdings={latest.holdings} quarters={quarters} />;
     if (page === "changes") return <Changes changes={changes} quarters={quarters} />;
-    if (page === "performance" && performance) return <Performance performance={performance} />;
+    if (page === "performance") return <Performance performance={performance} />;
     return <Dashboard latest={latest} history={history} changes={changes} quarters={quarters} performance={performance} />;
   }, [changes, history, latest, page, performance, quarters]);
 
