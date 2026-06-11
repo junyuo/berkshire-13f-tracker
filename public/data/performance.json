@@ -1,11 +1,184 @@
 {
-  "startDate": null,
-  "endDate": null,
+  "startDate": "2024-06-30",
+  "endDate": "2026-03-31",
   "benchmarkTicker": "SPY",
-  "points": [],
-  "quarterlyReturns": [],
-  "missingSymbols": [],
-  "generatedAt": null,
-  "methodology": [],
-  "priceSource": null
+  "points": [
+    {
+      "date": "2024-06-30",
+      "portfolioValue": 1.0,
+      "benchmarkValue": 1.0,
+      "portfolioReturn": 0,
+      "benchmarkReturn": 0,
+      "excessReturn": 0
+    },
+    {
+      "date": "2024-09-30",
+      "portfolioValue": 1.0,
+      "benchmarkValue": 1.0,
+      "portfolioReturn": 0,
+      "benchmarkReturn": 0,
+      "excessReturn": 0
+    },
+    {
+      "date": "2024-12-31",
+      "portfolioValue": 1.0,
+      "benchmarkValue": 1.0,
+      "portfolioReturn": 0,
+      "benchmarkReturn": 0,
+      "excessReturn": 0
+    },
+    {
+      "date": "2025-03-31",
+      "portfolioValue": 1.0,
+      "benchmarkValue": 1.0,
+      "portfolioReturn": 0,
+      "benchmarkReturn": 0,
+      "excessReturn": 0
+    },
+    {
+      "date": "2025-06-30",
+      "portfolioValue": 1.0,
+      "benchmarkValue": 1.0,
+      "portfolioReturn": 0,
+      "benchmarkReturn": 0,
+      "excessReturn": 0
+    },
+    {
+      "date": "2025-09-30",
+      "portfolioValue": 1.0,
+      "benchmarkValue": 1.0,
+      "portfolioReturn": 0,
+      "benchmarkReturn": 0,
+      "excessReturn": 0
+    },
+    {
+      "date": "2025-12-31",
+      "portfolioValue": 1.0,
+      "benchmarkValue": 1.0,
+      "portfolioReturn": 0,
+      "benchmarkReturn": 0,
+      "excessReturn": 0
+    },
+    {
+      "date": "2026-03-31",
+      "portfolioValue": 1.0,
+      "benchmarkValue": 1.0,
+      "portfolioReturn": 0,
+      "benchmarkReturn": 0,
+      "excessReturn": 0
+    }
+  ],
+  "quarterlyReturns": [
+    {
+      "startDate": "2024-06-30",
+      "endDate": "2024-09-30",
+      "date": "2024-09-30",
+      "portfolioValue": 1.0,
+      "benchmarkValue": 1.0,
+      "portfolioReturn": 0,
+      "benchmarkReturn": 0,
+      "excessReturn": 0
+    },
+    {
+      "startDate": "2024-09-30",
+      "endDate": "2024-12-31",
+      "date": "2024-12-31",
+      "portfolioValue": 1.0,
+      "benchmarkValue": 1.0,
+      "portfolioReturn": 0,
+      "benchmarkReturn": 0,
+      "excessReturn": 0
+    },
+    {
+      "startDate": "2024-12-31",
+      "endDate": "2025-03-31",
+      "date": "2025-03-31",
+      "portfolioValue": 1.0,
+      "benchmarkValue": 1.0,
+      "portfolioReturn": 0,
+      "benchmarkReturn": 0,
+      "excessReturn": 0
+    },
+    {
+      "startDate": "2025-03-31",
+      "endDate": "2025-06-30",
+      "date": "2025-06-30",
+      "portfolioValue": 1.0,
+      "benchmarkValue": 1.0,
+      "portfolioReturn": 0,
+      "benchmarkReturn": 0,
+      "excessReturn": 0
+    },
+    {
+      "startDate": "2025-06-30",
+      "endDate": "2025-09-30",
+      "date": "2025-09-30",
+      "portfolioValue": 1.0,
+      "benchmarkValue": 1.0,
+      "portfolioReturn": 0,
+      "benchmarkReturn": 0,
+      "excessReturn": 0
+    },
+    {
+      "startDate": "2025-09-30",
+      "endDate": "2025-12-31",
+      "date": "2025-12-31",
+      "portfolioValue": 1.0,
+      "benchmarkValue": 1.0,
+      "portfolioReturn": 0,
+      "benchmarkReturn": 0,
+      "excessReturn": 0
+    },
+    {
+      "startDate": "2025-12-31",
+      "endDate": "2026-03-31",
+      "date": "2026-03-31",
+      "portfolioValue": 1.0,
+      "benchmarkValue": 1.0,
+      "portfolioReturn": 0,
+      "benchmarkReturn": 0,
+      "excessReturn": 0
+    }
+  ],
+  "missingSymbols": [
+    "AAPL",
+    "ALLY",
+    "AXP",
+    "BAC",
+    "CB",
+    "COF",
+    "CVX",
+    "DAL",
+    "DVA",
+    "GOOG",
+    "GOOGL",
+    "JEF",
+    "KHC",
+    "KO",
+    "KR",
+    "LEN",
+    "LEN.B",
+    "LLYVA",
+    "LLYVK",
+    "LPX",
+    "M",
+    "MCO",
+    "NUE",
+    "NVR",
+    "NYT",
+    "OXY",
+    "SIRI",
+    "SPY",
+    "STZ",
+    "VRSN"
+  ],
+  "generatedAt": "2026-06-11T01:20:09.702582+00:00",
+  "methodology": [
+    "Estimated Berkshire 13F portfolio return using disclosed quarter-end portfolio weights.",
+    "Portfolio is rebalanced at each 13F report date and held until the next report date.",
+    "SPY is used as the broad U.S. equity market benchmark.",
+    "Price data comes from a no-key public CSV source and uses close prices when adjusted close is unavailable.",
+    "This is not Berkshire Hathaway's actual investment performance and does not include cash, non-13F assets, or undisclosed intraperiod trades."
+  ],
+  "priceSource": "stooq"
 }
