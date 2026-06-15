@@ -17,7 +17,8 @@
       "benchmarkValue": 1.055341,
       "portfolioReturn": 0.065438,
       "benchmarkReturn": 0.055341,
-      "excessReturn": 0.010096
+      "excessReturn": 0.010097,
+      "includedPortfolioWeight": 93.2996
     },
     {
       "date": "2024-12-31",
@@ -25,7 +26,8 @@
       "benchmarkValue": 1.08163,
       "portfolioReturn": 0.028538,
       "benchmarkReturn": 0.02491,
-      "excessReturn": 0.003627
+      "excessReturn": 0.003627,
+      "includedPortfolioWeight": 93.8049
     },
     {
       "date": "2025-03-31",
@@ -33,7 +35,8 @@
       "benchmarkValue": 1.035479,
       "portfolioReturn": -0.021957,
       "benchmarkReturn": -0.042669,
-      "excessReturn": 0.020712
+      "excessReturn": 0.020712,
+      "includedPortfolioWeight": 94.5187
     },
     {
       "date": "2025-06-30",
@@ -41,15 +44,17 @@
       "benchmarkValue": 1.147074,
       "portfolioReturn": 0.005884,
       "benchmarkReturn": 0.107772,
-      "excessReturn": -0.101888
+      "excessReturn": -0.101888,
+      "includedPortfolioWeight": 94.6785
     },
     {
       "date": "2025-09-30",
       "portfolioValue": 1.163003,
-      "benchmarkValue": 1.240231,
+      "benchmarkValue": 1.24023,
       "portfolioReturn": 0.078764,
       "benchmarkReturn": 0.081212,
-      "excessReturn": -0.002448
+      "excessReturn": -0.002448,
+      "includedPortfolioWeight": 93.9891
     },
     {
       "date": "2025-12-31",
@@ -57,7 +62,8 @@
       "benchmarkValue": 1.273285,
       "portfolioReturn": 0.05384,
       "benchmarkReturn": 0.026652,
-      "excessReturn": 0.027188
+      "excessReturn": 0.027188,
+      "includedPortfolioWeight": 94.1375
     },
     {
       "date": "2026-03-31",
@@ -65,7 +71,8 @@
       "benchmarkValue": 1.217635,
       "portfolioReturn": -0.00433,
       "benchmarkReturn": -0.043706,
-      "excessReturn": 0.039376
+      "excessReturn": 0.039376,
+      "includedPortfolioWeight": 95.653
     }
   ],
   "quarterlyReturns": [
@@ -77,7 +84,8 @@
       "benchmarkValue": 1.055341,
       "portfolioReturn": 0.065438,
       "benchmarkReturn": 0.055341,
-      "excessReturn": 0.010096
+      "excessReturn": 0.010097,
+      "includedPortfolioWeight": 93.2996
     },
     {
       "startDate": "2024-09-30",
@@ -87,7 +95,8 @@
       "benchmarkValue": 1.08163,
       "portfolioReturn": 0.028538,
       "benchmarkReturn": 0.02491,
-      "excessReturn": 0.003627
+      "excessReturn": 0.003627,
+      "includedPortfolioWeight": 93.8049
     },
     {
       "startDate": "2024-12-31",
@@ -97,7 +106,8 @@
       "benchmarkValue": 1.035479,
       "portfolioReturn": -0.021957,
       "benchmarkReturn": -0.042669,
-      "excessReturn": 0.020712
+      "excessReturn": 0.020712,
+      "includedPortfolioWeight": 94.5187
     },
     {
       "startDate": "2025-03-31",
@@ -107,17 +117,19 @@
       "benchmarkValue": 1.147074,
       "portfolioReturn": 0.005884,
       "benchmarkReturn": 0.107772,
-      "excessReturn": -0.101888
+      "excessReturn": -0.101888,
+      "includedPortfolioWeight": 94.6785
     },
     {
       "startDate": "2025-06-30",
       "endDate": "2025-09-30",
       "date": "2025-09-30",
       "portfolioValue": 1.163003,
-      "benchmarkValue": 1.240231,
+      "benchmarkValue": 1.24023,
       "portfolioReturn": 0.078764,
       "benchmarkReturn": 0.081212,
-      "excessReturn": -0.002448
+      "excessReturn": -0.002448,
+      "includedPortfolioWeight": 93.9891
     },
     {
       "startDate": "2025-09-30",
@@ -127,7 +139,8 @@
       "benchmarkValue": 1.273285,
       "portfolioReturn": 0.05384,
       "benchmarkReturn": 0.026652,
-      "excessReturn": 0.027188
+      "excessReturn": 0.027188,
+      "includedPortfolioWeight": 94.1375
     },
     {
       "startDate": "2025-12-31",
@@ -137,11 +150,12 @@
       "benchmarkValue": 1.217635,
       "portfolioReturn": -0.00433,
       "benchmarkReturn": -0.043706,
-      "excessReturn": 0.039376
+      "excessReturn": 0.039376,
+      "includedPortfolioWeight": 95.653
     }
   ],
   "missingSymbols": [],
-  "generatedAt": "2026-06-11T01:36:32.501688+00:00",
+  "generatedAt": "2026-06-15T17:27:20.079599+00:00",
   "methodology": [
     "Estimated Berkshire 13F portfolio return using disclosed quarter-end portfolio weights.",
     "Portfolio is rebalanced at each 13F report date and held until the next report date.",
