@@ -26,7 +26,7 @@
       "benchmarkValue": 1.08163,
       "portfolioReturn": 0.028538,
       "benchmarkReturn": 0.02491,
-      "excessReturn": 0.003627,
+      "excessReturn": 0.003628,
       "includedPortfolioWeight": 93.8049
     },
     {
@@ -67,7 +67,7 @@
     },
     {
       "date": "2026-03-31",
-      "portfolioValue": 1.220312,
+      "portfolioValue": 1.220313,
       "benchmarkValue": 1.217635,
       "portfolioReturn": -0.00433,
       "benchmarkReturn": -0.043706,
@@ -95,7 +95,7 @@
       "benchmarkValue": 1.08163,
       "portfolioReturn": 0.028538,
       "benchmarkReturn": 0.02491,
-      "excessReturn": 0.003627,
+      "excessReturn": 0.003628,
       "includedPortfolioWeight": 93.8049
     },
     {
@@ -146,7 +146,7 @@
       "startDate": "2025-12-31",
       "endDate": "2026-03-31",
       "date": "2026-03-31",
-      "portfolioValue": 1.220312,
+      "portfolioValue": 1.220313,
       "benchmarkValue": 1.217635,
       "portfolioReturn": -0.00433,
       "benchmarkReturn": -0.043706,
@@ -155,7 +155,7 @@
     }
   ],
   "missingSymbols": [],
-  "generatedAt": "2026-06-22T06:33:42.748076+00:00",
+  "generatedAt": "2026-06-22T17:13:46.451485+00:00",
   "methodology": [
     "Estimated Berkshire 13F portfolio return using disclosed quarter-end portfolio weights.",
     "Portfolio is rebalanced at each 13F report date and held until the next report date.",
