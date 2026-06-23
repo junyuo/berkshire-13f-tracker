@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import sys
 import time
+import argparse
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path
@@ -139,9 +140,9 @@ def write_json(path: Path, data: Any) -> None:
     path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
-def main() -> int:
-    DATA_DIR.mkdir(parents=True, exist_ok=True)
-    filings = get_recent_13f_filings(limit=8)
+def generate_data(output_dir: Path, filings: list[FilingCandidate] | None = None) -> None:
+    output_dir.mkdir(parents=True, exist_ok=True)
+    filings = filings or get_recent_13f_filings(limit=8)
     if len(filings) < 2:
         raise RuntimeError("SEC submissions feed returned fewer than two 13F-HR filings.")
 
@@ -149,16 +150,28 @@ def main() -> int:
     latest, previous = quarters[0], quarters[1]
     latest["generatedAt"] = datetime.now(UTC).isoformat()
 
-    write_json(DATA_DIR / "latest.json", latest)
-    write_json(DATA_DIR / "history.json", build_history(quarters))
-    write_json(DATA_DIR / "changes.json", compare_quarters(latest, previous))
-    write_json(DATA_DIR / "quarters.json", quarters)
-    write_json(DATA_DIR / "performance.json", build_performance(quarters, SESSION))
+    performance = build_performance(quarters, SESSION)
+    if not performance.get("points"):
+        time.sleep(5)
+        performance = build_performance(quarters, SESSION)
+
+    write_json(output_dir / "latest.json", latest)
+    write_json(output_dir / "history.json", build_history(quarters))
+    write_json(output_dir / "changes.json", compare_quarters(latest, previous))
+    write_json(output_dir / "quarters.json", quarters)
+    write_json(output_dir / "performance.json", performance)
 
     print(
         f"Wrote {latest['holdingsCount']} latest holdings for report date "
         f"{latest['reportDate']} and {len(compare_quarters(latest, previous))} changes."
     )
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Fetch and generate Berkshire 13F data.")
+    parser.add_argument("--output-dir", type=Path, default=DATA_DIR)
+    args = parser.parse_args()
+    generate_data(args.output_dir)
     return 0
 
 

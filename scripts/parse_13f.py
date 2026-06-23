@@ -89,6 +89,7 @@ def parse_information_table(xml_text: str, filing: FilingMeta) -> dict[str, Any]
     rows.sort(key=lambda item: item["value"], reverse=True)
 
     return {
+        "accessionNumber": filing.accession_number,
         "filingDate": filing.filing_date,
         "reportDate": filing.report_date,
         "secUrl": filing.sec_url,

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import sys
+import argparse
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -21,8 +22,8 @@ HOLDING_FIELDS = (
 )
 
 
-def load_json(name: str, errors: list[str]) -> Any:
-    path = DATA_DIR / f"{name}.json"
+def load_json(name: str, errors: list[str], data_dir: Path) -> Any:
+    path = data_dir / f"{name}.json"
     if not path.exists():
         errors.append(f"{name}.json: file is missing")
         return None
@@ -85,6 +86,8 @@ def validate_latest(latest: Any, errors: list[str]) -> None:
 
     if latest.get("holdingsCount") != len(holdings):
         errors.append("latest.json: holdingsCount does not match holdings length")
+    if not latest.get("accessionNumber"):
+        errors.append("latest.json: accessionNumber is required")
     if not is_iso_date(latest.get("generatedAt")):
         errors.append("latest.json: generatedAt must be an ISO date")
 
@@ -121,6 +124,8 @@ def validate_quarters(quarters: Any, latest: Any, errors: list[str]) -> None:
 
     first = quarters[0]
     if isinstance(latest, dict):
+        if first.get("accessionNumber") != latest.get("accessionNumber"):
+            errors.append("quarters.json[0]: accessionNumber does not match latest.json")
         if first.get("reportDate") != latest.get("reportDate"):
             errors.append("quarters.json[0]: reportDate does not match latest.json")
         if first.get("totalValue") != latest.get("totalValue"):
@@ -129,6 +134,8 @@ def validate_quarters(quarters: Any, latest: Any, errors: list[str]) -> None:
             errors.append("quarters.json[0]: holdingsCount does not match latest.json")
 
     for quarter_index, quarter in enumerate(quarters):
+        if isinstance(quarter, dict) and not quarter.get("accessionNumber"):
+            errors.append(f"quarters.json[{quarter_index}]: accessionNumber is required")
         holdings = quarter.get("holdings") if isinstance(quarter, dict) else None
         if not isinstance(holdings, list) or not holdings:
             errors.append(f"quarters.json[{quarter_index}]: holdings must be a non-empty array")
@@ -189,15 +196,23 @@ def validate_performance(performance: Any, errors: list[str]) -> None:
         errors.append("performance.json: benchmark data missing; refusing all-zero performance output")
 
 
-def main() -> int:
+def validate_directory(data_dir: Path) -> list[str]:
     errors: list[str] = []
-    data = {name: load_json(name, errors) for name in REQUIRED_FILES}
+    data = {name: load_json(name, errors, data_dir) for name in REQUIRED_FILES}
 
     validate_latest(data["latest"], errors)
     validate_history(data["history"], data["latest"], errors)
     validate_changes(data["changes"], errors)
     validate_quarters(data["quarters"], data["latest"], errors)
     validate_performance(data["performance"], errors)
+    return errors
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description="Validate generated Berkshire 13F data.")
+    parser.add_argument("--data-dir", type=Path, default=DATA_DIR)
+    args = parser.parse_args()
+    errors = validate_directory(args.data_dir)
 
     if errors:
         print("Data validation failed:")

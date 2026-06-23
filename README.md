@@ -19,7 +19,7 @@ The fetch script uses SEC public endpoints only and does not require an API key.
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-python scripts/fetch_13f.py
+python scripts/update_data.py --max-attempts 3
 ```
 
 Generated files:
@@ -53,12 +53,14 @@ The Vite `base` path is configured automatically from `GITHUB_REPOSITORY` during
 
 ## GitHub Actions
 
-`Update 13F Data` runs every Monday and can also be started manually. It:
+`Update 13F Data` runs on weekdays during the expected filing months (February, May, August, and November) and can also be started manually. It:
 
 1. Installs Python dependencies.
-2. Fetches the latest Berkshire Hathaway 13F-HR filings from SEC EDGAR.
-3. Regenerates holdings, changes, quarters, and estimated performance JSON data in `public/data/`.
-4. Commits changed JSON files back to the repository.
+2. Compares the latest SEC accession number with the locally published filing.
+3. Exits without writing or deploying when there is no new filing.
+4. Generates candidate data in a staging directory and validates it before promotion.
+5. Retries failed fetch/generation/validation attempts at most three times.
+6. Commits and deploys only data that passes validation.
 
 `Deploy GitHub Pages` builds the React app and publishes `dist/` to GitHub Pages.
 

@@ -25,6 +25,7 @@ export interface Holding {
 }
 
 export interface LatestData {
+  accessionNumber: string;
   filingDate: string | null;
   reportDate: string | null;
   secUrl: string | null;
@@ -43,6 +44,7 @@ export interface HistoryItem {
 }
 
 export interface QuarterData extends HistoryItem {
+  accessionNumber: string;
   holdings: Holding[];
 }
 

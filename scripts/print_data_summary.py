@@ -17,6 +17,7 @@ def main() -> int:
     performance = load_json("performance")
 
     print("Data update summary")
+    print(f"- accession number: {latest.get('accessionNumber')}")
     print(f"- latest report date: {latest.get('reportDate')}")
     print(f"- filing date: {latest.get('filingDate')}")
     print(f"- holdings count: {latest.get('holdingsCount')}")

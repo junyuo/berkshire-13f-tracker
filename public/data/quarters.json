@@ -442,7 +442,8 @@
         "consecutiveQuartersHeld": 8
       }
     ],
-    "generatedAt": "2026-06-22T17:13:42.832532+00:00"
+    "generatedAt": "2026-06-11T01:36:29.475419+00:00",
+    "accessionNumber": "0001193125-26-226661"
   },
   {
     "filingDate": "2026-02-17",
@@ -1081,7 +1082,8 @@
         "quartersHeld": 7,
         "consecutiveQuartersHeld": 0
       }
-    ]
+    ],
+    "accessionNumber": "0001193125-26-054580"
   },
   {
     "filingDate": "2025-11-14",
@@ -1705,7 +1707,8 @@
         "quartersHeld": 7,
         "consecutiveQuartersHeld": 0
       }
-    ]
+    ],
+    "accessionNumber": "0001193125-25-282901"
   },
   {
     "filingDate": "2025-08-14",
@@ -2329,7 +2332,8 @@
         "quartersHeld": 7,
         "consecutiveQuartersHeld": 0
       }
-    ]
+    ],
+    "accessionNumber": "0000950123-25-008343"
   },
   {
     "filingDate": "2025-05-15",
@@ -2878,7 +2882,8 @@
         "quartersHeld": 7,
         "consecutiveQuartersHeld": 0
       }
-    ]
+    ],
+    "accessionNumber": "0000950123-25-005701"
   },
   {
     "filingDate": "2025-02-14",
@@ -3457,7 +3462,8 @@
         "quartersHeld": 7,
         "consecutiveQuartersHeld": 0
       }
-    ]
+    ],
+    "accessionNumber": "0000950123-25-002701"
   },
   {
     "filingDate": "2024-11-14",
@@ -4066,7 +4072,8 @@
         "quartersHeld": 7,
         "consecutiveQuartersHeld": 0
       }
-    ]
+    ],
+    "accessionNumber": "0000950123-24-011775"
   },
   {
     "filingDate": "2024-08-14",
@@ -4690,6 +4697,7 @@
         "quartersHeld": 7,
         "consecutiveQuartersHeld": 0
       }
-    ]
+    ],
+    "accessionNumber": "0000950123-24-008740"
   }
 ]
