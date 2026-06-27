@@ -22,6 +22,12 @@ export default function DataHealthCard({
 }) {
   const performanceValid = Boolean(performance?.points.length);
   const StatusIcon = performanceValid ? CheckCircle2 : TriangleAlert;
+  const statusItems = [
+    { label: "SEC data OK", status: Boolean(latest.holdings.length), tone: "ok" },
+    { label: `${quarters.length || history.length} quarters available`, status: (quarters.length || history.length) >= 2, tone: "ok" },
+    { label: performanceValid ? "Performance available" : "Performance unavailable", status: performanceValid, tone: performanceValid ? "ok" : "warn" },
+    { label: `Last generated ${dateTime(latest.generatedAt)}`, status: Boolean(latest.generatedAt), tone: "ok" },
+  ];
 
   return (
     <section className="rounded-lg border border-stone-200 bg-white p-5 shadow-sm">
@@ -58,6 +64,19 @@ export default function DataHealthCard({
           <p className="mt-2 text-xs text-stone-500">History coverage</p>
           <p className="font-medium text-ink">{quarters.length || history.length} quarters</p>
         </div>
+      </div>
+      <div className="mt-4 flex flex-wrap gap-2 border-t border-stone-200 pt-4">
+        {statusItems.map((item) => (
+          <span
+            key={item.label}
+            className={`inline-flex items-center gap-2 rounded-full px-3 py-1 text-sm font-medium ${
+              item.status && item.tone === "ok" ? "bg-emerald-50 text-emerald-700" : "bg-amber-50 text-amber-700"
+            }`}
+          >
+            {item.status && item.tone === "ok" ? <CheckCircle2 className="h-4 w-4" /> : <TriangleAlert className="h-4 w-4" />}
+            {item.label}
+          </span>
+        ))}
       </div>
       {!performanceValid ? (
         <p className="mt-4 rounded-md bg-amber-50 p-3 text-sm text-amber-800">

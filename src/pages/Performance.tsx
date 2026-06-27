@@ -61,6 +61,42 @@ function StatCard({ label, value }: { label: string; value: string }) {
   );
 }
 
+function ExcessReturnBars({ quarters }: { quarters: QuarterlyReturn[] }) {
+  const maxAbs = Math.max(...quarters.map((quarter) => Math.abs(quarter.excessReturn)), 0.01);
+
+  return (
+    <section className="rounded-lg border border-stone-200 bg-white p-5 shadow-sm">
+      <div>
+        <h2 className="text-lg font-semibold text-ink">Quarterly Excess Return</h2>
+        <p className="text-sm text-stone-500">Positive bars mean the estimated 13F portfolio outperformed SPY.</p>
+      </div>
+      <div className="mt-5 space-y-4">
+        {quarters.map((quarter) => {
+          const positive = quarter.excessReturn >= 0;
+          const width = Math.max((Math.abs(quarter.excessReturn) / maxAbs) * 50, 2);
+          return (
+            <div key={`${quarter.startDate}-${quarter.endDate}`} className="grid gap-2 md:grid-cols-[170px_1fr_72px] md:items-center">
+              <p className="text-sm font-medium text-stone-700">
+                {quarter.startDate.slice(0, 7)} to {quarter.endDate.slice(0, 7)}
+              </p>
+              <div className="relative h-5 rounded bg-stone-100">
+                <div className="absolute left-1/2 top-0 h-full w-px bg-stone-300" />
+                <div
+                  className={`absolute top-1/2 h-3 -translate-y-1/2 rounded-full ${positive ? "left-1/2 bg-moss" : "right-1/2 bg-red-600"}`}
+                  style={{ width: `${width}%` }}
+                />
+              </div>
+              <p className={`text-sm font-medium md:text-right ${positive ? "text-moss" : "text-red-700"}`}>
+                {percent(quarter.excessReturn)}
+              </p>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
 function bestQuarter(quarters: QuarterlyReturn[]): QuarterlyReturn | undefined {
   return [...quarters].sort((a, b) => b.portfolioReturn - a.portfolioReturn)[0];
 }
@@ -92,6 +128,8 @@ export default function Performance({ performance }: { performance: PerformanceD
   const latestPoint = performance.points[performance.points.length - 1];
   const best = bestQuarter(performance.quarterlyReturns);
   const worst = worstQuarter(performance.quarterlyReturns);
+  const outperformed = performance.quarterlyReturns.filter((quarter) => quarter.excessReturn > 0).length;
+  const underperformed = performance.quarterlyReturns.filter((quarter) => quarter.excessReturn < 0).length;
 
   return (
     <div className="space-y-6">
@@ -110,7 +148,19 @@ export default function Performance({ performance }: { performance: PerformanceD
         <StatCard label="Worst Quarter" value={worst ? percent(worst.portfolioReturn) : "-"} />
       </section>
 
+      <section className="grid gap-4 sm:grid-cols-2">
+        <div className="rounded-lg border border-emerald-100 bg-emerald-50 p-5">
+          <p className="text-sm font-medium text-emerald-700">Outperformed SPY</p>
+          <p className="mt-2 text-2xl font-semibold text-ink">{outperformed} periods</p>
+        </div>
+        <div className="rounded-lg border border-red-100 bg-red-50 p-5">
+          <p className="text-sm font-medium text-red-700">Underperformed SPY</p>
+          <p className="mt-2 text-2xl font-semibold text-ink">{underperformed} periods</p>
+        </div>
+      </section>
+
       <LineChart points={performance.points} />
+      <ExcessReturnBars quarters={performance.quarterlyReturns} />
 
       <section className="overflow-hidden rounded-lg border border-stone-200 bg-white shadow-sm">
         <div className="border-b border-stone-200 p-5">
