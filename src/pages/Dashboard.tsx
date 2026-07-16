@@ -2,6 +2,7 @@ import ChangesTable from "../components/ChangesTable";
 import ConcentrationCards from "../components/ConcentrationCards";
 import DataHealthCard from "../components/DataHealthCard";
 import DashboardCards from "../components/DashboardCards";
+import DashboardInsight from "../components/DashboardInsight";
 import HistoryTrend from "../components/HistoryTrend";
 import MeaningfulMoves from "../components/MeaningfulMoves";
 import PerformanceSummaryCard from "../components/PerformanceSummaryCard";
@@ -29,8 +30,9 @@ export default function Dashboard({
 
   return (
     <div className="space-y-6">
-      <DashboardCards latest={latest} />
       <DataHealthCard latest={latest} history={history} quarters={quarters} performance={performance} />
+      <DashboardCards latest={latest} />
+      <DashboardInsight holdings={latest.holdings} previousHoldings={previousHoldings} changes={changes} performance={performance} />
       <ConcentrationCards holdings={latest.holdings} previousHoldings={previousHoldings} />
       <PerformanceSummaryCard performance={performance} />
       <QuarterlySummary changes={changes} />
@@ -40,9 +42,9 @@ export default function Dashboard({
         <HistoryTrend history={history} />
       </div>
       <ChangesTable changes={visibleChanges} action="All" onActionChange={() => undefined} showFilter={false} />
-      <section className="rounded-lg border border-stone-200 bg-white p-5 text-sm text-stone-600 shadow-sm">
-        <h2 className="text-base font-semibold text-ink">{t("about13fData")}</h2>
-        <dl className="mt-3 grid gap-3 md:grid-cols-5">
+      <details className="rounded-lg border border-stone-200 bg-white p-5 text-sm text-stone-600 shadow-sm">
+        <summary className="cursor-pointer text-base font-semibold text-ink">{t("about13fData")}</summary>
+        <dl className="mt-4 grid gap-3 md:grid-cols-5">
           <div>
             <dt className="font-medium text-ink">{actionLabel("New Position")}</dt>
             <dd>{t("aboutNewPosition")}</dd>
@@ -71,7 +73,7 @@ export default function Dashboard({
           <li>{t("dataNoteShareSignal")}</li>
           <li>{t("dataNoteTicker")}</li>
         </ul>
-      </section>
+      </details>
     </div>
   );
 }

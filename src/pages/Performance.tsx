@@ -141,6 +141,9 @@ export default function Performance({ performance }: { performance: PerformanceD
         <p className="mt-1 text-sm text-stone-500">
           {t("performanceSubtitle")} {performance.benchmarkTicker}.
         </p>
+        <div className="mt-3 inline-flex rounded-full bg-amber-50 px-3 py-1 text-sm font-medium text-amber-800 ring-1 ring-amber-200">
+          {t("performanceEstimateBadge")}
+        </div>
       </div>
 
       <section className="grid gap-4 md:grid-cols-3 xl:grid-cols-5">
@@ -206,9 +209,9 @@ export default function Performance({ performance }: { performance: PerformanceD
         </section>
       ) : null}
 
-      <section className="rounded-lg border border-stone-200 bg-white p-5 text-sm text-stone-600 shadow-sm">
-        <h2 className="text-base font-semibold text-ink">{t("methodology")}</h2>
-        <ul className="mt-3 grid gap-2 md:grid-cols-2">
+      <details className="rounded-lg border border-stone-200 bg-white p-5 text-sm text-stone-600 shadow-sm">
+        <summary className="cursor-pointer text-base font-semibold text-ink">{t("methodologySummary")}</summary>
+        <ul className="mt-4 grid gap-2 md:grid-cols-2">
           {performance.methodology.map((note) => (
             <li key={note}>{methodologyLabel(note)}</li>
           ))}
@@ -216,7 +219,7 @@ export default function Performance({ performance }: { performance: PerformanceD
           <li>{t("methodIncludedWeight")}</li>
           <li>{t("methodReturns")}</li>
         </ul>
-      </section>
+      </details>
     </div>
   );
 }

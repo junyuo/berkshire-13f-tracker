@@ -1,4 +1,4 @@
-import { ArrowDownAZ, ArrowDownWideNarrow, ArrowUpAZ, ArrowUpWideNarrow } from "lucide-react";
+import { ArrowDownAZ, ArrowDownWideNarrow, ArrowUpAZ, ArrowUpWideNarrow, Eye } from "lucide-react";
 import { useMemo, useState } from "react";
 import { useLanguage, type TranslationKey } from "../i18n";
 import type { Action, Holding } from "../types/holding";
@@ -130,9 +130,10 @@ export default function ChangesTable({
         ) : null}
       </div>
       <div className="overflow-hidden rounded-lg border border-stone-200 bg-white shadow-sm">
+        <p className="border-b border-stone-100 px-4 py-2 text-xs text-stone-500 md:hidden">{t("scrollForMoreColumns")}</p>
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-stone-200 text-sm">
-            <thead className="bg-stone-50">
+            <thead className="sticky top-0 z-10 bg-stone-50">
               <tr>
                 <th className="px-4 py-3 text-left font-medium text-stone-600">{t("issuer")}</th>
                 <th className="px-4 py-3 text-left font-medium text-stone-600">{t("action")}</th>
@@ -142,6 +143,7 @@ export default function ChangesTable({
                 <th className="px-4 py-3 text-right font-medium text-stone-600">{t("weightChange")}</th>
                 <th className="px-4 py-3 text-right font-medium text-stone-600">{t("valueChange")}</th>
                 <th className="px-4 py-3 text-right font-medium text-stone-600">{t("weight")}</th>
+                {onSelectHolding ? <th className="px-4 py-3 text-right font-medium text-stone-600">{t("viewDetails")}</th> : null}
               </tr>
             </thead>
             <tbody className="divide-y divide-stone-100 bg-white">
@@ -168,6 +170,14 @@ export default function ChangesTable({
                   <td className="px-4 py-3 text-right text-stone-700">{(holding.weightChange ?? 0).toFixed(2)} {t("points")}</td>
                   <td className="px-4 py-3 text-right text-stone-700">{money(holding.valueChange ?? 0)}</td>
                   <td className="px-4 py-3 text-right text-stone-700">{holding.portfolioWeight.toFixed(2)}%</td>
+                  {onSelectHolding ? (
+                    <td className="px-4 py-3 text-right text-stone-400">
+                      <span className="inline-flex items-center justify-end gap-1 text-xs">
+                        <Eye className="h-3.5 w-3.5" />
+                        {t("viewDetails")}
+                      </span>
+                    </td>
+                  ) : null}
                 </tr>
               ))}
             </tbody>

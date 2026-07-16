@@ -1,4 +1,4 @@
-import { ArrowUpDown } from "lucide-react";
+import { ArrowUpDown, Eye } from "lucide-react";
 import { useMemo, useState } from "react";
 import { useLanguage } from "../i18n";
 import type { Holding } from "../types/holding";
@@ -45,9 +45,10 @@ export default function HoldingsTable({ holdings, onSelectHolding }: { holdings:
 
   return (
     <div className="overflow-hidden rounded-lg border border-stone-200 bg-white shadow-sm">
+      <p className="border-b border-stone-100 px-4 py-2 text-xs text-stone-500 md:hidden">{t("scrollForMoreColumns")}</p>
       <div className="overflow-x-auto">
         <table className="min-w-full divide-y divide-stone-200 text-sm">
-          <thead className="bg-stone-50">
+          <thead className="sticky top-0 z-10 bg-stone-50">
             <tr>
               <th className="px-4 py-3 text-left">{header("issuerName", t("issuer"))}</th>
               <th className="px-4 py-3 text-left font-medium text-stone-600">{t("ticker")}</th>
@@ -56,6 +57,7 @@ export default function HoldingsTable({ holdings, onSelectHolding }: { holdings:
               <th className="px-4 py-3 text-right">{header("value", t("value"))}</th>
               <th className="px-4 py-3 text-right">{header("shares", t("shares"))}</th>
               <th className="px-4 py-3 text-right">{header("portfolioWeight", t("weight"))}</th>
+              {onSelectHolding ? <th className="px-4 py-3 text-right font-medium text-stone-600">{t("viewDetails")}</th> : null}
             </tr>
           </thead>
           <tbody className="divide-y divide-stone-100 bg-white">
@@ -72,6 +74,14 @@ export default function HoldingsTable({ holdings, onSelectHolding }: { holdings:
                 <td className="px-4 py-3 text-right text-stone-700">{money(holding.value)}</td>
                 <td className="px-4 py-3 text-right text-stone-700">{holding.shares.toLocaleString("en-US")}</td>
                 <td className="px-4 py-3 text-right text-stone-700">{holding.portfolioWeight.toFixed(2)}%</td>
+                {onSelectHolding ? (
+                  <td className="px-4 py-3 text-right text-stone-400">
+                    <span className="inline-flex items-center justify-end gap-1 text-xs">
+                      <Eye className="h-3.5 w-3.5" />
+                      {t("viewDetails")}
+                    </span>
+                  </td>
+                ) : null}
               </tr>
             ))}
           </tbody>
