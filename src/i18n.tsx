@@ -340,8 +340,9 @@ type LanguageContextValue = {
 const LanguageContext = createContext<LanguageContextValue | null>(null);
 
 function initialLanguage(): Language {
-  if (typeof window === "undefined") return "en";
-  return window.localStorage.getItem(STORAGE_KEY) === "zh-TW" ? "zh-TW" : "en";
+  if (typeof window === "undefined") return "zh-TW";
+  const savedLanguage = window.localStorage.getItem(STORAGE_KEY);
+  return savedLanguage === "en" || savedLanguage === "zh-TW" ? savedLanguage : "zh-TW";
 }
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
