@@ -4,15 +4,16 @@ import Dashboard from "./pages/Dashboard";
 import Holdings from "./pages/Holdings";
 import Changes from "./pages/Changes";
 import Performance from "./pages/Performance";
+import { useLanguage, type TranslationKey } from "./i18n";
 import type { Holding, HistoryItem, LatestData, PerformanceData, QuarterData } from "./types/holding";
 
 type Page = "dashboard" | "holdings" | "changes" | "performance";
 
-const pages: { id: Page; label: string; icon: typeof BarChart3 }[] = [
-  { id: "dashboard", label: "Dashboard", icon: BarChart3 },
-  { id: "holdings", label: "Holdings", icon: Table2 },
-  { id: "changes", label: "Changes", icon: TrendingUp },
-  { id: "performance", label: "Performance", icon: LineChart },
+const pages: { id: Page; labelKey: TranslationKey; icon: typeof BarChart3 }[] = [
+  { id: "dashboard", labelKey: "navDashboard", icon: BarChart3 },
+  { id: "holdings", labelKey: "navHoldings", icon: Table2 },
+  { id: "changes", labelKey: "navChanges", icon: TrendingUp },
+  { id: "performance", labelKey: "navPerformance", icon: LineChart },
 ];
 
 function routeFromHash(): Page {
@@ -29,6 +30,7 @@ async function loadJson<T>(path: string): Promise<T> {
 }
 
 export default function App() {
+  const { language, setLanguage, t } = useLanguage();
   const [page, setPage] = useState<Page>(routeFromHash);
   const [latest, setLatest] = useState<LatestData | null>(null);
   const [history, setHistory] = useState<HistoryItem[]>([]);
@@ -67,7 +69,7 @@ export default function App() {
     if (!latest) {
       return (
         <div className="rounded-lg border border-stone-200 bg-white p-8 text-stone-600 shadow-sm">
-          Loading Berkshire Hathaway 13F data...
+          {t("loadingData")}
         </div>
       );
     }
@@ -75,7 +77,7 @@ export default function App() {
     if (page === "changes") return <Changes changes={changes} quarters={quarters} />;
     if (page === "performance") return <Performance performance={performance} />;
     return <Dashboard latest={latest} history={history} changes={changes} quarters={quarters} performance={performance} />;
-  }, [changes, history, latest, page, performance, quarters]);
+  }, [changes, history, latest, page, performance, quarters, t]);
 
   return (
     <div className="min-h-screen bg-paper">
@@ -86,15 +88,28 @@ export default function App() {
               <p className="text-sm font-medium uppercase tracking-wide text-brass">Berkshire Hathaway</p>
               <h1 className="mt-1 text-3xl font-semibold text-ink">13F Tracker</h1>
             </div>
-            <a
-              className="inline-flex items-center gap-2 rounded-md border border-stone-300 px-3 py-2 text-sm font-medium text-moss hover:bg-stone-50"
-              href={latest?.secUrl ?? "https://www.sec.gov/edgar/browse/?CIK=1067983"}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <RefreshCw className="h-4 w-4" />
-              SEC Filing
-            </a>
+            <div className="flex flex-wrap gap-2">
+              <div className="inline-flex rounded-md border border-stone-300 bg-white p-1 text-sm font-medium">
+                {(["en", "zh-TW"] as const).map((item) => (
+                  <button
+                    key={item}
+                    className={`rounded px-3 py-1.5 ${language === item ? "bg-ink text-white" : "text-stone-600 hover:bg-stone-50"}`}
+                    onClick={() => setLanguage(item)}
+                  >
+                    {item === "en" ? "EN" : "繁中"}
+                  </button>
+                ))}
+              </div>
+              <a
+                className="inline-flex items-center gap-2 rounded-md border border-stone-300 px-3 py-2 text-sm font-medium text-moss hover:bg-stone-50"
+                href={latest?.secUrl ?? "https://www.sec.gov/edgar/browse/?CIK=1067983"}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <RefreshCw className="h-4 w-4" />
+                {t("secFiling")}
+              </a>
+            </div>
           </div>
           <nav className="flex gap-2 overflow-x-auto">
             {pages.map((navPage) => {
@@ -109,7 +124,7 @@ export default function App() {
                   }`}
                 >
                   <Icon className="h-4 w-4" />
-                  {navPage.label}
+                  {t(navPage.labelKey)}
                 </a>
               );
             })}
@@ -118,7 +133,9 @@ export default function App() {
       </header>
       <main className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         {error ? (
-          <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-700">{error}</div>
+          <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+            {t("dataLoadError")} {error}
+          </div>
         ) : (
           activePage
         )}

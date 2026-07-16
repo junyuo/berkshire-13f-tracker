@@ -1,3 +1,4 @@
+import { useLanguage } from "../i18n";
 import type { HistoryItem } from "../types/holding";
 
 function money(value: number): string {
@@ -10,14 +11,15 @@ function money(value: number): string {
 }
 
 export default function HistoryTrend({ history }: { history: HistoryItem[] }) {
+  const { t } = useLanguage();
   const oldestFirst = [...history].reverse();
   const maxValue = Math.max(...oldestFirst.map((quarter) => quarter.totalValue), 1);
   const maxCount = Math.max(...oldestFirst.map((quarter) => quarter.holdingsCount), 1);
 
   return (
     <section className="rounded-lg border border-stone-200 bg-white p-5 shadow-sm">
-      <h2 className="text-lg font-semibold text-ink">8-Quarter Trend</h2>
-      <p className="text-sm text-stone-500">Reported market value and number of holdings.</p>
+      <h2 className="text-lg font-semibold text-ink">{t("eightQuarterTrend")}</h2>
+      <p className="text-sm text-stone-500">{t("reportedValueAndCount")}</p>
       <div className="mt-5 space-y-4">
         {oldestFirst.map((quarter) => (
           <a key={quarter.reportDate} href={quarter.secUrl ?? "#"} target="_blank" rel="noreferrer" className="block">
@@ -33,7 +35,7 @@ export default function HistoryTrend({ history }: { history: HistoryItem[] }) {
               </div>
               <div className="text-sm text-stone-600 md:text-right">
                 <p>{money(quarter.totalValue)}</p>
-                <p className="text-xs text-stone-400">{quarter.holdingsCount} holdings</p>
+                <p className="text-xs text-stone-400">{quarter.holdingsCount} {t("holdings")}</p>
               </div>
             </div>
           </a>

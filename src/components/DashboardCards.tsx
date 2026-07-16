@@ -1,4 +1,5 @@
 import { CalendarClock, CalendarDays, Landmark, PieChart, WalletCards } from "lucide-react";
+import { useLanguage } from "../i18n";
 import type { LatestData } from "../types/holding";
 
 function money(value: number): string {
@@ -10,21 +11,22 @@ function money(value: number): string {
   }).format(value);
 }
 
-function dateTime(value: string | null): string {
-  if (!value) return "Pending";
-  return new Intl.DateTimeFormat("en-US", {
+function dateTime(value: string | null, locale: string): string {
+  if (!value) return "";
+  return new Intl.DateTimeFormat(locale === "zh-TW" ? "zh-TW" : "en-US", {
     dateStyle: "medium",
     timeStyle: "short",
   }).format(new Date(value));
 }
 
 export default function DashboardCards({ latest }: { latest: LatestData }) {
+  const { language, t } = useLanguage();
   const cards = [
-    { label: "Report Period", value: latest.reportDate ?? "Pending", icon: CalendarDays },
-    { label: "Filing Date", value: latest.filingDate ?? "Pending", icon: Landmark },
-    { label: "Last Updated", value: dateTime(latest.generatedAt), icon: CalendarClock },
-    { label: "Total Market Value", value: money(latest.totalValue), icon: WalletCards },
-    { label: "Holdings", value: latest.holdingsCount.toLocaleString("en-US"), icon: PieChart },
+    { label: t("reportPeriod"), value: latest.reportDate ?? t("pending"), icon: CalendarDays },
+    { label: t("filingDate"), value: latest.filingDate ?? t("pending"), icon: Landmark },
+    { label: t("lastUpdated"), value: dateTime(latest.generatedAt, language) || t("pending"), icon: CalendarClock },
+    { label: t("totalMarketValue"), value: money(latest.totalValue), icon: WalletCards },
+    { label: t("holdings"), value: latest.holdingsCount.toLocaleString("en-US"), icon: PieChart },
   ];
 
   return (

@@ -1,3 +1,4 @@
+import { useLanguage } from "../i18n";
 import type { Holding } from "../types/holding";
 
 function formatPercent(value: number | null | undefined): string {
@@ -5,12 +6,13 @@ function formatPercent(value: number | null | undefined): string {
   return `${value > 0 ? "+" : ""}${value.toFixed(2)}%`;
 }
 
-function formatPoints(value: number | undefined): string {
+function formatPoints(value: number | undefined, pointsLabel: string): string {
   const safeValue = value ?? 0;
-  return `${safeValue > 0 ? "+" : ""}${safeValue.toFixed(2)} pts`;
+  return `${safeValue > 0 ? "+" : ""}${safeValue.toFixed(2)} ${pointsLabel}`;
 }
 
 export default function MeaningfulMoves({ changes }: { changes: Holding[] }) {
+  const { actionLabel, t } = useLanguage();
   const moves = changes
     .filter(
       (holding) =>
@@ -25,17 +27,17 @@ export default function MeaningfulMoves({ changes }: { changes: Holding[] }) {
   return (
     <section className="rounded-lg border border-stone-200 bg-white p-5 shadow-sm">
       <div>
-        <h2 className="text-lg font-semibold text-ink">Meaningful Moves</h2>
-        <p className="text-sm text-stone-500">Changes with clear position or portfolio-weight movement.</p>
+        <h2 className="text-lg font-semibold text-ink">{t("meaningfulMoves")}</h2>
+        <p className="text-sm text-stone-500">{t("meaningfulMovesSubtitle")}</p>
       </div>
       <div className="mt-4 overflow-x-auto">
         <table className="min-w-full text-sm">
           <thead>
             <tr className="border-b border-stone-200 text-left text-stone-500">
-              <th className="py-2 pr-4 font-medium">Issuer</th>
-              <th className="py-2 pr-4 font-medium">Action</th>
-              <th className="py-2 pr-4 text-right font-medium">Share Change %</th>
-              <th className="py-2 text-right font-medium">Weight Change</th>
+              <th className="py-2 pr-4 font-medium">{t("issuer")}</th>
+              <th className="py-2 pr-4 font-medium">{t("action")}</th>
+              <th className="py-2 pr-4 text-right font-medium">{t("shareChangePercent")}</th>
+              <th className="py-2 text-right font-medium">{t("weightChange")}</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-stone-100">
@@ -45,9 +47,9 @@ export default function MeaningfulMoves({ changes }: { changes: Holding[] }) {
                   <p className="font-medium text-ink">{holding.issuerName}</p>
                   <p className="text-xs text-stone-500">{holding.ticker ?? holding.cusip}</p>
                 </td>
-                <td className="py-3 pr-4 text-stone-700">{holding.action}</td>
+                <td className="py-3 pr-4 text-stone-700">{actionLabel(holding.action)}</td>
                 <td className="py-3 pr-4 text-right text-stone-700">{formatPercent(holding.shareChangePercent)}</td>
-                <td className="py-3 text-right text-stone-700">{formatPoints(holding.weightChange)}</td>
+                <td className="py-3 text-right text-stone-700">{formatPoints(holding.weightChange, t("points"))}</td>
               </tr>
             ))}
           </tbody>

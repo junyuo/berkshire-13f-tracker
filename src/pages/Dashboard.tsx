@@ -7,6 +7,7 @@ import MeaningfulMoves from "../components/MeaningfulMoves";
 import PerformanceSummaryCard from "../components/PerformanceSummaryCard";
 import QuarterlySummary from "../components/QuarterlySummary";
 import TopHoldingsChart from "../components/TopHoldingsChart";
+import { useLanguage } from "../i18n";
 import type { Holding, HistoryItem, LatestData, PerformanceData, QuarterData } from "../types/holding";
 
 export default function Dashboard({
@@ -22,6 +23,7 @@ export default function Dashboard({
   quarters: QuarterData[];
   performance: PerformanceData | null;
 }) {
+  const { actionLabel, t } = useLanguage();
   const visibleChanges = changes.filter((holding) => holding.action !== "Unchanged").slice(0, 8);
   const previousHoldings = quarters[1]?.holdings ?? [];
 
@@ -39,35 +41,35 @@ export default function Dashboard({
       </div>
       <ChangesTable changes={visibleChanges} action="All" onActionChange={() => undefined} showFilter={false} />
       <section className="rounded-lg border border-stone-200 bg-white p-5 text-sm text-stone-600 shadow-sm">
-        <h2 className="text-base font-semibold text-ink">About 13F Data</h2>
+        <h2 className="text-base font-semibold text-ink">{t("about13fData")}</h2>
         <dl className="mt-3 grid gap-3 md:grid-cols-5">
           <div>
-            <dt className="font-medium text-ink">New Position</dt>
-            <dd>Not held last quarter, held this quarter.</dd>
+            <dt className="font-medium text-ink">{actionLabel("New Position")}</dt>
+            <dd>{t("aboutNewPosition")}</dd>
           </div>
           <div>
-            <dt className="font-medium text-ink">Added</dt>
-            <dd>Held in both quarters, shares increased.</dd>
+            <dt className="font-medium text-ink">{actionLabel("Added")}</dt>
+            <dd>{t("aboutAdded")}</dd>
           </div>
           <div>
-            <dt className="font-medium text-ink">Reduced</dt>
-            <dd>Held in both quarters, shares decreased.</dd>
+            <dt className="font-medium text-ink">{actionLabel("Reduced")}</dt>
+            <dd>{t("aboutReduced")}</dd>
           </div>
           <div>
-            <dt className="font-medium text-ink">Sold Out</dt>
-            <dd>Held last quarter, absent this quarter.</dd>
+            <dt className="font-medium text-ink">{actionLabel("Sold Out")}</dt>
+            <dd>{t("aboutSoldOut")}</dd>
           </div>
           <div>
-            <dt className="font-medium text-ink">Unchanged</dt>
-            <dd>Share count did not change.</dd>
+            <dt className="font-medium text-ink">{actionLabel("Unchanged")}</dt>
+            <dd>{t("aboutUnchanged")}</dd>
           </div>
         </dl>
         <ul className="mt-5 grid gap-2 border-t border-stone-200 pt-4 md:grid-cols-2">
-          <li>13F filings are delayed and do not show real-time Berkshire Hathaway holdings.</li>
-          <li>Reports may exclude cash, some derivatives, and some non-U.S. ordinary shares.</li>
-          <li>Reported values reflect the SEC filing data and are not Berkshire's cost basis.</li>
-          <li>Value change can be driven by market price movement; share change is the cleaner buy/sell signal.</li>
-          <li>Tickers use a local CUSIP mapping and remain blank when no reliable mapping is available.</li>
+          <li>{t("dataNoteDelay")}</li>
+          <li>{t("dataNoteExclude")}</li>
+          <li>{t("dataNoteValue")}</li>
+          <li>{t("dataNoteShareSignal")}</li>
+          <li>{t("dataNoteTicker")}</li>
         </ul>
       </section>
     </div>

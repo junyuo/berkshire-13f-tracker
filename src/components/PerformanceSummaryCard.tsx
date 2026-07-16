@@ -1,4 +1,5 @@
 import { LineChart } from "lucide-react";
+import { useLanguage } from "../i18n";
 import type { PerformanceData } from "../types/holding";
 
 function percent(value: number): string {
@@ -6,6 +7,7 @@ function percent(value: number): string {
 }
 
 export default function PerformanceSummaryCard({ performance }: { performance: PerformanceData | null }) {
+  const { t } = useLanguage();
   if (!performance?.points.length) return null;
 
   const latest = performance.points[performance.points.length - 1];
@@ -22,7 +24,7 @@ export default function PerformanceSummaryCard({ performance }: { performance: P
         <div>
           <h2 className="text-lg font-semibold text-ink">13F Portfolio vs {performance.benchmarkTicker}</h2>
           <p className="text-sm text-stone-500">
-            {performance.startDate} to {performance.endDate}
+            {performance.startDate} {t("to")} {performance.endDate}
           </p>
         </div>
         <LineChart className="h-5 w-5 text-brass" />
@@ -37,7 +39,7 @@ export default function PerformanceSummaryCard({ performance }: { performance: P
           <p className="font-semibold text-ink">{percent(benchmarkReturn)}</p>
         </div>
         <div>
-          <p className="text-xs text-stone-500">Excess</p>
+          <p className="text-xs text-stone-500">{t("excess")}</p>
           <p className="font-semibold text-ink">{percent(excessReturn)}</p>
         </div>
       </div>

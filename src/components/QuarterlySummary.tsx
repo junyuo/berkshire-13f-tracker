@@ -1,4 +1,5 @@
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
+import { useLanguage } from "../i18n";
 import type { Action, Holding } from "../types/holding";
 
 const actionLabels: { action: Action; className: string }[] = [
@@ -23,6 +24,7 @@ function countByAction(changes: Holding[], action: Action): number {
 }
 
 export default function QuarterlySummary({ changes }: { changes: Holding[] }) {
+  const { actionLabel, t } = useLanguage();
   const changedCount = changes.filter((holding) => holding.action !== "Unchanged").length;
   const unchangedCount = countByAction(changes, "Unchanged");
   const changedRate = changes.length ? (changedCount / changes.length) * 100 : 0;
@@ -37,15 +39,15 @@ export default function QuarterlySummary({ changes }: { changes: Holding[] }) {
     <section className="rounded-lg border border-stone-200 bg-white p-5 shadow-sm">
       <div className="flex flex-col justify-between gap-4 lg:flex-row lg:items-start">
         <div>
-          <h2 className="text-lg font-semibold text-ink">Change Mix</h2>
-          <p className="text-sm text-stone-500">What changed in the latest 13F-HR filing versus the prior quarter.</p>
+          <h2 className="text-lg font-semibold text-ink">{t("changeMix")}</h2>
+          <p className="text-sm text-stone-500">{t("changeMixSubtitle")}</p>
         </div>
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-5">
           {actionLabels.map(({ action, className }) => (
             <div key={action} className="rounded-md border border-stone-200 px-3 py-2 text-center">
               <span className={`mx-auto block h-1.5 w-8 rounded-full ${className}`} />
               <p className="mt-2 text-xl font-semibold text-ink">{countByAction(changes, action)}</p>
-              <p className="text-xs text-stone-500">{action}</p>
+              <p className="text-xs text-stone-500">{actionLabel(action)}</p>
             </div>
           ))}
         </div>
@@ -53,15 +55,15 @@ export default function QuarterlySummary({ changes }: { changes: Holding[] }) {
       <div className="mt-5 grid gap-4 md:grid-cols-2">
         <div className="rounded-md bg-stone-50 p-4 ring-1 ring-stone-200 md:col-span-2">
           <div className="flex items-center justify-between gap-4 text-sm">
-            <span className="font-medium text-ink">Changed positions</span>
+            <span className="font-medium text-ink">{t("changedPositions")}</span>
             <span className="text-stone-600">
-              {changedCount} changed / {unchangedCount} unchanged
+              {changedCount} {t("changed")} / {unchangedCount} {t("unchanged")}
             </span>
           </div>
           <div className="mt-3 h-3 overflow-hidden rounded-full bg-stone-200">
             <div className="h-full rounded-full bg-moss" style={{ width: `${changedRate}%` }} />
           </div>
-          <div className="mt-4 flex h-4 overflow-hidden rounded-full bg-stone-100" aria-label="Change mix by action">
+          <div className="mt-4 flex h-4 overflow-hidden rounded-full bg-stone-100" aria-label={t("changeMixAria")}>
             {actionLabels.map(({ action, className }) => {
               const count = countByAction(changes, action);
               return (
@@ -69,7 +71,7 @@ export default function QuarterlySummary({ changes }: { changes: Holding[] }) {
                   key={action}
                   className={`${className} min-w-[2px]`}
                   style={{ width: `${changes.length ? (count / changes.length) * 100 : 0}%` }}
-                  title={`${action}: ${count}`}
+                  title={`${actionLabel(action)}: ${count}`}
                 />
               );
             })}
@@ -78,24 +80,24 @@ export default function QuarterlySummary({ changes }: { changes: Holding[] }) {
         <div className="rounded-md bg-emerald-50 p-4 ring-1 ring-emerald-100">
           <div className="flex items-center gap-2 text-sm font-medium text-emerald-700">
             <ArrowUpRight className="h-4 w-4" />
-            Largest weight increase
+            {t("largestWeightIncrease")}
           </div>
-          <p className="mt-2 font-semibold text-ink">{largestIncrease?.issuerName ?? "No increases reported"}</p>
+          <p className="mt-2 font-semibold text-ink">{largestIncrease?.issuerName ?? t("noIncreasesReported")}</p>
           <p className="text-sm text-emerald-700">
             {largestIncrease ? `+${(largestIncrease.weightChange ?? 0).toFixed(2)} pts` : "-"}
           </p>
-          <p className="mt-1 text-xs text-stone-500">{largestIncrease ? `${money(largestIncrease.valueChange ?? 0)} value change` : ""}</p>
+          <p className="mt-1 text-xs text-stone-500">{largestIncrease ? `${money(largestIncrease.valueChange ?? 0)} ${t("valueChange")}` : ""}</p>
         </div>
         <div className="rounded-md bg-red-50 p-4 ring-1 ring-red-100">
           <div className="flex items-center gap-2 text-sm font-medium text-red-700">
             <ArrowDownRight className="h-4 w-4" />
-            Largest weight decrease
+            {t("largestWeightDecrease")}
           </div>
-          <p className="mt-2 font-semibold text-ink">{largestDecrease?.issuerName ?? "No reductions reported"}</p>
+          <p className="mt-2 font-semibold text-ink">{largestDecrease?.issuerName ?? t("noReductionsReported")}</p>
           <p className="text-sm text-red-700">
             {largestDecrease ? `${(largestDecrease.weightChange ?? 0).toFixed(2)} pts` : "-"}
           </p>
-          <p className="mt-1 text-xs text-stone-500">{largestDecrease ? `${money(largestDecrease.valueChange ?? 0)} value change` : ""}</p>
+          <p className="mt-1 text-xs text-stone-500">{largestDecrease ? `${money(largestDecrease.valueChange ?? 0)} ${t("valueChange")}` : ""}</p>
         </div>
       </div>
     </section>

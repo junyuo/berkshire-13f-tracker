@@ -1,4 +1,5 @@
 import { X } from "lucide-react";
+import { useLanguage, type TranslationKey } from "../i18n";
 import type { Holding, QuarterData } from "../types/holding";
 
 function money(value: number): string {
@@ -22,12 +23,20 @@ function findHolding(quarter: QuarterData, cusip: string | null): Holding | unde
   return quarter.holdings.find((holding) => holding.cusip === cusip);
 }
 
-function timelineState(current: Holding | undefined, previous: Holding | undefined): { label: string; className: string } {
-  if (!current) return { label: "Not held", className: "border-stone-300 bg-white text-stone-400" };
-  if (!previous) return { label: "New", className: "border-blue-600 bg-blue-600 text-white" };
-  if (current.shares > previous.shares) return { label: "Added", className: "border-emerald-600 bg-emerald-600 text-white" };
-  if (current.shares < previous.shares) return { label: "Reduced", className: "border-red-600 bg-red-600 text-white" };
-  return { label: "Held", className: "border-moss bg-moss text-white" };
+function timelineState(current: Holding | undefined, previous: Holding | undefined): { labelKey?: TranslationKey; action?: "Added" | "Reduced"; className: string } {
+  if (!current) return { labelKey: "notHeld", className: "border-stone-300 bg-white text-stone-400" };
+  if (!previous) return { labelKey: "new", className: "border-blue-600 bg-blue-600 text-white" };
+  if (current.shares > previous.shares) return { action: "Added", className: "border-emerald-600 bg-emerald-600 text-white" };
+  if (current.shares < previous.shares) return { action: "Reduced", className: "border-red-600 bg-red-600 text-white" };
+  return { labelKey: "held", className: "border-moss bg-moss text-white" };
+}
+
+function stateLabel(
+  state: { labelKey?: TranslationKey; action?: "Added" | "Reduced" },
+  t: (key: TranslationKey) => string,
+  actionLabel: (action: "Added" | "Reduced") => string,
+): string {
+  return state.action ? actionLabel(state.action) : t(state.labelKey ?? "notHeld");
 }
 
 export default function HoldingDetailPanel({
@@ -39,6 +48,7 @@ export default function HoldingDetailPanel({
   quarters: QuarterData[];
   onClose: () => void;
 }) {
+  const { actionLabel, t, trendLabel } = useLanguage();
   if (!holding) return null;
 
   const history = quarters
@@ -60,7 +70,7 @@ export default function HoldingDetailPanel({
           <button
             className="rounded-md p-2 text-stone-500 hover:bg-stone-100 hover:text-ink"
             onClick={onClose}
-            aria-label="Close holding details"
+            aria-label={t("closeHoldingDetails")}
           >
             <X className="h-5 w-5" />
           </button>
@@ -68,35 +78,35 @@ export default function HoldingDetailPanel({
         <div className="flex-1 overflow-y-auto p-5">
           <div className="grid gap-3 sm:grid-cols-4">
             <div className="rounded-md border border-stone-200 p-3">
-              <p className="text-xs text-stone-500">Market value</p>
+              <p className="text-xs text-stone-500">{t("marketValue")}</p>
               <p className="mt-1 font-semibold text-ink">{money(holding.value)}</p>
             </div>
             <div className="rounded-md border border-stone-200 p-3">
-              <p className="text-xs text-stone-500">Shares</p>
+              <p className="text-xs text-stone-500">{t("shares")}</p>
               <p className="mt-1 font-semibold text-ink">{holding.shares.toLocaleString("en-US")}</p>
             </div>
             <div className="rounded-md border border-stone-200 p-3">
-              <p className="text-xs text-stone-500">Weight</p>
+              <p className="text-xs text-stone-500">{t("weight")}</p>
               <p className="mt-1 font-semibold text-ink">{holding.portfolioWeight.toFixed(2)}%</p>
             </div>
             <div className="rounded-md border border-stone-200 p-3">
-              <p className="text-xs text-stone-500">Latest action</p>
-              <p className="mt-1 font-semibold text-ink">{holding.action}</p>
+              <p className="text-xs text-stone-500">{t("latestAction")}</p>
+              <p className="mt-1 font-semibold text-ink">{actionLabel(holding.action)}</p>
             </div>
             <div className="rounded-md border border-stone-200 p-3">
-              <p className="text-xs text-stone-500">Recent trend</p>
-              <p className="mt-1 font-semibold text-ink">{holding.trend ?? "-"}</p>
+              <p className="text-xs text-stone-500">{t("recentTrend")}</p>
+              <p className="mt-1 font-semibold text-ink">{trendLabel(holding.trend)}</p>
             </div>
             <div className="rounded-md border border-stone-200 p-3">
-              <p className="text-xs text-stone-500">Held in 8 quarters</p>
-              <p className="mt-1 font-semibold text-ink">{holding.quartersHeld ?? 0} quarters</p>
+              <p className="text-xs text-stone-500">{t("heldIn8Quarters")}</p>
+              <p className="mt-1 font-semibold text-ink">{holding.quartersHeld ?? 0} {t("quarters")}</p>
             </div>
             <div className="rounded-md border border-stone-200 p-3">
-              <p className="text-xs text-stone-500">Consecutive held</p>
-              <p className="mt-1 font-semibold text-ink">{holding.consecutiveQuartersHeld ?? 0} quarters</p>
+              <p className="text-xs text-stone-500">{t("consecutiveHeld")}</p>
+              <p className="mt-1 font-semibold text-ink">{holding.consecutiveQuartersHeld ?? 0} {t("quarters")}</p>
             </div>
             <div className="rounded-md border border-stone-200 p-3">
-              <p className="text-xs text-stone-500">Share change</p>
+              <p className="text-xs text-stone-500">{t("shareChange")}</p>
               <p className="mt-1 font-semibold text-ink">
                 {holding.shareChangePercent == null ? "-" : `${holding.shareChangePercent.toFixed(2)}%`}
               </p>
@@ -105,8 +115,8 @@ export default function HoldingDetailPanel({
 
           <section className="mt-6">
             <div>
-              <h3 className="text-base font-semibold text-ink">8-Quarter Holding Timeline</h3>
-              <p className="text-sm text-stone-500">Quarter-by-quarter holding status based on reported share count.</p>
+              <h3 className="text-base font-semibold text-ink">{t("eightQuarterHoldingTimeline")}</h3>
+              <p className="text-sm text-stone-500">{t("timelineSubtitle")}</p>
             </div>
             <div className="mt-4 overflow-x-auto pb-2">
               <div className="min-w-[680px]">
@@ -120,12 +130,12 @@ export default function HoldingDetailPanel({
                         {index > 0 ? <span className="absolute left-[-50%] top-4 h-px w-full bg-stone-200" /> : null}
                         <div
                           className={`relative z-10 mx-auto flex h-8 w-8 items-center justify-center rounded-full border-2 text-[10px] font-semibold ${state.className}`}
-                          title={`${reportDate}: ${state.label}`}
+                          title={`${reportDate}: ${stateLabel(state, t, actionLabel)}`}
                         >
                           {quarterHolding ? "✓" : ""}
                         </div>
                         <p className="mt-2 text-xs font-medium text-stone-700">{reportDate.slice(0, 7)}</p>
-                        <p className="mt-1 text-xs text-stone-500">{state.label}</p>
+                        <p className="mt-1 text-xs text-stone-500">{stateLabel(state, t, actionLabel)}</p>
                       </div>
                     );
                   })}
@@ -134,20 +144,20 @@ export default function HoldingDetailPanel({
                   {history.map(({ quarter, holding: quarterHolding }) => (
                     <div key={`${quarter.reportDate}-detail`} className="rounded-md bg-stone-50 p-2 text-center">
                       <p className="text-xs font-medium text-ink">{quarterHolding ? `${quarterHolding.portfolioWeight.toFixed(2)}%` : "-"}</p>
-                      <p className="mt-1 text-[11px] text-stone-500">{quarterHolding ? money(quarterHolding.value) : "Not held"}</p>
+                      <p className="mt-1 text-[11px] text-stone-500">{quarterHolding ? money(quarterHolding.value) : t("notHeld")}</p>
                       <p className="mt-1 text-[11px] text-stone-400">
-                        {quarterHolding ? `${quarterHolding.shares.toLocaleString("en-US")} sh` : ""}
+                        {quarterHolding ? `${quarterHolding.shares.toLocaleString("en-US")} ${t("shares")}` : ""}
                       </p>
                     </div>
                   ))}
                 </div>
                 <div className="mt-4 flex flex-wrap gap-3 text-xs text-stone-600">
                   {[
-                    { label: "Held", className: "bg-moss" },
-                    { label: "Added", className: "bg-emerald-600" },
-                    { label: "Reduced", className: "bg-red-600" },
-                    { label: "New", className: "bg-blue-600" },
-                    { label: "Not held", className: "border border-stone-300 bg-white" },
+                    { label: t("held"), className: "bg-moss" },
+                    { label: actionLabel("Added"), className: "bg-emerald-600" },
+                    { label: actionLabel("Reduced"), className: "bg-red-600" },
+                    { label: t("new"), className: "bg-blue-600" },
+                    { label: t("notHeld"), className: "border border-stone-300 bg-white" },
                   ].map((item) => (
                     <span key={item.label} className="inline-flex items-center gap-1.5">
                       <span className={`h-2.5 w-2.5 rounded-full ${item.className}`} />
@@ -160,7 +170,7 @@ export default function HoldingDetailPanel({
           </section>
 
           <section className="mt-6">
-            <h3 className="text-base font-semibold text-ink">Recent Quarter Detail</h3>
+            <h3 className="text-base font-semibold text-ink">{t("recentQuarterDetail")}</h3>
             <div className="mt-4 space-y-3">
               {history.map(({ quarter, holding: quarterHolding }, index) => {
                 const previousHolding = index > 0 ? history[index - 1].holding : undefined;
@@ -168,7 +178,7 @@ export default function HoldingDetailPanel({
                 return (
                 <div key={quarter.reportDate} className="grid gap-2 md:grid-cols-[96px_120px_1fr_150px] md:items-center">
                   <p className="text-sm font-medium text-stone-700">{quarter.reportDate}</p>
-                  <p className="text-xs font-medium text-stone-500">{state.label}</p>
+                  <p className="text-xs font-medium text-stone-500">{stateLabel(state, t, actionLabel)}</p>
                   <div className="h-2 overflow-hidden rounded-full bg-stone-100">
                     <div
                       className={`h-full rounded-full ${quarterHolding ? "bg-moss" : "bg-transparent"}`}
@@ -176,9 +186,9 @@ export default function HoldingDetailPanel({
                     />
                   </div>
                   <div className="text-sm text-stone-600 md:text-right">
-                    <p>{quarterHolding ? money(quarterHolding.value) : "Not held"}</p>
+                    <p>{quarterHolding ? money(quarterHolding.value) : t("notHeld")}</p>
                     <p className="text-xs text-stone-400">
-                      {quarterHolding ? `${quarterHolding.shares.toLocaleString("en-US")} shares` : ""}
+                      {quarterHolding ? `${quarterHolding.shares.toLocaleString("en-US")} ${t("shares")}` : ""}
                     </p>
                   </div>
                 </div>
@@ -189,9 +199,7 @@ export default function HoldingDetailPanel({
 
           <section className="mt-6 rounded-md bg-stone-50 p-4 text-sm text-stone-600">
             <p>
-              Current reported value: <span className="font-medium text-ink">{fullMoney(holding.value)}</span>. 13F data
-              is delayed and does not represent real-time portfolio activity. Value changes can reflect market price movement;
-              share changes are the better signal for buying or selling behavior.
+              {t("currentReportedValue")} <span className="font-medium text-ink">{fullMoney(holding.value)}</span>. {t("detailDisclosure")}
             </p>
           </section>
         </div>

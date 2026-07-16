@@ -1,5 +1,6 @@
 import { ArrowDownAZ, ArrowDownWideNarrow, ArrowUpAZ, ArrowUpWideNarrow } from "lucide-react";
 import { useMemo, useState } from "react";
+import { useLanguage, type TranslationKey } from "../i18n";
 import type { Action, Holding } from "../types/holding";
 
 const actions: Action[] = ["New Position", "Added", "Reduced", "Sold Out", "Unchanged"];
@@ -12,6 +13,16 @@ type ChangeSortKey =
   | "value"
   | "portfolioWeight"
   | "issuerName";
+
+const sortLabelKeys: Record<ChangeSortKey, TranslationKey> = {
+  weightChange: "weightChange",
+  shareChangePercent: "shareChangePercent",
+  valueChange: "valueChange",
+  shareChange: "shareChange",
+  value: "currentValue",
+  portfolioWeight: "portfolioWeight",
+  issuerName: "issuerName",
+};
 
 function money(value: number): string {
   return new Intl.NumberFormat("en-US", {
@@ -42,6 +53,7 @@ export default function ChangesTable({
   showFilter?: boolean;
   onSelectHolding?: (holding: Holding) => void;
 }) {
+  const { actionLabel, t } = useLanguage();
   const [sortKey, setSortKey] = useState<ChangeSortKey>("weightChange");
   const [direction, setDirection] = useState<"asc" | "desc">("desc");
 
@@ -74,8 +86,8 @@ export default function ChangesTable({
     <section className="space-y-4">
       <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
         <div>
-          <h2 className="text-lg font-semibold text-ink">Quarterly Changes</h2>
-          <p className="text-sm text-stone-500">Compared with the prior 13F-HR filing.</p>
+          <h2 className="text-lg font-semibold text-ink">{t("quarterlyChanges")}</h2>
+          <p className="text-sm text-stone-500">{t("comparedPriorFiling")}</p>
         </div>
         {showFilter ? (
           <div className="flex flex-col gap-2 sm:flex-row">
@@ -84,11 +96,11 @@ export default function ChangesTable({
               value={action}
               onChange={(event) => onActionChange(event.target.value as ChangeFilter)}
             >
-              <option value="Changed">Changed only</option>
-              <option value="All">All actions</option>
+              <option value="Changed">{t("changedOnly")}</option>
+              <option value="All">{t("allActions")}</option>
               {actions.map((item) => (
                 <option key={item} value={item}>
-                  {item}
+                  {actionLabel(item)}
                 </option>
               ))}
             </select>
@@ -101,20 +113,18 @@ export default function ChangesTable({
                 setDirection(nextSort === "issuerName" ? "asc" : "desc");
               }}
             >
-              <option value="weightChange">Weight change</option>
-              <option value="shareChangePercent">Share change %</option>
-              <option value="valueChange">Value change</option>
-              <option value="shareChange">Share change</option>
-              <option value="value">Current value</option>
-              <option value="portfolioWeight">Portfolio weight</option>
-              <option value="issuerName">Issuer name</option>
+              {(Object.keys(sortLabelKeys) as ChangeSortKey[]).map((item) => (
+                <option key={item} value={item}>
+                  {t(sortLabelKeys[item])}
+                </option>
+              ))}
             </select>
             <button
               className="inline-flex items-center justify-center gap-2 rounded-md border border-stone-300 bg-white px-3 py-2 text-sm font-medium text-ink hover:bg-stone-50"
               onClick={() => setDirection(direction === "asc" ? "desc" : "asc")}
             >
               <DirectionIcon className="h-4 w-4" />
-              {direction === "asc" ? "Ascending" : "Descending"}
+              {direction === "asc" ? t("ascending") : t("descending")}
             </button>
           </div>
         ) : null}
@@ -124,14 +134,14 @@ export default function ChangesTable({
           <table className="min-w-full divide-y divide-stone-200 text-sm">
             <thead className="bg-stone-50">
               <tr>
-                <th className="px-4 py-3 text-left font-medium text-stone-600">Issuer</th>
-                <th className="px-4 py-3 text-left font-medium text-stone-600">Action</th>
-                <th className="px-4 py-3 text-right font-medium text-stone-600">Current Shares</th>
-                <th className="px-4 py-3 text-right font-medium text-stone-600">Share Change</th>
-                <th className="px-4 py-3 text-right font-medium text-stone-600">Share Change %</th>
-                <th className="px-4 py-3 text-right font-medium text-stone-600">Weight Change</th>
-                <th className="px-4 py-3 text-right font-medium text-stone-600">Value Change</th>
-                <th className="px-4 py-3 text-right font-medium text-stone-600">Weight</th>
+                <th className="px-4 py-3 text-left font-medium text-stone-600">{t("issuer")}</th>
+                <th className="px-4 py-3 text-left font-medium text-stone-600">{t("action")}</th>
+                <th className="px-4 py-3 text-right font-medium text-stone-600">{t("currentShares")}</th>
+                <th className="px-4 py-3 text-right font-medium text-stone-600">{t("shareChange")}</th>
+                <th className="px-4 py-3 text-right font-medium text-stone-600">{t("shareChangePercent")}</th>
+                <th className="px-4 py-3 text-right font-medium text-stone-600">{t("weightChange")}</th>
+                <th className="px-4 py-3 text-right font-medium text-stone-600">{t("valueChange")}</th>
+                <th className="px-4 py-3 text-right font-medium text-stone-600">{t("weight")}</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-stone-100 bg-white">
@@ -147,7 +157,7 @@ export default function ChangesTable({
                   </td>
                   <td className="px-4 py-3">
                     <span className={`inline-flex rounded-full px-2 py-1 text-xs font-medium ring-1 ${badgeClass(holding.action)}`}>
-                      {holding.action}
+                      {actionLabel(holding.action)}
                     </span>
                   </td>
                   <td className="px-4 py-3 text-right text-stone-700">{holding.shares.toLocaleString("en-US")}</td>
@@ -155,7 +165,7 @@ export default function ChangesTable({
                   <td className="px-4 py-3 text-right text-stone-700">
                     {holding.shareChangePercent == null ? "-" : `${holding.shareChangePercent.toFixed(2)}%`}
                   </td>
-                  <td className="px-4 py-3 text-right text-stone-700">{(holding.weightChange ?? 0).toFixed(2)} pts</td>
+                  <td className="px-4 py-3 text-right text-stone-700">{(holding.weightChange ?? 0).toFixed(2)} {t("points")}</td>
                   <td className="px-4 py-3 text-right text-stone-700">{money(holding.valueChange ?? 0)}</td>
                   <td className="px-4 py-3 text-right text-stone-700">{holding.portfolioWeight.toFixed(2)}%</td>
                 </tr>
