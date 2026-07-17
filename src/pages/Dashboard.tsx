@@ -38,7 +38,7 @@ export default function Dashboard({
       <QuarterlySummary changes={changes} />
       <MeaningfulMoves changes={changes} />
       <div className="grid gap-6 xl:grid-cols-[1.6fr_1fr]">
-        <TopHoldingsChart holdings={latest.holdings} />
+        <TopHoldingsChart holdings={latest.holdings} previousHoldings={previousHoldings} />
         <HistoryTrend history={history} />
       </div>
       <ChangesTable changes={visibleChanges} action="All" onActionChange={() => undefined} showFilter={false} />

@@ -39,6 +39,15 @@ function stateLabel(
   return state.action ? actionLabel(state.action) : t(state.labelKey ?? "notHeld");
 }
 
+function storyKey(holding: Holding): TranslationKey {
+  if (holding.action === "Sold Out" || holding.trend === "Exited") return "holdingStoryExited";
+  if (holding.action === "New Position" || holding.trend === "New" || holding.trend === "Re-entered") return "holdingStoryNew";
+  if (holding.trend === "Accumulating" || holding.action === "Added") return "holdingStoryAccumulating";
+  if (holding.trend === "Trimming" || holding.action === "Reduced") return "holdingStoryTrimming";
+  if ((holding.consecutiveQuartersHeld ?? 0) >= 6 || (holding.quartersHeld ?? 0) >= 6) return "holdingStoryCore";
+  return "holdingStoryMixed";
+}
+
 export default function HoldingDetailPanel({
   holding,
   quarters,
@@ -57,6 +66,7 @@ export default function HoldingDetailPanel({
       holding: findHolding(quarter, holding.cusip),
     }))
     .reverse();
+  const maxWeight = Math.max(...history.map((item) => item.holding?.portfolioWeight ?? 0), 1);
 
   return (
     <div className="fixed inset-0 z-50 bg-ink/25 px-4 py-6 backdrop-blur-sm sm:px-6" role="dialog" aria-modal="true">
@@ -113,6 +123,14 @@ export default function HoldingDetailPanel({
             </div>
           </div>
 
+          <section className="mt-6 rounded-md bg-stone-50 p-4 ring-1 ring-stone-200">
+            <p className="text-xs font-medium uppercase tracking-wide text-stone-500">{t("holdingStory")}</p>
+            <p className="mt-2 text-lg font-semibold text-ink">{t(storyKey(holding))}</p>
+            <p className="mt-1 text-sm text-stone-600">
+              {t("recentTrend")}: {trendLabel(holding.trend)} · {t("latestAction")}: {actionLabel(holding.action)}
+            </p>
+          </section>
+
           <section className="mt-6">
             <div>
               <h3 className="text-base font-semibold text-ink">{t("eightQuarterHoldingTimeline")}</h3>
@@ -150,6 +168,20 @@ export default function HoldingDetailPanel({
                       </p>
                     </div>
                   ))}
+                </div>
+                <div className="mt-5 rounded-md bg-stone-50 p-3">
+                  <p className="text-xs font-medium text-stone-500">{t("weightSparkline")}</p>
+                  <div className="mt-3 grid h-16 grid-cols-8 items-end gap-2">
+                    {history.map(({ quarter, holding: quarterHolding }) => (
+                      <div key={`${quarter.reportDate}-weight`} className="flex h-full items-end justify-center rounded bg-white ring-1 ring-stone-200">
+                        <div
+                          className="w-full rounded-t bg-moss"
+                          style={{ height: `${quarterHolding ? Math.max((quarterHolding.portfolioWeight / maxWeight) * 100, 4) : 0}%` }}
+                          title={`${quarter.reportDate ?? ""}: ${quarterHolding ? `${quarterHolding.portfolioWeight.toFixed(2)}%` : t("notHeld")}`}
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
                 <div className="mt-4 flex flex-wrap gap-3 text-xs text-stone-600">
                   {[

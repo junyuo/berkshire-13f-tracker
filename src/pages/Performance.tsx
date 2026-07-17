@@ -100,6 +100,41 @@ function ExcessReturnBars({ quarters }: { quarters: QuarterlyReturn[] }) {
   );
 }
 
+function OutperformanceTimeline({ quarters }: { quarters: QuarterlyReturn[] }) {
+  const { t } = useLanguage();
+  const wins = quarters.filter((quarter) => quarter.excessReturn > 0).length;
+
+  return (
+    <section className="rounded-lg border border-stone-200 bg-white p-5 shadow-sm">
+      <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-start">
+        <div>
+          <h2 className="text-lg font-semibold text-ink">{t("outperformanceTimeline")}</h2>
+          <p className="text-sm text-stone-500">{t("winLossSubtitle")}</p>
+        </div>
+        <p className="text-sm font-semibold text-ink">
+          {t("winRate")}: {wins} / {quarters.length}
+        </p>
+      </div>
+      <div className="mt-4 grid gap-2" style={{ gridTemplateColumns: `repeat(${Math.max(quarters.length, 1)}, minmax(0, 1fr))` }}>
+        {quarters.map((quarter) => {
+          const won = quarter.excessReturn > 0;
+          return (
+            <div
+              key={`${quarter.startDate}-${quarter.endDate}-timeline`}
+              className={`h-7 rounded ${won ? "bg-moss" : "bg-red-600"}`}
+              title={`${quarter.startDate} ${t("to")} ${quarter.endDate}: ${percent(quarter.excessReturn)}`}
+            />
+          );
+        })}
+      </div>
+      <div className="mt-2 flex justify-between text-xs text-stone-500">
+        <span>{quarters[0]?.startDate}</span>
+        <span>{quarters[quarters.length - 1]?.endDate}</span>
+      </div>
+    </section>
+  );
+}
+
 function bestQuarter(quarters: QuarterlyReturn[]): QuarterlyReturn | undefined {
   return [...quarters].sort((a, b) => b.portfolioReturn - a.portfolioReturn)[0];
 }
@@ -166,6 +201,7 @@ export default function Performance({ performance }: { performance: PerformanceD
       </section>
 
       <LineChart points={performance.points} />
+      <OutperformanceTimeline quarters={performance.quarterlyReturns} />
       <ExcessReturnBars quarters={performance.quarterlyReturns} />
 
       <section className="overflow-hidden rounded-lg border border-stone-200 bg-white shadow-sm">
