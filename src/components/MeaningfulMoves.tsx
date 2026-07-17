@@ -11,6 +11,29 @@ function formatPoints(value: number | undefined, pointsLabel: string): string {
   return `${safeValue > 0 ? "+" : ""}${safeValue.toFixed(2)} ${pointsLabel}`;
 }
 
+const tones = {
+  blue: {
+    bar: "bg-blue-600",
+    badge: "bg-blue-50 text-blue-700 ring-blue-200",
+    value: "text-blue-700",
+  },
+  green: {
+    bar: "bg-emerald-600",
+    badge: "bg-emerald-50 text-emerald-700 ring-emerald-200",
+    value: "text-emerald-700",
+  },
+  red: {
+    bar: "bg-red-600",
+    badge: "bg-red-50 text-red-700 ring-red-200",
+    value: "text-red-700",
+  },
+  amber: {
+    bar: "bg-amber-500",
+    badge: "bg-amber-50 text-amber-700 ring-amber-200",
+    value: "text-amber-700",
+  },
+};
+
 export default function MeaningfulMoves({ changes }: { changes: Holding[] }) {
   const { actionLabel, t } = useLanguage();
   const important = changes
@@ -19,18 +42,22 @@ export default function MeaningfulMoves({ changes }: { changes: Holding[] }) {
   const categories = [
     {
       label: t("newOrSoldOut"),
+      tone: tones.blue,
       items: changes.filter((holding) => holding.action === "New Position" || holding.action === "Sold Out"),
     },
     {
       label: t("largeAdds"),
+      tone: tones.green,
       items: important.filter((holding) => holding.action === "Added" && (holding.shareChangePercent ?? 0) >= 10),
     },
     {
       label: t("largeTrims"),
+      tone: tones.red,
       items: important.filter((holding) => holding.action === "Reduced" && (holding.shareChangePercent ?? 0) <= -10),
     },
     {
       label: t("weightOnlyMoves"),
+      tone: tones.amber,
       items: important.filter(
         (holding) =>
           holding.action !== "New Position" &&
@@ -49,10 +76,12 @@ export default function MeaningfulMoves({ changes }: { changes: Holding[] }) {
       </div>
       <div className="mt-4 grid gap-3 lg:grid-cols-4">
         {categories.map((category) => (
-          <div key={category.label} className="rounded-md border border-stone-200 bg-stone-50 p-3">
+          <div key={category.label} className="overflow-hidden rounded-md border border-stone-200 bg-stone-50">
+            <div className={`h-1 ${category.tone.bar}`} />
+            <div className="p-3">
             <div className="flex items-center justify-between gap-2">
               <h3 className="text-sm font-semibold text-ink">{category.label}</h3>
-              <span className="rounded-full bg-white px-2 py-0.5 text-xs font-medium text-stone-500 ring-1 ring-stone-200">
+              <span className={`rounded-full px-2 py-0.5 text-xs font-medium ring-1 ${category.tone.badge}`}>
                 {category.items.length}
               </span>
             </div>
@@ -64,7 +93,9 @@ export default function MeaningfulMoves({ changes }: { changes: Holding[] }) {
                       <p className="truncate text-sm font-medium text-ink">{holding.ticker ?? holding.issuerName}</p>
                       <p className="text-xs text-stone-500">{actionLabel(holding.action)}</p>
                     </div>
-                    <p className="text-right text-xs font-medium text-stone-700">{formatPoints(holding.weightChange, t("points"))}</p>
+                    <p className={`text-right text-xs font-semibold ${category.tone.value}`}>
+                      {formatPoints(holding.weightChange, t("points"))}
+                    </p>
                   </div>
                   <div className="mt-2 flex items-center justify-between gap-2 text-xs text-stone-500">
                     <span>{t("shareChangePercent")}</span>
@@ -73,6 +104,7 @@ export default function MeaningfulMoves({ changes }: { changes: Holding[] }) {
                 </div>
               ))}
               {!category.items.length ? <p className="py-3 text-sm text-stone-500">{t("noItems")}</p> : null}
+            </div>
             </div>
           </div>
         ))}
