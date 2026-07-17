@@ -17,6 +17,7 @@ export default function HoldingsTable({ holdings, onSelectHolding }: { holdings:
   const { t, trendLabel } = useLanguage();
   const [sortKey, setSortKey] = useState<SortKey>("value");
   const [direction, setDirection] = useState<"asc" | "desc">("desc");
+  const maxWeight = Math.max(...holdings.map((holding) => holding.portfolioWeight), 1);
 
   const sortedHoldings = useMemo(() => {
     return [...holdings].sort((a, b) => {
@@ -73,7 +74,17 @@ export default function HoldingsTable({ holdings, onSelectHolding }: { holdings:
                 <td className="px-4 py-3 font-mono text-xs text-stone-500">{holding.cusip}</td>
                 <td className="px-4 py-3 text-right text-stone-700">{money(holding.value)}</td>
                 <td className="px-4 py-3 text-right text-stone-700">{holding.shares.toLocaleString("en-US")}</td>
-                <td className="px-4 py-3 text-right text-stone-700">{holding.portfolioWeight.toFixed(2)}%</td>
+                <td className="px-4 py-3 text-right text-stone-700">
+                  <div className="flex min-w-28 items-center justify-end gap-2">
+                    <div className="h-2 w-16 overflow-hidden rounded-full bg-stone-100">
+                      <div
+                        className="h-full rounded-full bg-moss"
+                        style={{ width: `${Math.max((holding.portfolioWeight / maxWeight) * 100, 3)}%` }}
+                      />
+                    </div>
+                    <span className="w-14 text-right">{holding.portfolioWeight.toFixed(2)}%</span>
+                  </div>
+                </td>
                 {onSelectHolding ? (
                   <td className="px-4 py-3 text-right text-stone-400">
                     <span className="inline-flex items-center justify-end gap-1 text-xs">

@@ -48,6 +48,26 @@ function storyKey(holding: Holding): TranslationKey {
   return "holdingStoryMixed";
 }
 
+function storySummary(history: Array<{ holding: Holding | undefined }>, pointsLabel: string, addedLabel: string, reducedLabel: string, weightLabel: string): string {
+  const held = history.filter((item) => item.holding);
+  const earliest = held[0]?.holding;
+  const latest = held[held.length - 1]?.holding;
+  const weightDelta = latest && earliest ? latest.portfolioWeight - earliest.portfolioWeight : 0;
+  const recent = history.slice(-4);
+  let added = 0;
+  let reduced = 0;
+
+  for (let index = 1; index < recent.length; index += 1) {
+    const previous = recent[index - 1].holding;
+    const current = recent[index].holding;
+    if (!previous || !current) continue;
+    if (current.shares > previous.shares) added += 1;
+    if (current.shares < previous.shares) reduced += 1;
+  }
+
+  return `${held.length}/${history.length} · ${weightLabel} ${weightDelta > 0 ? "+" : ""}${weightDelta.toFixed(2)} ${pointsLabel} · ${added} ${addedLabel} / ${reduced} ${reducedLabel}`;
+}
+
 export default function HoldingDetailPanel({
   holding,
   quarters,
@@ -128,6 +148,9 @@ export default function HoldingDetailPanel({
             <p className="mt-2 text-lg font-semibold text-ink">{t(storyKey(holding))}</p>
             <p className="mt-1 text-sm text-stone-600">
               {t("recentTrend")}: {trendLabel(holding.trend)} · {t("latestAction")}: {actionLabel(holding.action)}
+            </p>
+            <p className="mt-2 text-sm font-medium text-stone-700">
+              {storySummary(history, t("points"), t("intervalsAdded"), t("intervalsReduced"), t("earliestWeightChange"))}
             </p>
           </section>
 

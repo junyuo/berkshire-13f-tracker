@@ -1,6 +1,7 @@
 import { Search } from "lucide-react";
 import { useMemo, useState } from "react";
 import HoldingDetailPanel from "../components/HoldingDetailPanel";
+import HoldingsOverview, { type TrendFilter } from "../components/HoldingsOverview";
 import HoldingsTable from "../components/HoldingsTable";
 import { useLanguage } from "../i18n";
 import type { Holding, QuarterData } from "../types/holding";
@@ -8,16 +9,18 @@ import type { Holding, QuarterData } from "../types/holding";
 export default function Holdings({ holdings, quarters }: { holdings: Holding[]; quarters: QuarterData[] }) {
   const { t } = useLanguage();
   const [query, setQuery] = useState("");
+  const [trendFilter, setTrendFilter] = useState<TrendFilter>("All");
   const [selectedHolding, setSelectedHolding] = useState<Holding | null>(null);
 
   const filteredHoldings = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase();
-    if (!normalizedQuery) return holdings;
+    const trendFiltered = trendFilter === "All" ? holdings : holdings.filter((holding) => holding.trend === trendFilter);
+    if (!normalizedQuery) return trendFiltered;
 
-    return holdings.filter((holding) =>
+    return trendFiltered.filter((holding) =>
       [holding.issuerName, holding.ticker, holding.cusip].some((value) => value?.toLowerCase().includes(normalizedQuery)),
     );
-  }, [holdings, query]);
+  }, [holdings, query, trendFilter]);
 
   return (
     <div className="space-y-4">
@@ -37,6 +40,7 @@ export default function Holdings({ holdings, quarters }: { holdings: Holding[]; 
           />
         </label>
       </div>
+      <HoldingsOverview holdings={holdings} trendFilter={trendFilter} onTrendFilterChange={setTrendFilter} />
       {filteredHoldings.length ? (
         <HoldingsTable holdings={filteredHoldings} onSelectHolding={setSelectedHolding} />
       ) : (
