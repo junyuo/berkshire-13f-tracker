@@ -1,5 +1,452 @@
 [
   {
+    "accessionNumber": "0001193125-26-352200",
+    "filingDate": "2026-08-14",
+    "reportDate": "2026-06-30",
+    "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+    "totalValue": 299253556246,
+    "holdingsCount": 29,
+    "holdings": [
+      {
+        "issuerName": "APPLE INC",
+        "ticker": "AAPL",
+        "cusip": "037833100",
+        "value": 65950296923,
+        "shares": 227917808,
+        "portfolioWeight": 22.0383,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Stable",
+        "quartersHeld": 8,
+        "consecutiveQuartersHeld": 8
+      },
+      {
+        "issuerName": "AMERICAN EXPRESS CO",
+        "ticker": "AXP",
+        "cusip": "025816109",
+        "value": 51282319275,
+        "shares": 151610700,
+        "portfolioWeight": 17.1367,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Stable",
+        "quartersHeld": 8,
+        "consecutiveQuartersHeld": 8
+      },
+      {
+        "issuerName": "COCA COLA CO",
+        "ticker": "KO",
+        "cusip": "191216100",
+        "value": 32508000000,
+        "shares": 400000000,
+        "portfolioWeight": 10.863,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Stable",
+        "quartersHeld": 8,
+        "consecutiveQuartersHeld": 8
+      },
+      {
+        "issuerName": "ALPHABET INC",
+        "ticker": "GOOG",
+        "cusip": "02079K305",
+        "value": 28157599351,
+        "shares": 78791167,
+        "portfolioWeight": 9.4093,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Stable",
+        "quartersHeld": 4,
+        "consecutiveQuartersHeld": 4
+      },
+      {
+        "issuerName": "BANK OF AMER CORP",
+        "ticker": "BAC",
+        "cusip": "060505104",
+        "value": 27543790975,
+        "shares": 483394015,
+        "portfolioWeight": 9.2042,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Trimming",
+        "quartersHeld": 8,
+        "consecutiveQuartersHeld": 8
+      },
+      {
+        "issuerName": "CHEVRON CORPORATION",
+        "ticker": "CVX",
+        "cusip": "166764100",
+        "value": 13986141890,
+        "shares": 84375856,
+        "portfolioWeight": 4.6737,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Stable",
+        "quartersHeld": 8,
+        "consecutiveQuartersHeld": 8
+      },
+      {
+        "issuerName": "OCCIDENTAL PETE CORP",
+        "ticker": "OXY",
+        "cusip": "674599105",
+        "value": 12868205304,
+        "shares": 264941431,
+        "portfolioWeight": 4.3001,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Stable",
+        "quartersHeld": 8,
+        "consecutiveQuartersHeld": 8
+      },
+      {
+        "issuerName": "CHUBB LIMITED",
+        "ticker": "CB",
+        "cusip": "H1467J104",
+        "value": 11670066615,
+        "shares": 34249183,
+        "portfolioWeight": 3.8997,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Stable",
+        "quartersHeld": 8,
+        "consecutiveQuartersHeld": 8
+      },
+      {
+        "issuerName": "MOODYS CORP",
+        "ticker": "MCO",
+        "cusip": "615369105",
+        "value": 11173435852,
+        "shares": 24669778,
+        "portfolioWeight": 3.7338,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Stable",
+        "quartersHeld": 8,
+        "consecutiveQuartersHeld": 8
+      },
+      {
+        "issuerName": "ALPHABET INC",
+        "ticker": "GOOGL",
+        "cusip": "02079K107",
+        "value": 9606489032,
+        "shares": 27188433,
+        "portfolioWeight": 3.2102,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Accumulating",
+        "quartersHeld": 2,
+        "consecutiveQuartersHeld": 2
+      },
+      {
+        "issuerName": "KRAFT HEINZ CO",
+        "ticker": "KHC",
+        "cusip": "500754106",
+        "value": 7691494401,
+        "shares": 325634818,
+        "portfolioWeight": 2.5702,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Stable",
+        "quartersHeld": 8,
+        "consecutiveQuartersHeld": 8
+      },
+      {
+        "issuerName": "DAVITA INC",
+        "ticker": "DVA",
+        "cusip": "23918K108",
+        "value": 6425268898,
+        "shares": 28880209,
+        "portfolioWeight": 2.1471,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Trimming",
+        "quartersHeld": 8,
+        "consecutiveQuartersHeld": 8
+      },
+      {
+        "issuerName": "DELTA AIR LINES INC",
+        "ticker": "DAL",
+        "cusip": "247361702",
+        "value": 5368591200,
+        "shares": 57320000,
+        "portfolioWeight": 1.794,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Accumulating",
+        "quartersHeld": 2,
+        "consecutiveQuartersHeld": 2
+      },
+      {
+        "issuerName": "SIRIUSXM HOLDINGS INC",
+        "ticker": "SIRI",
+        "cusip": "829933100",
+        "value": 3686802237,
+        "shares": 124807117,
+        "portfolioWeight": 1.232,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Stable",
+        "quartersHeld": 8,
+        "consecutiveQuartersHeld": 8
+      },
+      {
+        "issuerName": "VERISIGN INC",
+        "ticker": "VRSN",
+        "cusip": "92343E102",
+        "value": 2261494212,
+        "shares": 8989880,
+        "portfolioWeight": 0.7557,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Stable",
+        "quartersHeld": 8,
+        "consecutiveQuartersHeld": 8
+      },
+      {
+        "issuerName": "KROGER CO",
+        "ticker": "KR",
+        "cusip": "501044101",
+        "value": 2165670000,
+        "shares": 39000000,
+        "portfolioWeight": 0.7237,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Stable",
+        "quartersHeld": 8,
+        "consecutiveQuartersHeld": 8
+      },
+      {
+        "issuerName": "ALLY FINL INC",
+        "ticker": "ALLY",
+        "cusip": "02005N100",
+        "value": 1240650000,
+        "shares": 27000000,
+        "portfolioWeight": 0.4146,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Stable",
+        "quartersHeld": 8,
+        "consecutiveQuartersHeld": 8
+      },
+      {
+        "issuerName": "LENNAR CORP",
+        "ticker": "LEN",
+        "cusip": "526057104",
+        "value": 1186481443,
+        "shares": 13111741,
+        "portfolioWeight": 0.3965,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Stable",
+        "quartersHeld": 5,
+        "consecutiveQuartersHeld": 5
+      },
+      {
+        "issuerName": "LIBERTY LIVE HOLDINGS INC",
+        "ticker": "LLYVK",
+        "cusip": "530909308",
+        "value": 1118425787,
+        "shares": 10587143,
+        "portfolioWeight": 0.3737,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Stable",
+        "quartersHeld": 3,
+        "consecutiveQuartersHeld": 3
+      },
+      {
+        "issuerName": "NEW YORK TIMES CO MTN BE",
+        "ticker": "NYT",
+        "cusip": "650111107",
+        "value": 1098686000,
+        "shares": 15700000,
+        "portfolioWeight": 0.3671,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Accumulating",
+        "quartersHeld": 3,
+        "consecutiveQuartersHeld": 3
+      },
+      {
+        "issuerName": "CAPITAL ONE FINL CORP",
+        "ticker": "COF",
+        "cusip": "14040H105",
+        "value": 601860000,
+        "shares": 3000000,
+        "portfolioWeight": 0.2011,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Stable",
+        "quartersHeld": 8,
+        "consecutiveQuartersHeld": 8
+      },
+      {
+        "issuerName": "LIBERTY LIVE HOLDINGS INC",
+        "ticker": "LLYVA",
+        "cusip": "530909100",
+        "value": 504941901,
+        "shares": 4986588,
+        "portfolioWeight": 0.1687,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Stable",
+        "quartersHeld": 3,
+        "consecutiveQuartersHeld": 3
+      },
+      {
+        "issuerName": "LOUISIANA PAC CORP",
+        "ticker": "LPX",
+        "cusip": "546347105",
+        "value": 445592617,
+        "shares": 5664793,
+        "portfolioWeight": 0.1489,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Stable",
+        "quartersHeld": 8,
+        "consecutiveQuartersHeld": 8
+      },
+      {
+        "issuerName": "NUCOR CORP",
+        "ticker": "NUE",
+        "cusip": "670346105",
+        "value": 413814258,
+        "shares": 1857752,
+        "portfolioWeight": 0.1383,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Stable",
+        "quartersHeld": 5,
+        "consecutiveQuartersHeld": 5
+      },
+      {
+        "issuerName": "MACYS INC",
+        "ticker": "M",
+        "cusip": "55616P104",
+        "value": 173031882,
+        "shares": 7347426,
+        "portfolioWeight": 0.0578,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Accumulating",
+        "quartersHeld": 2,
+        "consecutiveQuartersHeld": 2
+      },
+      {
+        "issuerName": "NVR INC",
+        "ticker": "NVR",
+        "cusip": "62944T105",
+        "value": 75710501,
+        "shares": 11112,
+        "portfolioWeight": 0.0253,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Stable",
+        "quartersHeld": 8,
+        "consecutiveQuartersHeld": 8
+      },
+      {
+        "issuerName": "LENNAR CORP",
+        "ticker": "LEN.B",
+        "cusip": "526057302",
+        "value": 26445959,
+        "shares": 298117,
+        "portfolioWeight": 0.0088,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Stable",
+        "quartersHeld": 8,
+        "consecutiveQuartersHeld": 8
+      },
+      {
+        "issuerName": "JEFFERIES FINANCIAL GROUP IN",
+        "ticker": "JEF",
+        "cusip": "47233W109",
+        "value": 21669229,
+        "shares": 433558,
+        "portfolioWeight": 0.0072,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Stable",
+        "quartersHeld": 8,
+        "consecutiveQuartersHeld": 8
+      },
+      {
+        "issuerName": "D R HORTON INC",
+        "ticker": null,
+        "cusip": "23331A109",
+        "value": 580504,
+        "shares": 3564,
+        "portfolioWeight": 0.0002,
+        "action": "Unchanged",
+        "filingDate": "2026-08-14",
+        "reportDate": "2026-06-30",
+        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+        "trend": "Re-entered",
+        "quartersHeld": 2,
+        "consecutiveQuartersHeld": 1
+      }
+    ],
+    "generatedAt": "2026-08-17T04:18:15.145141+00:00"
+  },
+  {
+    "accessionNumber": "0001193125-26-226661",
     "filingDate": "2026-05-15",
     "reportDate": "2026-03-31",
     "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
@@ -108,8 +555,8 @@
         "reportDate": "2026-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
         "trend": "Stable",
-        "quartersHeld": 3,
-        "consecutiveQuartersHeld": 3
+        "quartersHeld": 4,
+        "consecutiveQuartersHeld": 4
       },
       {
         "issuerName": "CHUBB LTD SWITZ",
@@ -198,8 +645,8 @@
         "reportDate": "2026-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
         "trend": "Stable",
-        "quartersHeld": 7,
-        "consecutiveQuartersHeld": 7
+        "quartersHeld": 8,
+        "consecutiveQuartersHeld": 8
       },
       {
         "issuerName": "DELTA AIR LINES INC",
@@ -212,9 +659,9 @@
         "filingDate": "2026-05-15",
         "reportDate": "2026-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
-        "trend": "New",
-        "quartersHeld": 1,
-        "consecutiveQuartersHeld": 1
+        "trend": "Accumulating",
+        "quartersHeld": 2,
+        "consecutiveQuartersHeld": 2
       },
       {
         "issuerName": "VERISIGN INC",
@@ -258,8 +705,8 @@
         "reportDate": "2026-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
         "trend": "Accumulating",
-        "quartersHeld": 2,
-        "consecutiveQuartersHeld": 2
+        "quartersHeld": 3,
+        "consecutiveQuartersHeld": 3
       },
       {
         "issuerName": "ALLY FINL INC",
@@ -287,9 +734,9 @@
         "filingDate": "2026-05-15",
         "reportDate": "2026-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
-        "trend": "New",
-        "quartersHeld": 1,
-        "consecutiveQuartersHeld": 1
+        "trend": "Accumulating",
+        "quartersHeld": 2,
+        "consecutiveQuartersHeld": 2
       },
       {
         "issuerName": "LIBERTY LIVE HOLDINGS INC",
@@ -302,9 +749,9 @@
         "filingDate": "2026-05-15",
         "reportDate": "2026-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
-        "trend": "Trimming",
-        "quartersHeld": 2,
-        "consecutiveQuartersHeld": 2
+        "trend": "Stable",
+        "quartersHeld": 3,
+        "consecutiveQuartersHeld": 3
       },
       {
         "issuerName": "LENNAR CORP",
@@ -318,8 +765,8 @@
         "reportDate": "2026-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
         "trend": "Stable",
-        "quartersHeld": 4,
-        "consecutiveQuartersHeld": 4
+        "quartersHeld": 5,
+        "consecutiveQuartersHeld": 5
       },
       {
         "issuerName": "NUCOR CORP",
@@ -333,8 +780,8 @@
         "reportDate": "2026-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
         "trend": "Stable",
-        "quartersHeld": 4,
-        "consecutiveQuartersHeld": 4
+        "quartersHeld": 5,
+        "consecutiveQuartersHeld": 5
       },
       {
         "issuerName": "LIBERTY LIVE HOLDINGS INC",
@@ -348,8 +795,8 @@
         "reportDate": "2026-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
         "trend": "Stable",
-        "quartersHeld": 2,
-        "consecutiveQuartersHeld": 2
+        "quartersHeld": 3,
+        "consecutiveQuartersHeld": 3
       },
       {
         "issuerName": "LOUISIANA PAC CORP",
@@ -377,9 +824,9 @@
         "filingDate": "2026-05-15",
         "reportDate": "2026-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
-        "trend": "Stable",
+        "trend": "Exited",
         "quartersHeld": 6,
-        "consecutiveQuartersHeld": 6
+        "consecutiveQuartersHeld": 0
       },
       {
         "issuerName": "NVR INC",
@@ -407,9 +854,9 @@
         "filingDate": "2026-05-15",
         "reportDate": "2026-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
-        "trend": "New",
-        "quartersHeld": 1,
-        "consecutiveQuartersHeld": 1
+        "trend": "Accumulating",
+        "quartersHeld": 2,
+        "consecutiveQuartersHeld": 2
       },
       {
         "issuerName": "LENNAR CORP",
@@ -441,11 +888,10 @@
         "quartersHeld": 8,
         "consecutiveQuartersHeld": 8
       }
-    ],
-    "generatedAt": "2026-06-11T01:36:29.475419+00:00",
-    "accessionNumber": "0001193125-26-226661"
+    ]
   },
   {
+    "accessionNumber": "0001193125-26-054580",
     "filingDate": "2026-02-17",
     "reportDate": "2025-12-31",
     "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526054580/xslForm13F_X02/primary_doc.xml",
@@ -599,8 +1045,8 @@
         "reportDate": "2025-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526054580/xslForm13F_X02/primary_doc.xml",
         "trend": "Stable",
-        "quartersHeld": 3,
-        "consecutiveQuartersHeld": 3
+        "quartersHeld": 4,
+        "consecutiveQuartersHeld": 4
       },
       {
         "issuerName": "DAVITA INC",
@@ -643,8 +1089,8 @@
         "filingDate": "2026-02-17",
         "reportDate": "2025-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526054580/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -659,8 +1105,8 @@
         "reportDate": "2025-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526054580/xslForm13F_X02/primary_doc.xml",
         "trend": "Stable",
-        "quartersHeld": 7,
-        "consecutiveQuartersHeld": 7
+        "quartersHeld": 8,
+        "consecutiveQuartersHeld": 8
       },
       {
         "issuerName": "MASTERCARD INCORPORATED",
@@ -673,8 +1119,8 @@
         "filingDate": "2026-02-17",
         "reportDate": "2025-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526054580/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -703,9 +1149,9 @@
         "filingDate": "2026-02-17",
         "reportDate": "2025-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526054580/xslForm13F_X02/primary_doc.xml",
-        "trend": "Stable",
+        "trend": "Exited",
         "quartersHeld": 6,
-        "consecutiveQuartersHeld": 6
+        "consecutiveQuartersHeld": 0
       },
       {
         "issuerName": "CAPITAL ONE FINL CORP",
@@ -733,7 +1179,7 @@
         "filingDate": "2026-02-17",
         "reportDate": "2025-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526054580/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
+        "trend": null,
         "quartersHeld": 3,
         "consecutiveQuartersHeld": 0
       },
@@ -748,7 +1194,7 @@
         "filingDate": "2026-02-17",
         "reportDate": "2025-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526054580/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
+        "trend": null,
         "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
@@ -778,8 +1224,8 @@
         "filingDate": "2026-02-17",
         "reportDate": "2025-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526054580/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -794,8 +1240,8 @@
         "reportDate": "2025-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526054580/xslForm13F_X02/primary_doc.xml",
         "trend": "Stable",
-        "quartersHeld": 4,
-        "consecutiveQuartersHeld": 4
+        "quartersHeld": 5,
+        "consecutiveQuartersHeld": 5
       },
       {
         "issuerName": "LIBERTY LIVE HOLDINGS INC",
@@ -808,9 +1254,9 @@
         "filingDate": "2026-02-17",
         "reportDate": "2025-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526054580/xslForm13F_X02/primary_doc.xml",
-        "trend": "Trimming",
-        "quartersHeld": 2,
-        "consecutiveQuartersHeld": 2
+        "trend": "Stable",
+        "quartersHeld": 3,
+        "consecutiveQuartersHeld": 3
       },
       {
         "issuerName": "LENNAR CORP",
@@ -824,8 +1270,8 @@
         "reportDate": "2025-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526054580/xslForm13F_X02/primary_doc.xml",
         "trend": "Stable",
-        "quartersHeld": 4,
-        "consecutiveQuartersHeld": 4
+        "quartersHeld": 5,
+        "consecutiveQuartersHeld": 5
       },
       {
         "issuerName": "POOL CORP",
@@ -838,7 +1284,7 @@
         "filingDate": "2026-02-17",
         "reportDate": "2025-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526054580/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
+        "trend": null,
         "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
@@ -853,8 +1299,8 @@
         "filingDate": "2026-02-17",
         "reportDate": "2025-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526054580/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -884,8 +1330,8 @@
         "reportDate": "2025-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526054580/xslForm13F_X02/primary_doc.xml",
         "trend": "Stable",
-        "quartersHeld": 2,
-        "consecutiveQuartersHeld": 2
+        "quartersHeld": 3,
+        "consecutiveQuartersHeld": 3
       },
       {
         "issuerName": "NEW YORK TIMES CO",
@@ -899,8 +1345,8 @@
         "reportDate": "2025-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526054580/xslForm13F_X02/primary_doc.xml",
         "trend": "Accumulating",
-        "quartersHeld": 2,
-        "consecutiveQuartersHeld": 2
+        "quartersHeld": 3,
+        "consecutiveQuartersHeld": 3
       },
       {
         "issuerName": "HEICO CORP NEW",
@@ -913,8 +1359,8 @@
         "filingDate": "2026-02-17",
         "reportDate": "2025-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526054580/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -928,7 +1374,7 @@
         "filingDate": "2026-02-17",
         "reportDate": "2025-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526054580/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
+        "trend": null,
         "quartersHeld": 1,
         "consecutiveQuartersHeld": 0
       },
@@ -943,8 +1389,8 @@
         "filingDate": "2026-02-17",
         "reportDate": "2025-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526054580/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -958,7 +1404,7 @@
         "filingDate": "2026-02-17",
         "reportDate": "2025-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526054580/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
+        "trend": null,
         "quartersHeld": 3,
         "consecutiveQuartersHeld": 0
       },
@@ -973,7 +1419,7 @@
         "filingDate": "2026-02-17",
         "reportDate": "2025-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526054580/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
+        "trend": null,
         "quartersHeld": 3,
         "consecutiveQuartersHeld": 0
       },
@@ -1018,8 +1464,8 @@
         "filingDate": "2026-02-17",
         "reportDate": "2025-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526054580/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -1033,8 +1479,8 @@
         "filingDate": "2026-02-17",
         "reportDate": "2025-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526054580/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -1063,8 +1509,8 @@
         "filingDate": "2026-02-17",
         "reportDate": "2025-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526054580/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -1078,14 +1524,14 @@
         "filingDate": "2026-02-17",
         "reportDate": "2025-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526054580/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       }
-    ],
-    "accessionNumber": "0001193125-26-054580"
+    ]
   },
   {
+    "accessionNumber": "0001193125-25-282901",
     "filingDate": "2025-11-14",
     "reportDate": "2025-09-30",
     "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525282901/xslForm13F_X02/primary_doc.xml",
@@ -1239,8 +1685,8 @@
         "reportDate": "2025-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525282901/xslForm13F_X02/primary_doc.xml",
         "trend": "Stable",
-        "quartersHeld": 3,
-        "consecutiveQuartersHeld": 3
+        "quartersHeld": 4,
+        "consecutiveQuartersHeld": 4
       },
       {
         "issuerName": "DAVITA INC",
@@ -1284,8 +1730,8 @@
         "reportDate": "2025-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525282901/xslForm13F_X02/primary_doc.xml",
         "trend": "Stable",
-        "quartersHeld": 7,
-        "consecutiveQuartersHeld": 7
+        "quartersHeld": 8,
+        "consecutiveQuartersHeld": 8
       },
       {
         "issuerName": "VISA INC",
@@ -1298,8 +1744,8 @@
         "filingDate": "2025-11-14",
         "reportDate": "2025-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525282901/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -1328,8 +1774,8 @@
         "filingDate": "2025-11-14",
         "reportDate": "2025-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525282901/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -1343,8 +1789,8 @@
         "filingDate": "2025-11-14",
         "reportDate": "2025-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525282901/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -1358,9 +1804,9 @@
         "filingDate": "2025-11-14",
         "reportDate": "2025-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525282901/xslForm13F_X02/primary_doc.xml",
-        "trend": "Stable",
+        "trend": "Exited",
         "quartersHeld": 6,
-        "consecutiveQuartersHeld": 6
+        "consecutiveQuartersHeld": 0
       },
       {
         "issuerName": "UNITEDHEALTH GROUP INC",
@@ -1373,7 +1819,7 @@
         "filingDate": "2025-11-14",
         "reportDate": "2025-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525282901/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
+        "trend": null,
         "quartersHeld": 3,
         "consecutiveQuartersHeld": 0
       },
@@ -1403,8 +1849,8 @@
         "filingDate": "2025-11-14",
         "reportDate": "2025-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525282901/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -1418,7 +1864,7 @@
         "filingDate": "2025-11-14",
         "reportDate": "2025-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525282901/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
+        "trend": null,
         "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
@@ -1448,7 +1894,7 @@
         "filingDate": "2025-11-14",
         "reportDate": "2025-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525282901/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
+        "trend": null,
         "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
@@ -1464,7 +1910,7 @@
         "reportDate": "2025-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525282901/xslForm13F_X02/primary_doc.xml",
         "trend": null,
-        "quartersHeld": 6,
+        "quartersHeld": 5,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -1479,8 +1925,8 @@
         "reportDate": "2025-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525282901/xslForm13F_X02/primary_doc.xml",
         "trend": "Stable",
-        "quartersHeld": 4,
-        "consecutiveQuartersHeld": 4
+        "quartersHeld": 5,
+        "consecutiveQuartersHeld": 5
       },
       {
         "issuerName": "NUCOR CORP",
@@ -1494,8 +1940,8 @@
         "reportDate": "2025-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525282901/xslForm13F_X02/primary_doc.xml",
         "trend": "Stable",
-        "quartersHeld": 4,
-        "consecutiveQuartersHeld": 4
+        "quartersHeld": 5,
+        "consecutiveQuartersHeld": 5
       },
       {
         "issuerName": "LOUISIANA PAC CORP",
@@ -1524,7 +1970,7 @@
         "reportDate": "2025-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525282901/xslForm13F_X02/primary_doc.xml",
         "trend": null,
-        "quartersHeld": 6,
+        "quartersHeld": 5,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -1538,8 +1984,8 @@
         "filingDate": "2025-11-14",
         "reportDate": "2025-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525282901/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -1554,7 +2000,7 @@
         "reportDate": "2025-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525282901/xslForm13F_X02/primary_doc.xml",
         "trend": null,
-        "quartersHeld": 6,
+        "quartersHeld": 5,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -1568,8 +2014,8 @@
         "filingDate": "2025-11-14",
         "reportDate": "2025-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525282901/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -1583,7 +2029,7 @@
         "filingDate": "2025-11-14",
         "reportDate": "2025-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525282901/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
+        "trend": null,
         "quartersHeld": 3,
         "consecutiveQuartersHeld": 0
       },
@@ -1598,7 +2044,7 @@
         "filingDate": "2025-11-14",
         "reportDate": "2025-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525282901/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
+        "trend": null,
         "quartersHeld": 3,
         "consecutiveQuartersHeld": 0
       },
@@ -1643,8 +2089,8 @@
         "filingDate": "2025-11-14",
         "reportDate": "2025-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525282901/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -1658,8 +2104,8 @@
         "filingDate": "2025-11-14",
         "reportDate": "2025-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525282901/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -1688,8 +2134,8 @@
         "filingDate": "2025-11-14",
         "reportDate": "2025-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525282901/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -1703,14 +2149,14 @@
         "filingDate": "2025-11-14",
         "reportDate": "2025-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312525282901/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       }
-    ],
-    "accessionNumber": "0001193125-25-282901"
+    ]
   },
   {
+    "accessionNumber": "0000950123-25-008343",
     "filingDate": "2025-08-14",
     "reportDate": "2025-06-30",
     "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325008343/xslForm13F_X02/primary_doc.xml",
@@ -1908,8 +2354,8 @@
         "filingDate": "2025-08-14",
         "reportDate": "2025-06-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325008343/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -1924,8 +2370,8 @@
         "reportDate": "2025-06-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325008343/xslForm13F_X02/primary_doc.xml",
         "trend": "Stable",
-        "quartersHeld": 7,
-        "consecutiveQuartersHeld": 7
+        "quartersHeld": 8,
+        "consecutiveQuartersHeld": 8
       },
       {
         "issuerName": "MASTERCARD INC",
@@ -1938,8 +2384,8 @@
         "filingDate": "2025-08-14",
         "reportDate": "2025-06-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325008343/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -1953,8 +2399,8 @@
         "filingDate": "2025-08-14",
         "reportDate": "2025-06-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325008343/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -1968,9 +2414,9 @@
         "filingDate": "2025-08-14",
         "reportDate": "2025-06-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325008343/xslForm13F_X02/primary_doc.xml",
-        "trend": "Stable",
+        "trend": "Exited",
         "quartersHeld": 6,
-        "consecutiveQuartersHeld": 6
+        "consecutiveQuartersHeld": 0
       },
       {
         "issuerName": "UNITEDHEALTH GROUP INC",
@@ -1983,7 +2429,7 @@
         "filingDate": "2025-08-14",
         "reportDate": "2025-06-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325008343/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
+        "trend": null,
         "quartersHeld": 3,
         "consecutiveQuartersHeld": 0
       },
@@ -2013,8 +2459,8 @@
         "filingDate": "2025-08-14",
         "reportDate": "2025-06-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325008343/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -2028,7 +2474,7 @@
         "filingDate": "2025-08-14",
         "reportDate": "2025-06-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325008343/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
+        "trend": null,
         "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
@@ -2058,7 +2504,7 @@
         "filingDate": "2025-08-14",
         "reportDate": "2025-06-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325008343/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
+        "trend": null,
         "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
@@ -2074,7 +2520,7 @@
         "reportDate": "2025-06-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325008343/xslForm13F_X02/primary_doc.xml",
         "trend": null,
-        "quartersHeld": 6,
+        "quartersHeld": 5,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -2089,8 +2535,8 @@
         "reportDate": "2025-06-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325008343/xslForm13F_X02/primary_doc.xml",
         "trend": "Stable",
-        "quartersHeld": 4,
-        "consecutiveQuartersHeld": 4
+        "quartersHeld": 5,
+        "consecutiveQuartersHeld": 5
       },
       {
         "issuerName": "LENNAR CORP",
@@ -2104,8 +2550,8 @@
         "reportDate": "2025-06-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325008343/xslForm13F_X02/primary_doc.xml",
         "trend": "Stable",
-        "quartersHeld": 4,
-        "consecutiveQuartersHeld": 4
+        "quartersHeld": 5,
+        "consecutiveQuartersHeld": 5
       },
       {
         "issuerName": "LOUISIANA PAC CORP",
@@ -2133,8 +2579,8 @@
         "filingDate": "2025-08-14",
         "reportDate": "2025-06-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325008343/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -2149,7 +2595,7 @@
         "reportDate": "2025-06-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325008343/xslForm13F_X02/primary_doc.xml",
         "trend": null,
-        "quartersHeld": 6,
+        "quartersHeld": 5,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -2163,8 +2609,8 @@
         "filingDate": "2025-08-14",
         "reportDate": "2025-06-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325008343/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -2179,7 +2625,7 @@
         "reportDate": "2025-06-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325008343/xslForm13F_X02/primary_doc.xml",
         "trend": null,
-        "quartersHeld": 6,
+        "quartersHeld": 5,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -2193,9 +2639,9 @@
         "filingDate": "2025-08-14",
         "reportDate": "2025-06-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325008343/xslForm13F_X02/primary_doc.xml",
-        "trend": null,
-        "quartersHeld": 1,
-        "consecutiveQuartersHeld": 0
+        "trend": "Re-entered",
+        "quartersHeld": 2,
+        "consecutiveQuartersHeld": 1
       },
       {
         "issuerName": "LAMAR ADVERTISING CO NEW",
@@ -2208,7 +2654,7 @@
         "filingDate": "2025-08-14",
         "reportDate": "2025-06-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325008343/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
+        "trend": null,
         "quartersHeld": 3,
         "consecutiveQuartersHeld": 0
       },
@@ -2223,7 +2669,7 @@
         "filingDate": "2025-08-14",
         "reportDate": "2025-06-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325008343/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
+        "trend": null,
         "quartersHeld": 3,
         "consecutiveQuartersHeld": 0
       },
@@ -2268,8 +2714,8 @@
         "filingDate": "2025-08-14",
         "reportDate": "2025-06-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325008343/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -2298,8 +2744,8 @@
         "filingDate": "2025-08-14",
         "reportDate": "2025-06-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325008343/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -2313,8 +2759,8 @@
         "filingDate": "2025-08-14",
         "reportDate": "2025-06-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325008343/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -2328,14 +2774,14 @@
         "filingDate": "2025-08-14",
         "reportDate": "2025-06-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325008343/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       }
-    ],
-    "accessionNumber": "0000950123-25-008343"
+    ]
   },
   {
+    "accessionNumber": "0000950123-25-005701",
     "filingDate": "2025-05-15",
     "reportDate": "2025-03-31",
     "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325005701/xslForm13F_X02/primary_doc.xml",
@@ -2533,8 +2979,8 @@
         "filingDate": "2025-05-15",
         "reportDate": "2025-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325005701/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -2549,8 +2995,8 @@
         "reportDate": "2025-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325005701/xslForm13F_X02/primary_doc.xml",
         "trend": "Stable",
-        "quartersHeld": 7,
-        "consecutiveQuartersHeld": 7
+        "quartersHeld": 8,
+        "consecutiveQuartersHeld": 8
       },
       {
         "issuerName": "CONSTELLATION BRANDS INC",
@@ -2563,9 +3009,9 @@
         "filingDate": "2025-05-15",
         "reportDate": "2025-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325005701/xslForm13F_X02/primary_doc.xml",
-        "trend": "Stable",
+        "trend": "Exited",
         "quartersHeld": 6,
-        "consecutiveQuartersHeld": 6
+        "consecutiveQuartersHeld": 0
       },
       {
         "issuerName": "MASTERCARD INC",
@@ -2578,8 +3024,8 @@
         "filingDate": "2025-05-15",
         "reportDate": "2025-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325005701/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -2593,8 +3039,8 @@
         "filingDate": "2025-05-15",
         "reportDate": "2025-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325005701/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -2608,8 +3054,8 @@
         "filingDate": "2025-05-15",
         "reportDate": "2025-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325005701/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -2638,7 +3084,7 @@
         "filingDate": "2025-05-15",
         "reportDate": "2025-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325005701/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
+        "trend": null,
         "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
@@ -2669,7 +3115,7 @@
         "reportDate": "2025-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325005701/xslForm13F_X02/primary_doc.xml",
         "trend": null,
-        "quartersHeld": 4,
+        "quartersHeld": 3,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -2684,7 +3130,7 @@
         "reportDate": "2025-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325005701/xslForm13F_X02/primary_doc.xml",
         "trend": null,
-        "quartersHeld": 6,
+        "quartersHeld": 5,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -2698,8 +3144,8 @@
         "filingDate": "2025-05-15",
         "reportDate": "2025-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325005701/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -2728,7 +3174,7 @@
         "filingDate": "2025-05-15",
         "reportDate": "2025-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325005701/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
+        "trend": null,
         "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
@@ -2744,7 +3190,7 @@
         "reportDate": "2025-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325005701/xslForm13F_X02/primary_doc.xml",
         "trend": null,
-        "quartersHeld": 6,
+        "quartersHeld": 5,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -2759,7 +3205,7 @@
         "reportDate": "2025-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325005701/xslForm13F_X02/primary_doc.xml",
         "trend": null,
-        "quartersHeld": 6,
+        "quartersHeld": 5,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -2773,8 +3219,8 @@
         "filingDate": "2025-05-15",
         "reportDate": "2025-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325005701/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -2803,8 +3249,8 @@
         "filingDate": "2025-05-15",
         "reportDate": "2025-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325005701/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -2833,8 +3279,8 @@
         "filingDate": "2025-05-15",
         "reportDate": "2025-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325005701/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -2863,8 +3309,8 @@
         "filingDate": "2025-05-15",
         "reportDate": "2025-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325005701/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -2878,14 +3324,14 @@
         "filingDate": "2025-05-15",
         "reportDate": "2025-03-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325005701/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       }
-    ],
-    "accessionNumber": "0000950123-25-005701"
+    ]
   },
   {
+    "accessionNumber": "0000950123-25-002701",
     "filingDate": "2025-02-14",
     "reportDate": "2024-12-31",
     "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325002701/xslForm13F_X02/primary_doc.xml",
@@ -3084,8 +3530,8 @@
         "reportDate": "2024-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325002701/xslForm13F_X02/primary_doc.xml",
         "trend": "Stable",
-        "quartersHeld": 7,
-        "consecutiveQuartersHeld": 7
+        "quartersHeld": 8,
+        "consecutiveQuartersHeld": 8
       },
       {
         "issuerName": "VISA INC",
@@ -3098,8 +3544,8 @@
         "filingDate": "2025-02-14",
         "reportDate": "2024-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325002701/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -3113,8 +3559,8 @@
         "filingDate": "2025-02-14",
         "reportDate": "2024-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325002701/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -3128,8 +3574,8 @@
         "filingDate": "2025-02-14",
         "reportDate": "2024-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325002701/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -3143,8 +3589,8 @@
         "filingDate": "2025-02-14",
         "reportDate": "2024-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325002701/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -3173,9 +3619,9 @@
         "filingDate": "2025-02-14",
         "reportDate": "2024-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325002701/xslForm13F_X02/primary_doc.xml",
-        "trend": "Stable",
+        "trend": "Exited",
         "quartersHeld": 6,
-        "consecutiveQuartersHeld": 6
+        "consecutiveQuartersHeld": 0
       },
       {
         "issuerName": "ALLY FINL INC",
@@ -3204,7 +3650,7 @@
         "reportDate": "2024-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325002701/xslForm13F_X02/primary_doc.xml",
         "trend": null,
-        "quartersHeld": 3,
+        "quartersHeld": 2,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -3218,7 +3664,7 @@
         "filingDate": "2025-02-14",
         "reportDate": "2024-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325002701/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
+        "trend": null,
         "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
@@ -3234,7 +3680,7 @@
         "reportDate": "2024-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325002701/xslForm13F_X02/primary_doc.xml",
         "trend": null,
-        "quartersHeld": 4,
+        "quartersHeld": 3,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -3249,7 +3695,7 @@
         "reportDate": "2024-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325002701/xslForm13F_X02/primary_doc.xml",
         "trend": null,
-        "quartersHeld": 6,
+        "quartersHeld": 5,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -3263,8 +3709,8 @@
         "filingDate": "2025-02-14",
         "reportDate": "2024-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325002701/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -3279,7 +3725,7 @@
         "reportDate": "2024-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325002701/xslForm13F_X02/primary_doc.xml",
         "trend": null,
-        "quartersHeld": 6,
+        "quartersHeld": 5,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -3309,7 +3755,7 @@
         "reportDate": "2024-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325002701/xslForm13F_X02/primary_doc.xml",
         "trend": null,
-        "quartersHeld": 3,
+        "quartersHeld": 2,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -3324,7 +3770,7 @@
         "reportDate": "2024-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325002701/xslForm13F_X02/primary_doc.xml",
         "trend": null,
-        "quartersHeld": 6,
+        "quartersHeld": 5,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -3338,7 +3784,7 @@
         "filingDate": "2025-02-14",
         "reportDate": "2024-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325002701/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
+        "trend": null,
         "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
@@ -3353,8 +3799,8 @@
         "filingDate": "2025-02-14",
         "reportDate": "2024-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325002701/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -3398,8 +3844,8 @@
         "filingDate": "2025-02-14",
         "reportDate": "2024-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325002701/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -3428,8 +3874,8 @@
         "filingDate": "2025-02-14",
         "reportDate": "2024-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325002701/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -3443,8 +3889,8 @@
         "filingDate": "2025-02-14",
         "reportDate": "2024-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325002701/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -3458,14 +3904,14 @@
         "filingDate": "2025-02-14",
         "reportDate": "2024-12-31",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012325002701/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       }
-    ],
-    "accessionNumber": "0000950123-25-002701"
+    ]
   },
   {
+    "accessionNumber": "0000950123-24-011775",
     "filingDate": "2024-11-14",
     "reportDate": "2024-09-30",
     "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324011775/xslForm13F_X02/primary_doc.xml",
@@ -3634,7 +4080,7 @@
         "reportDate": "2024-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324011775/xslForm13F_X02/primary_doc.xml",
         "trend": null,
-        "quartersHeld": 3,
+        "quartersHeld": 2,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -3664,8 +4110,8 @@
         "reportDate": "2024-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324011775/xslForm13F_X02/primary_doc.xml",
         "trend": "Stable",
-        "quartersHeld": 7,
-        "consecutiveQuartersHeld": 7
+        "quartersHeld": 8,
+        "consecutiveQuartersHeld": 8
       },
       {
         "issuerName": "VERISIGN INC",
@@ -3693,8 +4139,8 @@
         "filingDate": "2024-11-14",
         "reportDate": "2024-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324011775/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -3708,8 +4154,8 @@
         "filingDate": "2024-11-14",
         "reportDate": "2024-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324011775/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -3723,8 +4169,8 @@
         "filingDate": "2024-11-14",
         "reportDate": "2024-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324011775/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -3738,8 +4184,8 @@
         "filingDate": "2024-11-14",
         "reportDate": "2024-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324011775/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -3769,7 +4215,7 @@
         "reportDate": "2024-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324011775/xslForm13F_X02/primary_doc.xml",
         "trend": null,
-        "quartersHeld": 3,
+        "quartersHeld": 2,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -3799,7 +4245,7 @@
         "reportDate": "2024-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324011775/xslForm13F_X02/primary_doc.xml",
         "trend": null,
-        "quartersHeld": 4,
+        "quartersHeld": 3,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -3813,8 +4259,8 @@
         "filingDate": "2024-11-14",
         "reportDate": "2024-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324011775/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -3844,7 +4290,7 @@
         "reportDate": "2024-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324011775/xslForm13F_X02/primary_doc.xml",
         "trend": null,
-        "quartersHeld": 6,
+        "quartersHeld": 5,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -3859,7 +4305,7 @@
         "reportDate": "2024-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324011775/xslForm13F_X02/primary_doc.xml",
         "trend": null,
-        "quartersHeld": 6,
+        "quartersHeld": 5,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -3873,7 +4319,7 @@
         "filingDate": "2024-11-14",
         "reportDate": "2024-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324011775/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
+        "trend": null,
         "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
@@ -3889,7 +4335,7 @@
         "reportDate": "2024-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324011775/xslForm13F_X02/primary_doc.xml",
         "trend": null,
-        "quartersHeld": 6,
+        "quartersHeld": 5,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -3903,8 +4349,8 @@
         "filingDate": "2024-11-14",
         "reportDate": "2024-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324011775/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -3918,7 +4364,7 @@
         "filingDate": "2024-11-14",
         "reportDate": "2024-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324011775/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
+        "trend": null,
         "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
@@ -3948,8 +4394,8 @@
         "filingDate": "2024-11-14",
         "reportDate": "2024-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324011775/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -3993,8 +4439,8 @@
         "filingDate": "2024-11-14",
         "reportDate": "2024-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324011775/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -4009,7 +4455,7 @@
         "reportDate": "2024-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324011775/xslForm13F_X02/primary_doc.xml",
         "trend": null,
-        "quartersHeld": 2,
+        "quartersHeld": 1,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -4024,7 +4470,7 @@
         "reportDate": "2024-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324011775/xslForm13F_X02/primary_doc.xml",
         "trend": null,
-        "quartersHeld": 2,
+        "quartersHeld": 1,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -4038,8 +4484,8 @@
         "filingDate": "2024-11-14",
         "reportDate": "2024-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324011775/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -4054,7 +4500,7 @@
         "reportDate": "2024-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324011775/xslForm13F_X02/primary_doc.xml",
         "trend": null,
-        "quartersHeld": 2,
+        "quartersHeld": 1,
         "consecutiveQuartersHeld": 0
       },
       {
@@ -4068,636 +4514,10 @@
         "filingDate": "2024-11-14",
         "reportDate": "2024-09-30",
         "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324011775/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
+        "trend": null,
+        "quartersHeld": 6,
         "consecutiveQuartersHeld": 0
       }
-    ],
-    "accessionNumber": "0000950123-24-011775"
-  },
-  {
-    "filingDate": "2024-08-14",
-    "reportDate": "2024-06-30",
-    "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-    "totalValue": 279969062343,
-    "holdingsCount": 41,
-    "holdings": [
-      {
-        "issuerName": "APPLE INC",
-        "ticker": "AAPL",
-        "cusip": "037833100",
-        "value": 84248000000,
-        "shares": 400000000,
-        "portfolioWeight": 30.0919,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": "Stable",
-        "quartersHeld": 8,
-        "consecutiveQuartersHeld": 8
-      },
-      {
-        "issuerName": "BANK AMER CORP",
-        "ticker": "BAC",
-        "cusip": "060505104",
-        "value": 41076524279,
-        "shares": 1032852006,
-        "portfolioWeight": 14.6718,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": "Trimming",
-        "quartersHeld": 8,
-        "consecutiveQuartersHeld": 8
-      },
-      {
-        "issuerName": "AMERICAN EXPRESS CO",
-        "ticker": "AXP",
-        "cusip": "025816109",
-        "value": 35105457585,
-        "shares": 151610700,
-        "portfolioWeight": 12.539,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": "Stable",
-        "quartersHeld": 8,
-        "consecutiveQuartersHeld": 8
-      },
-      {
-        "issuerName": "COCA COLA CO",
-        "ticker": "KO",
-        "cusip": "191216100",
-        "value": 25460000000,
-        "shares": 400000000,
-        "portfolioWeight": 9.0939,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": "Stable",
-        "quartersHeld": 8,
-        "consecutiveQuartersHeld": 8
-      },
-      {
-        "issuerName": "CHEVRON CORP NEW",
-        "ticker": "CVX",
-        "cusip": "166764100",
-        "value": 18553059728,
-        "shares": 118610534,
-        "portfolioWeight": 6.6268,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": "Stable",
-        "quartersHeld": 8,
-        "consecutiveQuartersHeld": 8
-      },
-      {
-        "issuerName": "OCCIDENTAL PETE CORP",
-        "ticker": "OXY",
-        "cusip": "674599105",
-        "value": 16090394458,
-        "shares": 255281524,
-        "portfolioWeight": 5.7472,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": "Stable",
-        "quartersHeld": 8,
-        "consecutiveQuartersHeld": 8
-      },
-      {
-        "issuerName": "KRAFT HEINZ CO",
-        "ticker": "KHC",
-        "cusip": "500754106",
-        "value": 10491953836,
-        "shares": 325634818,
-        "portfolioWeight": 3.7475,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": "Stable",
-        "quartersHeld": 8,
-        "consecutiveQuartersHeld": 8
-      },
-      {
-        "issuerName": "MOODYS CORP",
-        "ticker": "MCO",
-        "cusip": "615369105",
-        "value": 10384249654,
-        "shares": 24669778,
-        "portfolioWeight": 3.7091,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": "Stable",
-        "quartersHeld": 8,
-        "consecutiveQuartersHeld": 8
-      },
-      {
-        "issuerName": "CHUBB LIMITED",
-        "ticker": "CB",
-        "cusip": "H1467J104",
-        "value": 6895777623,
-        "shares": 27033784,
-        "portfolioWeight": 2.463,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": "Stable",
-        "quartersHeld": 8,
-        "consecutiveQuartersHeld": 8
-      },
-      {
-        "issuerName": "DAVITA INC",
-        "ticker": "DVA",
-        "cusip": "23918K108",
-        "value": 5001763135,
-        "shares": 36095570,
-        "portfolioWeight": 1.7865,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": "Trimming",
-        "quartersHeld": 8,
-        "consecutiveQuartersHeld": 8
-      },
-      {
-        "issuerName": "CITIGROUP INC",
-        "ticker": null,
-        "cusip": "172967424",
-        "value": 3505834818,
-        "shares": 55244797,
-        "portfolioWeight": 1.2522,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": null,
-        "quartersHeld": 3,
-        "consecutiveQuartersHeld": 0
-      },
-      {
-        "issuerName": "KROGER CO",
-        "ticker": "KR",
-        "cusip": "501044101",
-        "value": 2496500001,
-        "shares": 50000000,
-        "portfolioWeight": 0.8917,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": "Stable",
-        "quartersHeld": 8,
-        "consecutiveQuartersHeld": 8
-      },
-      {
-        "issuerName": "VERISIGN INC",
-        "ticker": "VRSN",
-        "cusip": "92343E102",
-        "value": 2278615992,
-        "shares": 12815613,
-        "portfolioWeight": 0.8139,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": "Stable",
-        "quartersHeld": 8,
-        "consecutiveQuartersHeld": 8
-      },
-      {
-        "issuerName": "VISA INC",
-        "ticker": null,
-        "cusip": "92826C839",
-        "value": 2177834326,
-        "shares": 8297460,
-        "portfolioWeight": 0.7779,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
-        "consecutiveQuartersHeld": 0
-      },
-      {
-        "issuerName": "AMAZON COM INC",
-        "ticker": null,
-        "cusip": "023135106",
-        "value": 1932500000,
-        "shares": 10000000,
-        "portfolioWeight": 0.6903,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
-        "consecutiveQuartersHeld": 0
-      },
-      {
-        "issuerName": "MASTERCARD INC",
-        "ticker": null,
-        "cusip": "57636Q104",
-        "value": 1758749632,
-        "shares": 3986648,
-        "portfolioWeight": 0.6282,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
-        "consecutiveQuartersHeld": 0
-      },
-      {
-        "issuerName": "LIBERTY MEDIA CORP DEL",
-        "ticker": null,
-        "cusip": "531229789",
-        "value": 1551264198,
-        "shares": 70002897,
-        "portfolioWeight": 0.5541,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": null,
-        "quartersHeld": 1,
-        "consecutiveQuartersHeld": 0
-      },
-      {
-        "issuerName": "NU HLDGS LTD",
-        "ticker": null,
-        "cusip": "G6683N103",
-        "value": 1380761126,
-        "shares": 107118784,
-        "portfolioWeight": 0.4932,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": null,
-        "quartersHeld": 3,
-        "consecutiveQuartersHeld": 0
-      },
-      {
-        "issuerName": "CAPITAL ONE FINL CORP",
-        "ticker": "COF",
-        "cusip": "14040H105",
-        "value": 1359447750,
-        "shares": 9819052,
-        "portfolioWeight": 0.4856,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": "Stable",
-        "quartersHeld": 8,
-        "consecutiveQuartersHeld": 8
-      },
-      {
-        "issuerName": "AON PLC",
-        "ticker": null,
-        "cusip": "G0403H108",
-        "value": 1203678000,
-        "shares": 4100000,
-        "portfolioWeight": 0.4299,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
-        "consecutiveQuartersHeld": 0
-      },
-      {
-        "issuerName": "ALLY FINL INC",
-        "ticker": "ALLY",
-        "cusip": "02005N100",
-        "value": 1150430000,
-        "shares": 29000000,
-        "portfolioWeight": 0.4109,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": "Stable",
-        "quartersHeld": 8,
-        "consecutiveQuartersHeld": 8
-      },
-      {
-        "issuerName": "CHARTER COMMUNICATIONS INC N",
-        "ticker": null,
-        "cusip": "16119P108",
-        "value": 1144700201,
-        "shares": 3828941,
-        "portfolioWeight": 0.4089,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
-        "consecutiveQuartersHeld": 0
-      },
-      {
-        "issuerName": "T-MOBILE US INC",
-        "ticker": null,
-        "cusip": "872590104",
-        "value": 823112960,
-        "shares": 4672000,
-        "portfolioWeight": 0.294,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": null,
-        "quartersHeld": 4,
-        "consecutiveQuartersHeld": 0
-      },
-      {
-        "issuerName": "LIBERTY MEDIA CORP DEL",
-        "ticker": null,
-        "cusip": "531229813",
-        "value": 779286152,
-        "shares": 35182219,
-        "portfolioWeight": 0.2783,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": null,
-        "quartersHeld": 1,
-        "consecutiveQuartersHeld": 0
-      },
-      {
-        "issuerName": "LIBERTY MEDIA CORP DEL",
-        "ticker": null,
-        "cusip": "531229854",
-        "value": 554780880,
-        "shares": 7722451,
-        "portfolioWeight": 0.1982,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": null,
-        "quartersHeld": 6,
-        "consecutiveQuartersHeld": 0
-      },
-      {
-        "issuerName": "LOUISIANA PAC CORP",
-        "ticker": "LPX",
-        "cusip": "546347105",
-        "value": 491081408,
-        "shares": 5964793,
-        "portfolioWeight": 0.1754,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": "Stable",
-        "quartersHeld": 8,
-        "consecutiveQuartersHeld": 8
-      },
-      {
-        "issuerName": "LIBERTY MEDIA CORP DEL",
-        "ticker": null,
-        "cusip": "531229722",
-        "value": 417818885,
-        "shares": 10917661,
-        "portfolioWeight": 0.1492,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": null,
-        "quartersHeld": 6,
-        "consecutiveQuartersHeld": 0
-      },
-      {
-        "issuerName": "FLOOR & DECOR HLDGS INC",
-        "ticker": null,
-        "cusip": "339750101",
-        "value": 395440057,
-        "shares": 3977870,
-        "portfolioWeight": 0.1412,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": null,
-        "quartersHeld": 1,
-        "consecutiveQuartersHeld": 0
-      },
-      {
-        "issuerName": "SIRIUS XM HOLDINGS INC",
-        "ticker": null,
-        "cusip": "82968B103",
-        "value": 376045343,
-        "shares": 132878213,
-        "portfolioWeight": 0.1343,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": null,
-        "quartersHeld": 1,
-        "consecutiveQuartersHeld": 0
-      },
-      {
-        "issuerName": "ULTA BEAUTY INC",
-        "ticker": null,
-        "cusip": "90384S303",
-        "value": 266291202,
-        "shares": 690106,
-        "portfolioWeight": 0.0951,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": null,
-        "quartersHeld": 2,
-        "consecutiveQuartersHeld": 0
-      },
-      {
-        "issuerName": "LIBERTY MEDIA CORP DEL",
-        "ticker": null,
-        "cusip": "531229748",
-        "value": 187046916,
-        "shares": 4986588,
-        "portfolioWeight": 0.0668,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": null,
-        "quartersHeld": 6,
-        "consecutiveQuartersHeld": 0
-      },
-      {
-        "issuerName": "HEICO CORP NEW",
-        "ticker": null,
-        "cusip": "422806208",
-        "value": 185373840,
-        "shares": 1044242,
-        "portfolioWeight": 0.0662,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
-        "consecutiveQuartersHeld": 0
-      },
-      {
-        "issuerName": "NVR INC",
-        "ticker": "NVR",
-        "cusip": "62944T105",
-        "value": 84324079,
-        "shares": 11112,
-        "portfolioWeight": 0.0301,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": "Stable",
-        "quartersHeld": 8,
-        "consecutiveQuartersHeld": 8
-      },
-      {
-        "issuerName": "DIAGEO P L C",
-        "ticker": null,
-        "cusip": "25243Q205",
-        "value": 28714720,
-        "shares": 227750,
-        "portfolioWeight": 0.0103,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
-        "consecutiveQuartersHeld": 0
-      },
-      {
-        "issuerName": "LIBERTY LATIN AMERICA LTD",
-        "ticker": null,
-        "cusip": "G9001E102",
-        "value": 25281911,
-        "shares": 2630792,
-        "portfolioWeight": 0.009,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
-        "consecutiveQuartersHeld": 0
-      },
-      {
-        "issuerName": "JEFFERIES FINL GROUP INC",
-        "ticker": "JEF",
-        "cusip": "47233W109",
-        "value": 21573846,
-        "shares": 433558,
-        "portfolioWeight": 0.0077,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": "Stable",
-        "quartersHeld": 8,
-        "consecutiveQuartersHeld": 8
-      },
-      {
-        "issuerName": "VANGUARD INDEX FDS",
-        "ticker": null,
-        "cusip": "922908363",
-        "value": 21505590,
-        "shares": 43000,
-        "portfolioWeight": 0.0077,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": null,
-        "quartersHeld": 2,
-        "consecutiveQuartersHeld": 0
-      },
-      {
-        "issuerName": "SPDR S&P 500 ETF TR",
-        "ticker": null,
-        "cusip": "78462F103",
-        "value": 21442268,
-        "shares": 39400,
-        "portfolioWeight": 0.0077,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": null,
-        "quartersHeld": 2,
-        "consecutiveQuartersHeld": 0
-      },
-      {
-        "issuerName": "LENNAR CORP",
-        "ticker": "LEN.B",
-        "cusip": "526057302",
-        "value": 21273114,
-        "shares": 152572,
-        "portfolioWeight": 0.0076,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": "Stable",
-        "quartersHeld": 8,
-        "consecutiveQuartersHeld": 8
-      },
-      {
-        "issuerName": "LIBERTY LATIN AMERICA LTD",
-        "ticker": null,
-        "cusip": "G9001E128",
-        "value": 12352272,
-        "shares": 1284020,
-        "portfolioWeight": 0.0044,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
-        "consecutiveQuartersHeld": 0
-      },
-      {
-        "issuerName": "ATLANTA BRAVES HLDGS INC",
-        "ticker": null,
-        "cusip": "047726302",
-        "value": 8820558,
-        "shares": 223645,
-        "portfolioWeight": 0.0032,
-        "action": "Unchanged",
-        "filingDate": "2024-08-14",
-        "reportDate": "2024-06-30",
-        "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-        "trend": "Exited",
-        "quartersHeld": 7,
-        "consecutiveQuartersHeld": 0
-      }
-    ],
-    "accessionNumber": "0000950123-24-008740"
+    ]
   }
 ]

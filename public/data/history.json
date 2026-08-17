@@ -1,5 +1,12 @@
 [
   {
+    "filingDate": "2026-08-14",
+    "reportDate": "2026-06-30",
+    "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+    "totalValue": 299253556246,
+    "holdingsCount": 29
+  },
+  {
     "filingDate": "2026-05-15",
     "reportDate": "2026-03-31",
     "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
@@ -47,12 +54,5 @@
     "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324011775/xslForm13F_X02/primary_doc.xml",
     "totalValue": 266378900503,
     "holdingsCount": 40
-  },
-  {
-    "filingDate": "2024-08-14",
-    "reportDate": "2024-06-30",
-    "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000095012324008740/xslForm13F_X02/primary_doc.xml",
-    "totalValue": 279969062343,
-    "holdingsCount": 41
   }
 ]
