@@ -19,6 +19,15 @@ function fullMoney(value: number): string {
   }).format(value);
 }
 
+function unitMoney(value: number): string {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(value);
+}
+
 function findHolding(quarter: QuarterData, cusip: string | null): Holding | undefined {
   return quarter.holdings.find((holding) => holding.cusip === cusip);
 }
@@ -87,6 +96,31 @@ export default function HoldingDetailPanel({
     }))
     .reverse();
   const maxWeight = Math.max(...history.map((item) => item.holding?.portfolioWeight ?? 0), 1);
+  const cost = holding.cost;
+  const impliedPrice = holding.shares > 0 ? holding.value / holding.shares : null;
+  const relativeCostReturn = cost.basis && cost.basis > 0 ? (holding.value / cost.basis - 1) * 100 : null;
+  const averageLow = cost.basisLow != null && holding.shares > 0 ? cost.basisLow / holding.shares : null;
+  const averageHigh = cost.basisHigh != null && holding.shares > 0 ? cost.basisHigh / holding.shares : null;
+  const costStatusLabel =
+    cost.status === "official"
+      ? t("costOfficial")
+      : cost.status === "hybrid"
+        ? t("costHybrid")
+        : cost.status === "estimated"
+          ? t("costEstimated")
+          : t("costUnavailable");
+  const reasonLabel =
+    cost.reason === "insufficient-history"
+      ? t("costReasonHistory")
+      : cost.reason === "missing-price"
+        ? t("costReasonPrice")
+        : cost.reason === "corporate-action"
+          ? t("costReasonCorporateAction")
+          : cost.reason === "unsupported-security"
+            ? t("costReasonUnsupported")
+            : cost.reason === "sold-out"
+              ? t("costReasonSoldOut")
+              : t("notAvailable");
 
   return (
     <div className="fixed inset-0 z-50 bg-ink/25 px-4 py-6 backdrop-blur-sm sm:px-6" role="dialog" aria-modal="true">
@@ -142,6 +176,72 @@ export default function HoldingDetailPanel({
               </p>
             </div>
           </div>
+
+          <section className="mt-6 rounded-md border border-stone-200 bg-stone-50 p-4">
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <p className="text-xs font-medium uppercase tracking-wide text-stone-500">{t("holdingCost")}</p>
+                <h3 className="mt-1 text-base font-semibold text-ink">{t("holdingCostSubtitle")}</h3>
+              </div>
+              <span
+                className={`rounded-full px-2.5 py-1 text-xs font-medium ${
+                  cost.status === "official"
+                    ? "bg-blue-100 text-blue-800"
+                    : cost.status === "hybrid"
+                      ? "bg-violet-100 text-violet-800"
+                      : cost.status === "estimated"
+                        ? "bg-amber-100 text-amber-800"
+                        : "bg-stone-200 text-stone-600"
+                }`}
+              >
+                {costStatusLabel}
+              </span>
+            </div>
+            {cost.basis != null && cost.averagePrice != null ? (
+              <>
+                <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+                  <div className="rounded-md bg-white p-3 ring-1 ring-stone-200">
+                    <p className="text-xs text-stone-500">{t("averageCost")}</p>
+                    <p className="mt-1 text-right text-lg font-semibold text-ink">≈ {unitMoney(cost.averagePrice)}</p>
+                  </div>
+                  <div className="rounded-md bg-white p-3 ring-1 ring-stone-200">
+                    <p className="text-xs text-stone-500">{t("totalCostBasis")}</p>
+                    <p className="mt-1 text-right text-lg font-semibold text-ink">≈ {money(cost.basis)}</p>
+                  </div>
+                  <div className="rounded-md bg-white p-3 ring-1 ring-stone-200">
+                    <p className="text-xs text-stone-500">{t("quarterEndPrice")}</p>
+                    <p className="mt-1 text-right text-lg font-semibold text-ink">{impliedPrice == null ? "-" : unitMoney(impliedPrice)}</p>
+                  </div>
+                  <div className="rounded-md bg-white p-3 ring-1 ring-stone-200">
+                    <p className="text-xs text-stone-500">{t("relativeCostReturn")}</p>
+                    <p
+                      className={`mt-1 text-right text-lg font-semibold ${
+                        relativeCostReturn != null && relativeCostReturn >= 0 ? "text-emerald-700" : "text-red-700"
+                      }`}
+                    >
+                      {relativeCostReturn == null ? "-" : `${relativeCostReturn >= 0 ? "+" : ""}${relativeCostReturn.toFixed(1)}%`}
+                    </p>
+                  </div>
+                </div>
+                {cost.status !== "official" && averageLow != null && averageHigh != null ? (
+                  <p className="mt-3 text-sm text-stone-600">
+                    {t("estimatedCostRange")}: {unitMoney(averageLow)}–{unitMoney(averageHigh)} / {t("shareUnit")}
+                  </p>
+                ) : null}
+                <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-stone-500">
+                  {cost.sourceAsOf ? <span>{t("costSourceAsOf")}: {cost.sourceAsOf}</span> : null}
+                  {cost.sourceUrl ? (
+                    <a className="font-medium text-moss underline-offset-2 hover:underline" href={cost.sourceUrl} target="_blank" rel="noreferrer">
+                      {t("viewCostSource")}
+                    </a>
+                  ) : null}
+                </div>
+              </>
+            ) : (
+              <p className="mt-4 text-sm text-stone-600">{reasonLabel}</p>
+            )}
+            <p className="mt-3 border-t border-stone-200 pt-3 text-xs leading-5 text-stone-500">{t("costDisclosure")}</p>
+          </section>
 
           <section className="mt-6 rounded-md bg-stone-50 p-4 ring-1 ring-stone-200">
             <p className="text-xs font-medium uppercase tracking-wide text-stone-500">{t("holdingStory")}</p>

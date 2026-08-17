@@ -29,6 +29,7 @@ Generated files:
 - `public/data/changes.json`
 - `public/data/quarters.json`
 - `public/data/performance.json`
+- `public/data/official_cost_basis.json`
 
 ## Build
 
@@ -69,6 +70,8 @@ The Vite `base` path is configured automatically from `GITHUB_REPOSITORY` during
 - SEC information table `value` fields are written to JSON as reported by the XML source.
 - Tickers are filled from a local CUSIP mapping where available and remain `null` when no reliable mapping exists.
 - Performance is an estimated quarterly rebalanced 13F portfolio comparison against SPY, not Berkshire Hathaway's actual investment performance.
+- Holding costs use Berkshire's annual-report cost basis where available. Other values are conservatively estimated only when the full position entry is visible within the available eight-quarter history; unsupported cases remain unavailable.
+- Estimated purchase prices use daily closes with Yahoo, Nasdaq, and Stooq fallbacks. Split events are normalized when available; ambiguous share jumps remain unavailable. A full-quarter interval must contain at least 40 observations and cover both interval endpoints.
 - Quarterly change actions are based on share count changes by CUSIP:
   - `New Position`
   - `Added`

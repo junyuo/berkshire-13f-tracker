@@ -14,6 +14,7 @@ from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 
 from compare_quarters import build_history, compare_quarters, enrich_quarters_with_trends
+from cost_basis import create_price_session, fetch_cost_price_histories, enrich_quarters_with_costs, load_official_costs
 from performance import build_performance
 from parse_13f import FilingMeta, parse_information_table
 
@@ -40,6 +41,7 @@ SESSION.mount(
         )
     ),
 )
+COST_SESSION = create_price_session(max_attempts=3)
 
 
 @dataclass(frozen=True)
@@ -146,7 +148,10 @@ def generate_data(output_dir: Path, filings: list[FilingCandidate] | None = None
     if len(filings) < 2:
         raise RuntimeError("SEC submissions feed returned fewer than two 13F-HR filings.")
 
+    official_costs = load_official_costs()
     quarters = enrich_quarters_with_trends([fetch_quarter(filing) for filing in filings])
+    cost_prices = fetch_cost_price_histories(quarters, COST_SESSION, official_costs)
+    quarters = enrich_quarters_with_costs(quarters, official_costs, cost_prices)
     latest, previous = quarters[0], quarters[1]
     latest["generatedAt"] = datetime.now(UTC).isoformat()
 
@@ -160,6 +165,7 @@ def generate_data(output_dir: Path, filings: list[FilingCandidate] | None = None
     write_json(output_dir / "changes.json", compare_quarters(latest, previous))
     write_json(output_dir / "quarters.json", quarters)
     write_json(output_dir / "performance.json", performance)
+    write_json(output_dir / "official_cost_basis.json", official_costs)
 
     print(
         f"Wrote {latest['holdingsCount']} latest holdings for report date "

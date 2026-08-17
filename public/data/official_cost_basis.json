@@ -1,0 +1,32 @@
+{
+  "sourceLabel": "Berkshire Hathaway 2025 Annual Report, page 15",
+  "sourceUrl": "https://berkshirehathaway.com/2025ar/2025ar.pdf",
+  "sourceAsOf": "2025-12-31",
+  "amountPrecision": 1000000,
+  "holdings": [
+    {
+      "ticker": "AAPL",
+      "cusip": "037833100",
+      "shares": 227917808,
+      "basis": 6255000000
+    },
+    {
+      "ticker": "AXP",
+      "cusip": "025816109",
+      "shares": 151610700,
+      "basis": 1287000000
+    },
+    {
+      "ticker": "KO",
+      "cusip": "191216100",
+      "shares": 400000000,
+      "basis": 1299000000
+    },
+    {
+      "ticker": "MCO",
+      "cusip": "615369105",
+      "shares": 24669778,
+      "basis": 248000000
+    }
+  ]
+}

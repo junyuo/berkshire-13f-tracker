@@ -1,5 +1,20 @@
 export type Action = "New Position" | "Added" | "Reduced" | "Unchanged" | "Sold Out";
 export type HoldingTrend = "Accumulating" | "Trimming" | "Stable" | "Re-entered" | "Exited" | "New";
+export type CostStatus = "official" | "hybrid" | "estimated" | "unavailable";
+export type CostMethod = "reported" | "reported-carried" | "reported-plus-estimates" | "observed-period-estimate";
+export type CostReason = "insufficient-history" | "missing-price" | "corporate-action" | "unsupported-security" | "sold-out";
+
+export interface HoldingCost {
+  status: CostStatus;
+  basis: number | null;
+  basisLow: number | null;
+  basisHigh: number | null;
+  averagePrice: number | null;
+  method: CostMethod | null;
+  sourceAsOf: string | null;
+  sourceUrl: string | null;
+  reason: CostReason | null;
+}
 
 export interface Holding {
   issuerName: string | null;
@@ -22,6 +37,7 @@ export interface Holding {
   trend?: HoldingTrend | null;
   quartersHeld?: number;
   consecutiveQuartersHeld?: number;
+  cost: HoldingCost;
 }
 
 export interface LatestData {

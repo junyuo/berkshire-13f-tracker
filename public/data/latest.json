@@ -19,7 +19,18 @@
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
       "trend": "Stable",
       "quartersHeld": 8,
-      "consecutiveQuartersHeld": 8
+      "consecutiveQuartersHeld": 8,
+      "cost": {
+        "status": "official",
+        "basis": 6255000000,
+        "basisLow": 6255000000,
+        "basisHigh": 6255000000,
+        "averagePrice": 27.444104,
+        "method": "reported-carried",
+        "sourceAsOf": "2025-12-31",
+        "sourceUrl": "https://berkshirehathaway.com/2025ar/2025ar.pdf",
+        "reason": null
+      }
     },
     {
       "issuerName": "AMERICAN EXPRESS CO",
@@ -34,7 +45,18 @@
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
       "trend": "Stable",
       "quartersHeld": 8,
-      "consecutiveQuartersHeld": 8
+      "consecutiveQuartersHeld": 8,
+      "cost": {
+        "status": "official",
+        "basis": 1287000000,
+        "basisLow": 1287000000,
+        "basisHigh": 1287000000,
+        "averagePrice": 8.488847,
+        "method": "reported-carried",
+        "sourceAsOf": "2025-12-31",
+        "sourceUrl": "https://berkshirehathaway.com/2025ar/2025ar.pdf",
+        "reason": null
+      }
     },
     {
       "issuerName": "COCA COLA CO",
@@ -44,12 +66,107 @@
       "shares": 400000000,
       "portfolioWeight": 10.863,
       "action": "Unchanged",
+<<<<<<< HEAD
       "filingDate": "2026-08-14",
       "reportDate": "2026-06-30",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+=======
+      "filingDate": "2026-05-15",
+      "reportDate": "2026-03-31",
+      "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
       "trend": "Stable",
       "quartersHeld": 8,
-      "consecutiveQuartersHeld": 8
+      "consecutiveQuartersHeld": 8,
+      "cost": {
+        "status": "official",
+        "basis": 1299000000,
+        "basisLow": 1299000000,
+        "basisHigh": 1299000000,
+        "averagePrice": 3.2475,
+        "method": "reported-carried",
+        "sourceAsOf": "2025-12-31",
+        "sourceUrl": "https://berkshirehathaway.com/2025ar/2025ar.pdf",
+        "reason": null
+      }
+    },
+    {
+      "issuerName": "BANK AMERICA CORP",
+      "ticker": "BAC",
+      "cusip": "060505104",
+      "value": 25039178044,
+      "shares": 513624165,
+      "portfolioWeight": 9.5171,
+      "action": "Unchanged",
+      "filingDate": "2026-05-15",
+      "reportDate": "2026-03-31",
+      "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
+      "trend": "Trimming",
+      "quartersHeld": 8,
+      "consecutiveQuartersHeld": 8,
+      "cost": {
+        "status": "unavailable",
+        "basis": null,
+        "basisLow": null,
+        "basisHigh": null,
+        "averagePrice": null,
+        "method": null,
+        "sourceAsOf": null,
+        "sourceUrl": null,
+        "reason": "insufficient-history"
+      }
+    },
+    {
+      "issuerName": "CHEVRON CORPORATION",
+      "ticker": "CVX",
+      "cusip": "166764100",
+      "value": 17457364606,
+      "shares": 84375856,
+      "portfolioWeight": 6.6354,
+      "action": "Unchanged",
+      "filingDate": "2026-05-15",
+      "reportDate": "2026-03-31",
+      "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
+      "trend": "Stable",
+      "quartersHeld": 8,
+      "consecutiveQuartersHeld": 8,
+      "cost": {
+        "status": "unavailable",
+        "basis": null,
+        "basisLow": null,
+        "basisHigh": null,
+        "averagePrice": null,
+        "method": null,
+        "sourceAsOf": null,
+        "sourceUrl": null,
+        "reason": "insufficient-history"
+      }
+    },
+    {
+      "issuerName": "OCCIDENTAL PETE CORP",
+      "ticker": "OXY",
+      "cusip": "674599105",
+      "value": 17221193015,
+      "shares": 264941431,
+      "portfolioWeight": 6.5456,
+      "action": "Unchanged",
+      "filingDate": "2026-05-15",
+      "reportDate": "2026-03-31",
+      "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
+>>>>>>> 8c2930d (Add Berkshire holding cost estimates)
+      "trend": "Stable",
+      "quartersHeld": 8,
+      "consecutiveQuartersHeld": 8,
+      "cost": {
+        "status": "unavailable",
+        "basis": null,
+        "basisLow": null,
+        "basisHigh": null,
+        "averagePrice": null,
+        "method": null,
+        "sourceAsOf": null,
+        "sourceUrl": null,
+        "reason": "insufficient-history"
+      }
     },
     {
       "issuerName": "ALPHABET INC",
@@ -63,8 +180,24 @@
       "reportDate": "2026-06-30",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
       "trend": "Stable",
+<<<<<<< HEAD
       "quartersHeld": 4,
       "consecutiveQuartersHeld": 4
+=======
+      "quartersHeld": 3,
+      "consecutiveQuartersHeld": 3,
+      "cost": {
+        "status": "estimated",
+        "basis": 15187755547.17,
+        "basisLow": 13069224832.56,
+        "basisHigh": 17110670238.48,
+        "averagePrice": 279.95967,
+        "method": "observed-period-estimate",
+        "sourceAsOf": null,
+        "sourceUrl": null,
+        "reason": null
+      }
+>>>>>>> 8c2930d (Add Berkshire holding cost estimates)
     },
     {
       "issuerName": "BANK OF AMER CORP",
@@ -124,7 +257,18 @@
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
       "trend": "Stable",
       "quartersHeld": 8,
-      "consecutiveQuartersHeld": 8
+      "consecutiveQuartersHeld": 8,
+      "cost": {
+        "status": "unavailable",
+        "basis": null,
+        "basisLow": null,
+        "basisHigh": null,
+        "averagePrice": null,
+        "method": null,
+        "sourceAsOf": null,
+        "sourceUrl": null,
+        "reason": "insufficient-history"
+      }
     },
     {
       "issuerName": "MOODYS CORP",
@@ -134,12 +278,263 @@
       "shares": 24669778,
       "portfolioWeight": 3.7338,
       "action": "Unchanged",
+<<<<<<< HEAD
       "filingDate": "2026-08-14",
       "reportDate": "2026-06-30",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
+=======
+      "filingDate": "2026-05-15",
+      "reportDate": "2026-03-31",
+      "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
       "trend": "Stable",
       "quartersHeld": 8,
-      "consecutiveQuartersHeld": 8
+      "consecutiveQuartersHeld": 8,
+      "cost": {
+        "status": "official",
+        "basis": 248000000,
+        "basisLow": 248000000,
+        "basisHigh": 248000000,
+        "averagePrice": 10.052786,
+        "method": "reported-carried",
+        "sourceAsOf": "2025-12-31",
+        "sourceUrl": "https://berkshirehathaway.com/2025ar/2025ar.pdf",
+        "reason": null
+      }
+    },
+    {
+      "issuerName": "KRAFT HEINZ CO",
+      "ticker": "KHC",
+      "cusip": "500754106",
+      "value": 7323527057,
+      "shares": 325634818,
+      "portfolioWeight": 2.7836,
+      "action": "Unchanged",
+      "filingDate": "2026-05-15",
+      "reportDate": "2026-03-31",
+      "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
+      "trend": "Stable",
+      "quartersHeld": 8,
+      "consecutiveQuartersHeld": 8,
+      "cost": {
+        "status": "unavailable",
+        "basis": null,
+        "basisLow": null,
+        "basisHigh": null,
+        "averagePrice": null,
+        "method": null,
+        "sourceAsOf": null,
+        "sourceUrl": null,
+        "reason": "insufficient-history"
+      }
+    },
+    {
+      "issuerName": "DAVITA INC",
+      "ticker": "DVA",
+      "cusip": "23918K108",
+      "value": 4626158909,
+      "shares": 30100585,
+      "portfolioWeight": 1.7584,
+      "action": "Unchanged",
+      "filingDate": "2026-05-15",
+      "reportDate": "2026-03-31",
+      "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
+      "trend": "Trimming",
+      "quartersHeld": 8,
+      "consecutiveQuartersHeld": 8,
+      "cost": {
+        "status": "unavailable",
+        "basis": null,
+        "basisLow": null,
+        "basisHigh": null,
+        "averagePrice": null,
+        "method": null,
+        "sourceAsOf": null,
+        "sourceUrl": null,
+        "reason": "insufficient-history"
+      }
+    },
+    {
+      "issuerName": "KROGER CO",
+      "ticker": "KR",
+      "cusip": "501044101",
+      "value": 3618000000,
+      "shares": 50000000,
+      "portfolioWeight": 1.3752,
+      "action": "Unchanged",
+      "filingDate": "2026-05-15",
+      "reportDate": "2026-03-31",
+      "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
+      "trend": "Stable",
+      "quartersHeld": 8,
+      "consecutiveQuartersHeld": 8,
+      "cost": {
+        "status": "unavailable",
+        "basis": null,
+        "basisLow": null,
+        "basisHigh": null,
+        "averagePrice": null,
+        "method": null,
+        "sourceAsOf": null,
+        "sourceUrl": null,
+        "reason": "insufficient-history"
+      }
+    },
+    {
+      "issuerName": "SIRIUSXM HOLDINGS INC",
+      "ticker": "SIRI",
+      "cusip": "829933100",
+      "value": 2880548260,
+      "shares": 124807117,
+      "portfolioWeight": 1.0949,
+      "action": "Unchanged",
+      "filingDate": "2026-05-15",
+      "reportDate": "2026-03-31",
+      "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
+      "trend": "Stable",
+      "quartersHeld": 7,
+      "consecutiveQuartersHeld": 7,
+      "cost": {
+        "status": "unavailable",
+        "basis": null,
+        "basisLow": null,
+        "basisHigh": null,
+        "averagePrice": null,
+        "method": null,
+        "sourceAsOf": null,
+        "sourceUrl": null,
+        "reason": "insufficient-history"
+      }
+    },
+    {
+      "issuerName": "DELTA AIR LINES INC",
+      "ticker": "DAL",
+      "cusip": "247361702",
+      "value": 2646532635,
+      "shares": 39809456,
+      "portfolioWeight": 1.0059,
+      "action": "Unchanged",
+      "filingDate": "2026-05-15",
+      "reportDate": "2026-03-31",
+      "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
+      "trend": "New",
+      "quartersHeld": 1,
+      "consecutiveQuartersHeld": 1,
+      "cost": {
+        "status": "estimated",
+        "basis": 2680540352.13,
+        "basisLow": 2306559880.64,
+        "basisHigh": 2999642509.6,
+        "averagePrice": 67.334262,
+        "method": "observed-period-estimate",
+        "sourceAsOf": null,
+        "sourceUrl": null,
+        "reason": null
+      }
+    },
+    {
+      "issuerName": "VERISIGN INC",
+      "ticker": "VRSN",
+      "cusip": "92343E102",
+      "value": 2232726597,
+      "shares": 8989880,
+      "portfolioWeight": 0.8486,
+      "action": "Unchanged",
+      "filingDate": "2026-05-15",
+      "reportDate": "2026-03-31",
+      "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
+      "trend": "Stable",
+      "quartersHeld": 8,
+      "consecutiveQuartersHeld": 8,
+      "cost": {
+        "status": "unavailable",
+        "basis": null,
+        "basisLow": null,
+        "basisHigh": null,
+        "averagePrice": null,
+        "method": null,
+        "sourceAsOf": null,
+        "sourceUrl": null,
+        "reason": "insufficient-history"
+      }
+    },
+    {
+      "issuerName": "CAPITAL ONE FINL CORP",
+      "ticker": "COF",
+      "cusip": "14040H105",
+      "value": 1304374500,
+      "shares": 7150000,
+      "portfolioWeight": 0.4958,
+      "action": "Unchanged",
+      "filingDate": "2026-05-15",
+      "reportDate": "2026-03-31",
+      "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
+      "trend": "Stable",
+      "quartersHeld": 8,
+      "consecutiveQuartersHeld": 8,
+      "cost": {
+        "status": "unavailable",
+        "basis": null,
+        "basisLow": null,
+        "basisHigh": null,
+        "averagePrice": null,
+        "method": null,
+        "sourceAsOf": null,
+        "sourceUrl": null,
+        "reason": "insufficient-history"
+      }
+    },
+    {
+      "issuerName": "NEW YORK TIMES CO MTN BE",
+      "ticker": "NYT",
+      "cusip": "650111107",
+      "value": 1268219376,
+      "shares": 15146535,
+      "portfolioWeight": 0.482,
+      "action": "Unchanged",
+      "filingDate": "2026-05-15",
+      "reportDate": "2026-03-31",
+      "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
+      "trend": "Accumulating",
+      "quartersHeld": 2,
+      "consecutiveQuartersHeld": 2,
+      "cost": {
+        "status": "estimated",
+        "basis": 1076623350.56,
+        "basisLow": 958657462.37,
+        "basisHigh": 1218299450.91,
+        "averagePrice": 71.080505,
+        "method": "observed-period-estimate",
+        "sourceAsOf": null,
+        "sourceUrl": null,
+        "reason": null
+      }
+    },
+    {
+      "issuerName": "ALLY FINL INC",
+      "ticker": "ALLY",
+      "cusip": "02005N100",
+      "value": 1137670000,
+      "shares": 29000000,
+      "portfolioWeight": 0.4324,
+      "action": "Unchanged",
+      "filingDate": "2026-05-15",
+      "reportDate": "2026-03-31",
+      "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
+>>>>>>> 8c2930d (Add Berkshire holding cost estimates)
+      "trend": "Stable",
+      "quartersHeld": 8,
+      "consecutiveQuartersHeld": 8,
+      "cost": {
+        "status": "unavailable",
+        "basis": null,
+        "basisLow": null,
+        "basisHigh": null,
+        "averagePrice": null,
+        "method": null,
+        "sourceAsOf": null,
+        "sourceUrl": null,
+        "reason": "insufficient-history"
+      }
     },
     {
       "issuerName": "ALPHABET INC",
@@ -149,12 +544,56 @@
       "shares": 27188433,
       "portfolioWeight": 3.2102,
       "action": "Unchanged",
+<<<<<<< HEAD
       "filingDate": "2026-08-14",
       "reportDate": "2026-06-30",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
       "trend": "Accumulating",
+=======
+      "filingDate": "2026-05-15",
+      "reportDate": "2026-03-31",
+      "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
+      "trend": "New",
+      "quartersHeld": 1,
+      "consecutiveQuartersHeld": 1,
+      "cost": {
+        "status": "unavailable",
+        "basis": null,
+        "basisLow": null,
+        "basisHigh": null,
+        "averagePrice": null,
+        "method": null,
+        "sourceAsOf": null,
+        "sourceUrl": null,
+        "reason": "corporate-action"
+      }
+    },
+    {
+      "issuerName": "LIBERTY LIVE HOLDINGS INC",
+      "ticker": "LLYVK",
+      "cusip": "530909308",
+      "value": 996356028,
+      "shares": 10587143,
+      "portfolioWeight": 0.3787,
+      "action": "Unchanged",
+      "filingDate": "2026-05-15",
+      "reportDate": "2026-03-31",
+      "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
+      "trend": "Trimming",
+>>>>>>> 8c2930d (Add Berkshire holding cost estimates)
       "quartersHeld": 2,
-      "consecutiveQuartersHeld": 2
+      "consecutiveQuartersHeld": 2,
+      "cost": {
+        "status": "unavailable",
+        "basis": null,
+        "basisLow": null,
+        "basisHigh": null,
+        "averagePrice": null,
+        "method": null,
+        "sourceAsOf": null,
+        "sourceUrl": null,
+        "reason": "insufficient-history"
+      }
     },
     {
       "issuerName": "KRAFT HEINZ CO",
@@ -273,8 +712,24 @@
       "reportDate": "2026-06-30",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
       "trend": "Stable",
+<<<<<<< HEAD
       "quartersHeld": 5,
       "consecutiveQuartersHeld": 5
+=======
+      "quartersHeld": 4,
+      "consecutiveQuartersHeld": 4,
+      "cost": {
+        "status": "unavailable",
+        "basis": null,
+        "basisLow": null,
+        "basisHigh": null,
+        "averagePrice": null,
+        "method": null,
+        "sourceAsOf": null,
+        "sourceUrl": null,
+        "reason": "insufficient-history"
+      }
+>>>>>>> 8c2930d (Add Berkshire holding cost estimates)
     },
     {
       "issuerName": "LIBERTY LIVE HOLDINGS INC",
@@ -288,6 +743,7 @@
       "reportDate": "2026-06-30",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
       "trend": "Stable",
+<<<<<<< HEAD
       "quartersHeld": 3,
       "consecutiveQuartersHeld": 3
     },
@@ -320,6 +776,21 @@
       "trend": "Stable",
       "quartersHeld": 8,
       "consecutiveQuartersHeld": 8
+=======
+      "quartersHeld": 4,
+      "consecutiveQuartersHeld": 4,
+      "cost": {
+        "status": "estimated",
+        "basis": 456566290.51,
+        "basisLow": 403288281.5,
+        "basisHigh": 513506867.25,
+        "averagePrice": 116.85629,
+        "method": "observed-period-estimate",
+        "sourceAsOf": null,
+        "sourceUrl": null,
+        "reason": null
+      }
+>>>>>>> 8c2930d (Add Berkshire holding cost estimates)
     },
     {
       "issuerName": "LIBERTY LIVE HOLDINGS INC",
@@ -333,8 +804,24 @@
       "reportDate": "2026-06-30",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
       "trend": "Stable",
+<<<<<<< HEAD
       "quartersHeld": 3,
       "consecutiveQuartersHeld": 3
+=======
+      "quartersHeld": 2,
+      "consecutiveQuartersHeld": 2,
+      "cost": {
+        "status": "unavailable",
+        "basis": null,
+        "basisLow": null,
+        "basisHigh": null,
+        "averagePrice": null,
+        "method": null,
+        "sourceAsOf": null,
+        "sourceUrl": null,
+        "reason": "insufficient-history"
+      }
+>>>>>>> 8c2930d (Add Berkshire holding cost estimates)
     },
     {
       "issuerName": "LOUISIANA PAC CORP",
@@ -349,7 +836,18 @@
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
       "trend": "Stable",
       "quartersHeld": 8,
-      "consecutiveQuartersHeld": 8
+      "consecutiveQuartersHeld": 8,
+      "cost": {
+        "status": "unavailable",
+        "basis": null,
+        "basisLow": null,
+        "basisHigh": null,
+        "averagePrice": null,
+        "method": null,
+        "sourceAsOf": null,
+        "sourceUrl": null,
+        "reason": "insufficient-history"
+      }
     },
     {
       "issuerName": "NUCOR CORP",
@@ -363,8 +861,50 @@
       "reportDate": "2026-06-30",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
       "trend": "Stable",
+<<<<<<< HEAD
       "quartersHeld": 5,
       "consecutiveQuartersHeld": 5
+=======
+      "quartersHeld": 6,
+      "consecutiveQuartersHeld": 6,
+      "cost": {
+        "status": "estimated",
+        "basis": 129680317.34,
+        "basisLow": 117427122.82,
+        "basisHigh": 148526958.13,
+        "averagePrice": 204.901827,
+        "method": "observed-period-estimate",
+        "sourceAsOf": null,
+        "sourceUrl": null,
+        "reason": null
+      }
+    },
+    {
+      "issuerName": "NVR INC",
+      "ticker": "NVR",
+      "cusip": "62944T105",
+      "value": 73226191,
+      "shares": 11112,
+      "portfolioWeight": 0.0278,
+      "action": "Unchanged",
+      "filingDate": "2026-05-15",
+      "reportDate": "2026-03-31",
+      "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
+      "trend": "Stable",
+      "quartersHeld": 8,
+      "consecutiveQuartersHeld": 8,
+      "cost": {
+        "status": "unavailable",
+        "basis": null,
+        "basisLow": null,
+        "basisHigh": null,
+        "averagePrice": null,
+        "method": null,
+        "sourceAsOf": null,
+        "sourceUrl": null,
+        "reason": "insufficient-history"
+      }
+>>>>>>> 8c2930d (Add Berkshire holding cost estimates)
     },
     {
       "issuerName": "MACYS INC",
@@ -374,6 +914,7 @@
       "shares": 7347426,
       "portfolioWeight": 0.0578,
       "action": "Unchanged",
+<<<<<<< HEAD
       "filingDate": "2026-08-14",
       "reportDate": "2026-06-30",
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
@@ -395,6 +936,25 @@
       "trend": "Stable",
       "quartersHeld": 8,
       "consecutiveQuartersHeld": 8
+=======
+      "filingDate": "2026-05-15",
+      "reportDate": "2026-03-31",
+      "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526226661/xslForm13F_X02/primary_doc.xml",
+      "trend": "New",
+      "quartersHeld": 1,
+      "consecutiveQuartersHeld": 1,
+      "cost": {
+        "status": "estimated",
+        "basis": 61500788.02,
+        "basisLow": 51408966.6,
+        "basisHigh": 72069780.6,
+        "averagePrice": 20.241475,
+        "method": "observed-period-estimate",
+        "sourceAsOf": null,
+        "sourceUrl": null,
+        "reason": null
+      }
+>>>>>>> 8c2930d (Add Berkshire holding cost estimates)
     },
     {
       "issuerName": "LENNAR CORP",
@@ -409,7 +969,18 @@
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
       "trend": "Stable",
       "quartersHeld": 8,
-      "consecutiveQuartersHeld": 8
+      "consecutiveQuartersHeld": 8,
+      "cost": {
+        "status": "unavailable",
+        "basis": null,
+        "basisLow": null,
+        "basisHigh": null,
+        "averagePrice": null,
+        "method": null,
+        "sourceAsOf": null,
+        "sourceUrl": null,
+        "reason": "insufficient-history"
+      }
     },
     {
       "issuerName": "JEFFERIES FINANCIAL GROUP IN",
@@ -424,6 +995,7 @@
       "secUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526352200/xslForm13F_X02/primary_doc.xml",
       "trend": "Stable",
       "quartersHeld": 8,
+<<<<<<< HEAD
       "consecutiveQuartersHeld": 8
     },
     {
@@ -440,6 +1012,20 @@
       "trend": "Re-entered",
       "quartersHeld": 2,
       "consecutiveQuartersHeld": 1
+=======
+      "consecutiveQuartersHeld": 8,
+      "cost": {
+        "status": "unavailable",
+        "basis": null,
+        "basisLow": null,
+        "basisHigh": null,
+        "averagePrice": null,
+        "method": null,
+        "sourceAsOf": null,
+        "sourceUrl": null,
+        "reason": "insufficient-history"
+      }
+>>>>>>> 8c2930d (Add Berkshire holding cost estimates)
     }
   ],
   "generatedAt": "2026-08-17T04:18:15.145141+00:00"

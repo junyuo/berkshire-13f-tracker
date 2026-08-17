@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import math
 import sys
 import argparse
 from datetime import datetime
@@ -9,7 +10,7 @@ from typing import Any
 
 
 DATA_DIR = Path(__file__).resolve().parents[1] / "public" / "data"
-REQUIRED_FILES = ("latest", "history", "changes", "quarters", "performance")
+REQUIRED_FILES = ("latest", "history", "changes", "quarters", "performance", "official_cost_basis")
 HOLDING_FIELDS = (
     "issuerName",
     "cusip",
@@ -19,7 +20,12 @@ HOLDING_FIELDS = (
     "filingDate",
     "reportDate",
     "secUrl",
+    "cost",
 )
+
+COST_STATUSES = ("official", "hybrid", "estimated", "unavailable")
+COST_METHODS = ("reported", "reported-carried", "reported-plus-estimates", "observed-period-estimate")
+COST_REASONS = ("insufficient-history", "missing-price", "corporate-action", "unsupported-security", "sold-out")
 
 
 def load_json(name: str, errors: list[str], data_dir: Path) -> Any:
@@ -73,6 +79,53 @@ def validate_holding(holding: Any, label: str, errors: list[str]) -> None:
     if is_number(holding.get("portfolioWeight")) and not 0 <= holding["portfolioWeight"] <= 100:
         errors.append(f"{label}: portfolioWeight must be between 0 and 100")
 
+    cost = holding.get("cost")
+    if not isinstance(cost, dict):
+        errors.append(f"{label}.cost: must be an object")
+        return
+    required_cost_fields = (
+        "status",
+        "basis",
+        "basisLow",
+        "basisHigh",
+        "averagePrice",
+        "method",
+        "sourceAsOf",
+        "sourceUrl",
+        "reason",
+    )
+    for field in required_cost_fields:
+        if field not in cost:
+            errors.append(f"{label}.cost: missing {field}")
+
+    status = cost.get("status")
+    if status not in COST_STATUSES:
+        errors.append(f"{label}.cost: invalid status")
+        return
+    if status == "unavailable":
+        if any(cost.get(field) is not None for field in ("basis", "basisLow", "basisHigh", "averagePrice", "method")):
+            errors.append(f"{label}.cost: unavailable cost must not contain numeric values or a method")
+        if cost.get("reason") not in COST_REASONS:
+            errors.append(f"{label}.cost: unavailable cost must contain a valid reason")
+        return
+
+    values = [cost.get(field) for field in ("basis", "basisLow", "basisHigh", "averagePrice")]
+    if not all(is_number(value) and value >= 0 for value in values):
+        errors.append(f"{label}.cost: available cost values must be non-negative numbers")
+        return
+    if not cost["basisLow"] <= cost["basis"] <= cost["basisHigh"]:
+        errors.append(f"{label}.cost: basis must fall within its range")
+    if holding.get("shares", 0) <= 0:
+        errors.append(f"{label}.cost: available cost requires positive shares")
+    elif not math.isclose(cost["averagePrice"], cost["basis"] / holding["shares"], rel_tol=1e-6, abs_tol=1e-5):
+        errors.append(f"{label}.cost: averagePrice must equal basis divided by shares")
+    if cost.get("method") not in COST_METHODS:
+        errors.append(f"{label}.cost: available cost must contain a valid method")
+    if cost.get("reason") is not None:
+        errors.append(f"{label}.cost: available cost must not contain a reason")
+    if status in ("official", "hybrid") and (not is_iso_date(cost.get("sourceAsOf")) or not cost.get("sourceUrl")):
+        errors.append(f"{label}.cost: official and hybrid costs require source metadata")
+
 
 def validate_latest(latest: Any, errors: list[str]) -> None:
     if not isinstance(latest, dict):
@@ -109,6 +162,9 @@ def validate_history(history: Any, latest: Any, errors: list[str]) -> None:
 def validate_changes(changes: Any, errors: list[str]) -> None:
     if not isinstance(changes, list):
         errors.append("changes.json: root must be an array")
+        return
+    for index, holding in enumerate(changes):
+        validate_holding(holding, f"changes.json[{index}]", errors)
 
 
 def validate_quarters(quarters: Any, latest: Any, errors: list[str]) -> None:
@@ -196,6 +252,38 @@ def validate_performance(performance: Any, errors: list[str]) -> None:
         errors.append("performance.json: benchmark data missing; refusing all-zero performance output")
 
 
+def validate_official_cost_basis(data: Any, errors: list[str]) -> None:
+    if not isinstance(data, dict):
+        errors.append("official_cost_basis.json: root must be an object")
+        return
+    for field in ("sourceLabel", "sourceUrl", "sourceAsOf", "amountPrecision", "holdings"):
+        if field not in data:
+            errors.append(f"official_cost_basis.json: missing {field}")
+    if not is_iso_date(data.get("sourceAsOf")):
+        errors.append("official_cost_basis.json: sourceAsOf must be an ISO date")
+    if not is_number(data.get("amountPrecision")) or data.get("amountPrecision", 0) <= 0:
+        errors.append("official_cost_basis.json: amountPrecision must be positive")
+    holdings = data.get("holdings")
+    if not isinstance(holdings, list) or not holdings:
+        errors.append("official_cost_basis.json: holdings must be a non-empty array")
+        return
+    seen: set[str] = set()
+    for index, holding in enumerate(holdings):
+        label = f"official_cost_basis.json.holdings[{index}]"
+        if not isinstance(holding, dict):
+            errors.append(f"{label}: must be an object")
+            continue
+        for field in ("ticker", "cusip"):
+            if not holding.get(field):
+                errors.append(f"{label}: {field} is required")
+        for field in ("shares", "basis"):
+            if not is_number(holding.get(field)) or holding.get(field, 0) <= 0:
+                errors.append(f"{label}: {field} must be positive")
+        if holding.get("cusip") in seen:
+            errors.append(f"{label}: duplicate CUSIP")
+        seen.add(holding.get("cusip"))
+
+
 def validate_directory(data_dir: Path) -> list[str]:
     errors: list[str] = []
     data = {name: load_json(name, errors, data_dir) for name in REQUIRED_FILES}
@@ -205,6 +293,7 @@ def validate_directory(data_dir: Path) -> list[str]:
     validate_changes(data["changes"], errors)
     validate_quarters(data["quarters"], data["latest"], errors)
     validate_performance(data["performance"], errors)
+    validate_official_cost_basis(data["official_cost_basis"], errors)
     return errors
 
 

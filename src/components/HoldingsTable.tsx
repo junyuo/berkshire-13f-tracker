@@ -3,13 +3,22 @@ import { useMemo, useState } from "react";
 import { useLanguage } from "../i18n";
 import type { Holding } from "../types/holding";
 
-type SortKey = "issuerName" | "value" | "shares" | "portfolioWeight";
+type SortKey = "issuerName" | "value" | "shares" | "portfolioWeight" | "averageCost";
 
 function money(value: number): string {
   return new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
     maximumFractionDigits: 0,
+  }).format(value);
+}
+
+function unitMoney(value: number): string {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
   }).format(value);
 }
 
@@ -21,6 +30,14 @@ export default function HoldingsTable({ holdings, onSelectHolding }: { holdings:
 
   const sortedHoldings = useMemo(() => {
     return [...holdings].sort((a, b) => {
+      if (sortKey === "averageCost") {
+        const aValue = a.cost.averagePrice;
+        const bValue = b.cost.averagePrice;
+        if (aValue == null && bValue == null) return 0;
+        if (aValue == null) return 1;
+        if (bValue == null) return -1;
+        return direction === "asc" ? aValue - bValue : bValue - aValue;
+      }
       const aValue = a[sortKey] ?? "";
       const bValue = b[sortKey] ?? "";
       const result = typeof aValue === "string" ? aValue.localeCompare(String(bValue)) : Number(aValue) - Number(bValue);
@@ -44,6 +61,13 @@ export default function HoldingsTable({ holdings, onSelectHolding }: { holdings:
     </button>
   );
 
+  const costStatusLabel = (holding: Holding) => {
+    if (holding.cost.status === "official") return t("costOfficial");
+    if (holding.cost.status === "hybrid") return t("costHybrid");
+    if (holding.cost.status === "estimated") return t("costEstimated");
+    return t("costUnavailable");
+  };
+
   return (
     <div className="overflow-hidden rounded-lg border border-stone-200 bg-white shadow-sm">
       <p className="border-b border-stone-100 px-4 py-2 text-xs text-stone-500 md:hidden">{t("scrollForMoreColumns")}</p>
@@ -57,6 +81,7 @@ export default function HoldingsTable({ holdings, onSelectHolding }: { holdings:
               <th className="px-4 py-3 text-left font-medium text-stone-600">CUSIP</th>
               <th className="px-4 py-3 text-right">{header("value", t("value"))}</th>
               <th className="px-4 py-3 text-right">{header("shares", t("shares"))}</th>
+              <th className="px-4 py-3 text-right">{header("averageCost", t("averageCost"))}</th>
               <th className="px-4 py-3 text-right">{header("portfolioWeight", t("weight"))}</th>
               {onSelectHolding ? <th className="px-4 py-3 text-right font-medium text-stone-600">{t("viewDetails")}</th> : null}
             </tr>
@@ -74,6 +99,26 @@ export default function HoldingsTable({ holdings, onSelectHolding }: { holdings:
                 <td className="px-4 py-3 font-mono text-xs text-stone-500">{holding.cusip}</td>
                 <td className="px-4 py-3 text-right text-stone-700">{money(holding.value)}</td>
                 <td className="px-4 py-3 text-right text-stone-700">{holding.shares.toLocaleString("en-US")}</td>
+                <td className="px-4 py-3 text-right text-stone-700">
+                  <div className="flex min-w-28 flex-col items-end gap-1">
+                    <span className="font-medium text-ink">
+                      {holding.cost.averagePrice == null ? "-" : `≈ ${unitMoney(holding.cost.averagePrice)}`}
+                    </span>
+                    <span
+                      className={`rounded-full px-2 py-0.5 text-[10px] font-medium ${
+                        holding.cost.status === "official"
+                          ? "bg-blue-50 text-blue-700"
+                          : holding.cost.status === "hybrid"
+                            ? "bg-violet-50 text-violet-700"
+                            : holding.cost.status === "estimated"
+                              ? "bg-amber-50 text-amber-700"
+                              : "bg-stone-100 text-stone-500"
+                      }`}
+                    >
+                      {costStatusLabel(holding)}
+                    </span>
+                  </div>
+                </td>
                 <td className="px-4 py-3 text-right text-stone-700">
                   <div className="flex min-w-28 items-center justify-end gap-2">
                     <div className="h-2 w-16 overflow-hidden rounded-full bg-stone-100">

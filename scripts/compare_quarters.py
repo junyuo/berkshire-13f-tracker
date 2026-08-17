@@ -3,6 +3,20 @@ from __future__ import annotations
 from typing import Any
 
 
+def _sold_out_cost() -> dict[str, Any]:
+    return {
+        "status": "unavailable",
+        "basis": None,
+        "basisLow": None,
+        "basisHigh": None,
+        "averagePrice": None,
+        "method": None,
+        "sourceAsOf": None,
+        "sourceUrl": None,
+        "reason": "sold-out",
+    }
+
+
 def _by_cusip(quarter: dict[str, Any]) -> dict[str, dict[str, Any]]:
     return {
         holding["cusip"]: holding
@@ -134,6 +148,7 @@ def compare_quarters(current: dict[str, Any], previous: dict[str, Any]) -> list[
                 "shareChangePercent": -100,
                 "valueChange": -prior_holding["value"],
                 "weightChange": round(-prior_holding["portfolioWeight"], 4),
+                "cost": _sold_out_cost(),
             }
         )
 
