@@ -97,9 +97,9 @@ export default function HoldingsTable({ holdings, onSelectHolding }: { holdings:
               <th className="px-4 py-3 text-right">{header("value", t("value"))}</th>
               <th className="px-4 py-3 text-right">{header("shares", t("shares"))}</th>
               <th className="px-4 py-3 text-right">{header("averageCost", t("averageCost"))}</th>
-              <th className="px-4 py-3 text-right">{header("relativeCostReturn", t("relativeCostReturn"))}</th>
+              <th className="whitespace-nowrap px-4 py-3 text-right">{header("relativeCostReturn", t("relativeCostReturn"))}</th>
               <th className="px-4 py-3 text-right">{header("portfolioWeight", t("weight"))}</th>
-              {onSelectHolding ? <th className="px-4 py-3 text-right font-medium text-stone-600">{t("viewDetails")}</th> : null}
+              {onSelectHolding ? <th className="whitespace-nowrap px-4 py-3 text-right font-medium text-stone-600">{t("viewDetails")}</th> : null}
             </tr>
           </thead>
           <tbody className="divide-y divide-stone-100 bg-white">
@@ -135,7 +135,7 @@ export default function HoldingsTable({ holdings, onSelectHolding }: { holdings:
                     </span>
                   </div>
                 </td>
-                <td className="px-4 py-3 text-right">
+                <td className="whitespace-nowrap px-4 py-3 text-right">
                   <RelativeCostReturnValue holding={holding} />
                 </td>
                 <td className="px-4 py-3 text-right text-stone-700">
@@ -150,7 +150,7 @@ export default function HoldingsTable({ holdings, onSelectHolding }: { holdings:
                   </div>
                 </td>
                 {onSelectHolding ? (
-                  <td className="px-4 py-3 text-right text-stone-400">
+                  <td className="whitespace-nowrap px-4 py-3 text-right text-stone-400">
                     <span className="inline-flex items-center justify-end gap-1 text-xs">
                       <Eye className="h-3.5 w-3.5" />
                       {t("viewDetails")}
