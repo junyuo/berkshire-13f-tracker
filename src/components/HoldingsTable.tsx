@@ -3,7 +3,7 @@ import { useMemo, useState } from "react";
 import { useLanguage } from "../i18n";
 import type { Holding } from "../types/holding";
 
-type SortKey = "issuerName" | "value" | "shares" | "portfolioWeight" | "averageCost";
+type SortKey = "issuerName" | "value" | "shares" | "portfolioWeight" | "averageCost" | "relativeCostReturn";
 
 function money(value: number): string {
   return new Intl.NumberFormat("en-US", {
@@ -22,6 +22,21 @@ function unitMoney(value: number): string {
   }).format(value);
 }
 
+function relativeCostReturn(holding: Holding): number | null {
+  const basis = holding.cost.basis;
+  return basis != null && basis > 0 ? (holding.value / basis - 1) * 100 : null;
+}
+
+function RelativeCostReturnValue({ holding }: { holding: Holding }) {
+  const value = relativeCostReturn(holding);
+  if (value == null) return <span className="text-stone-400">—</span>;
+  return (
+    <span className={`font-semibold tabular-nums ${value > 0 ? "text-emerald-700" : value < 0 ? "text-red-700" : "text-stone-600"}`}>
+      {value > 0 ? "+" : ""}{value.toFixed(1)}%
+    </span>
+  );
+}
+
 export default function HoldingsTable({ holdings, onSelectHolding }: { holdings: Holding[]; onSelectHolding?: (holding: Holding) => void }) {
   const { t, trendLabel } = useLanguage();
   const [sortKey, setSortKey] = useState<SortKey>("value");
@@ -30,9 +45,9 @@ export default function HoldingsTable({ holdings, onSelectHolding }: { holdings:
 
   const sortedHoldings = useMemo(() => {
     return [...holdings].sort((a, b) => {
-      if (sortKey === "averageCost") {
-        const aValue = a.cost.averagePrice;
-        const bValue = b.cost.averagePrice;
+      if (sortKey === "averageCost" || sortKey === "relativeCostReturn") {
+        const aValue = sortKey === "averageCost" ? a.cost.averagePrice : relativeCostReturn(a);
+        const bValue = sortKey === "averageCost" ? b.cost.averagePrice : relativeCostReturn(b);
         if (aValue == null && bValue == null) return 0;
         if (aValue == null) return 1;
         if (bValue == null) return -1;
@@ -82,6 +97,7 @@ export default function HoldingsTable({ holdings, onSelectHolding }: { holdings:
               <th className="px-4 py-3 text-right">{header("value", t("value"))}</th>
               <th className="px-4 py-3 text-right">{header("shares", t("shares"))}</th>
               <th className="px-4 py-3 text-right">{header("averageCost", t("averageCost"))}</th>
+              <th className="px-4 py-3 text-right">{header("relativeCostReturn", t("relativeCostReturn"))}</th>
               <th className="px-4 py-3 text-right">{header("portfolioWeight", t("weight"))}</th>
               {onSelectHolding ? <th className="px-4 py-3 text-right font-medium text-stone-600">{t("viewDetails")}</th> : null}
             </tr>
@@ -118,6 +134,9 @@ export default function HoldingsTable({ holdings, onSelectHolding }: { holdings:
                       {costStatusLabel(holding)}
                     </span>
                   </div>
+                </td>
+                <td className="px-4 py-3 text-right">
+                  <RelativeCostReturnValue holding={holding} />
                 </td>
                 <td className="px-4 py-3 text-right text-stone-700">
                   <div className="flex min-w-28 items-center justify-end gap-2">

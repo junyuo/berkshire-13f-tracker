@@ -28,6 +28,27 @@ function unitMoney(value: number): string {
   }).format(value);
 }
 
+function chartPosition(value: number, minimum: number, maximum: number): number {
+  if (maximum <= minimum) return 50;
+  return 5 + ((value - minimum) / (maximum - minimum)) * 90;
+}
+
+function costChartModel(averagePrice: number | null, rangeLow: number | null, rangeHigh: number | null, impliedPrice: number | null) {
+  if (averagePrice == null || rangeLow == null || rangeHigh == null || impliedPrice == null) return null;
+  const minimum = Math.min(impliedPrice, rangeLow);
+  const maximum = Math.max(impliedPrice, rangeHigh);
+  return {
+    averagePrice,
+    impliedPrice,
+    rangeLow,
+    rangeHigh,
+    averagePosition: chartPosition(averagePrice, minimum, maximum),
+    pricePosition: chartPosition(impliedPrice, minimum, maximum),
+    rangeLowPosition: chartPosition(rangeLow, minimum, maximum),
+    rangeHighPosition: chartPosition(rangeHigh, minimum, maximum),
+  };
+}
+
 function findHolding(quarter: QuarterData, cusip: string | null): Holding | undefined {
   return quarter.holdings.find((holding) => holding.cusip === cusip);
 }
@@ -101,6 +122,9 @@ export default function HoldingDetailPanel({
   const relativeCostReturn = cost.basis && cost.basis > 0 ? (holding.value / cost.basis - 1) * 100 : null;
   const averageLow = cost.basisLow != null && holding.shares > 0 ? cost.basisLow / holding.shares : null;
   const averageHigh = cost.basisHigh != null && holding.shares > 0 ? cost.basisHigh / holding.shares : null;
+  const costRangeLow = averageLow ?? cost.averagePrice;
+  const costRangeHigh = averageHigh ?? cost.averagePrice;
+  const costChart = costChartModel(cost.averagePrice, costRangeLow, costRangeHigh, impliedPrice);
   const costStatusLabel =
     cost.status === "official"
       ? t("costOfficial")
@@ -227,6 +251,52 @@ export default function HoldingDetailPanel({
                   <p className="mt-3 text-sm text-stone-600">
                     {t("estimatedCostRange")}: {unitMoney(averageLow)}–{unitMoney(averageHigh)} / {t("shareUnit")}
                   </p>
+                ) : null}
+                {costChart ? (
+                  <div className="mt-4 rounded-md bg-white p-4 ring-1 ring-stone-200">
+                    <p className="text-sm font-semibold text-ink">{t("costPositionTitle")}</p>
+                    <p className="mt-1 text-xs leading-5 text-stone-500">{t("costPositionSubtitle")}</p>
+                    <div
+                      className="relative mt-5 h-10"
+                      role="img"
+                      aria-label={`${t("costPositionAria")}: ${t("averageCost")} ${unitMoney(costChart.averagePrice)}, ${t("quarterEndPrice")} ${unitMoney(costChart.impliedPrice)}`}
+                    >
+                      <div className="absolute inset-x-0 top-4 h-2 rounded-full bg-stone-100" />
+                      {cost.status !== "official" ? (
+                        <div
+                          className="absolute top-4 h-2 rounded-full bg-amber-200"
+                          style={{ left: `${costChart.rangeLowPosition}%`, width: `${Math.max(costChart.rangeHighPosition - costChart.rangeLowPosition, 0.75)}%` }}
+                          title={`${t("estimatedCostRange")}: ${unitMoney(costChart.rangeLow)}–${unitMoney(costChart.rangeHigh)}`}
+                        />
+                      ) : null}
+                      <span
+                        className={`absolute top-1 h-8 w-0.5 -translate-x-1/2 ${cost.status === "official" ? "bg-blue-600" : "bg-amber-600"}`}
+                        style={{ left: `${costChart.averagePosition}%` }}
+                        title={`${t("averageCost")}: ${unitMoney(costChart.averagePrice)}`}
+                      />
+                      <span
+                        className="absolute top-2 h-6 w-1 -translate-x-1/2 rounded-full bg-moss"
+                        style={{ left: `${costChart.pricePosition}%` }}
+                        title={`${t("quarterEndPrice")}: ${unitMoney(costChart.impliedPrice)}`}
+                      />
+                    </div>
+                    <div className={`mt-2 grid gap-3 text-xs ${cost.status === "official" ? "grid-cols-2" : "sm:grid-cols-3"}`}>
+                      {cost.status !== "official" ? (
+                        <div>
+                          <p className="text-stone-500">{t("estimatedCostRange")}</p>
+                          <p className="mt-1 font-medium text-stone-700">{unitMoney(costChart.rangeLow)}–{unitMoney(costChart.rangeHigh)}</p>
+                        </div>
+                      ) : null}
+                      <div>
+                        <p className="text-stone-500">{t("averageCost")}</p>
+                        <p className="mt-1 font-medium text-stone-700">{unitMoney(costChart.averagePrice)}</p>
+                      </div>
+                      <div className="text-right">
+                        <p className="text-stone-500">{t("quarterEndPrice")}</p>
+                        <p className="mt-1 font-medium text-stone-700">{unitMoney(costChart.impliedPrice)}</p>
+                      </div>
+                    </div>
+                  </div>
                 ) : null}
                 <div className="mt-3 flex flex-wrap gap-x-4 gap-y-1 text-xs text-stone-500">
                   {cost.sourceAsOf ? <span>{t("costSourceAsOf")}: {cost.sourceAsOf}</span> : null}
