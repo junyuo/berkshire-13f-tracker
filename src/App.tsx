@@ -1,4 +1,4 @@
-import { BarChart3, LineChart, RefreshCw, Table2, TrendingUp } from "lucide-react";
+import { BarChart3, LineChart, Moon, RefreshCw, Sun, Table2, TrendingUp } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import Dashboard from "./pages/Dashboard";
 import Holdings from "./pages/Holdings";
@@ -8,6 +8,9 @@ import { useLanguage, type TranslationKey } from "./i18n";
 import type { Holding, HistoryItem, LatestData, PerformanceData, QuarterData } from "./types/holding";
 
 type Page = "dashboard" | "holdings" | "changes" | "performance";
+type Theme = "light" | "dark";
+
+const THEME_STORAGE_KEY = "berkshire-13f-theme";
 
 const pages: { id: Page; labelKey: TranslationKey; icon: typeof BarChart3 }[] = [
   { id: "dashboard", labelKey: "navDashboard", icon: BarChart3 },
@@ -29,8 +32,13 @@ async function loadJson<T>(path: string): Promise<T> {
   return response.json();
 }
 
+function initialTheme(): Theme {
+  return document.documentElement.dataset.theme === "light" ? "light" : "dark";
+}
+
 export default function App() {
   const { language, setLanguage, t } = useLanguage();
+  const [theme, setTheme] = useState<Theme>(initialTheme);
   const [page, setPage] = useState<Page>(routeFromHash);
   const [latest, setLatest] = useState<LatestData | null>(null);
   const [history, setHistory] = useState<HistoryItem[]>([]);
@@ -44,6 +52,16 @@ export default function App() {
     window.addEventListener("hashchange", onHashChange);
     return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
+
+  function updateTheme(nextTheme: Theme) {
+    document.documentElement.dataset.theme = nextTheme;
+    setTheme(nextTheme);
+    try {
+      window.localStorage.setItem(THEME_STORAGE_KEY, nextTheme);
+    } catch {
+      // The selected theme still applies for this session when storage is unavailable.
+    }
+  }
 
   useEffect(() => {
     Promise.all([
@@ -89,6 +107,22 @@ export default function App() {
               <h1 className="mt-1 text-3xl font-semibold text-ink">13F Tracker</h1>
             </div>
             <div className="flex flex-wrap gap-2">
+              <div className="inline-flex rounded-md border border-stone-300 bg-white p-1 text-sm font-medium" role="group" aria-label={t("themeSetting")}>
+                {(["light", "dark"] as const).map((item) => {
+                  const Icon = item === "light" ? Sun : Moon;
+                  return (
+                    <button
+                      key={item}
+                      className={`inline-flex items-center gap-1.5 rounded px-3 py-1.5 ${theme === item ? "bg-ink text-white" : "text-stone-600 hover:bg-stone-50"}`}
+                      onClick={() => updateTheme(item)}
+                      aria-pressed={theme === item}
+                    >
+                      <Icon className="h-4 w-4" />
+                      {t(item === "light" ? "lightMode" : "darkMode")}
+                    </button>
+                  );
+                })}
+              </div>
               <div className="inline-flex rounded-md border border-stone-300 bg-white p-1 text-sm font-medium">
                 {(["en", "zh-TW"] as const).map((item) => (
                   <button
@@ -119,7 +153,7 @@ export default function App() {
                 <a
                   key={navPage.id}
                   href={`#/${navPage.id === "dashboard" ? "" : navPage.id}`}
-                  className={`inline-flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium ${
+                  className={`inline-flex shrink-0 items-center gap-2 whitespace-nowrap rounded-md px-3 py-2 text-sm font-medium ${
                     isActive ? "bg-ink text-white" : "text-stone-600 hover:bg-stone-100"
                   }`}
                 >

@@ -68,8 +68,8 @@ function LineChart({ points }: { points: PerformancePoint[] }) {
         </div>
       </div>
       <svg className="mt-6 h-72 w-full overflow-visible" viewBox="0 0 100 100" preserveAspectRatio="none" role="img">
-        <polyline points={coordinates("portfolioValue")} fill="none" stroke="#46624a" strokeWidth="2.5" vectorEffect="non-scaling-stroke" />
-        <polyline points={coordinates("benchmarkValue")} fill="none" stroke="#a37633" strokeWidth="2.5" vectorEffect="non-scaling-stroke" />
+        <polyline points={coordinates("portfolioValue")} fill="none" stroke="var(--color-moss)" strokeWidth="2.5" vectorEffect="non-scaling-stroke" />
+        <polyline points={coordinates("benchmarkValue")} fill="none" stroke="var(--color-brass)" strokeWidth="2.5" vectorEffect="non-scaling-stroke" />
       </svg>
       <div className="mt-3 grid gap-2 text-xs text-stone-500 sm:grid-cols-3">
         <span>{t("start")}: {firstPoint?.date}</span>
