@@ -348,7 +348,7 @@ export default function HoldingDetailPanel({
                   </div>
                 </div>
                 );
-              })}
+              }).reverse()}
             </div>
           </section>
 
